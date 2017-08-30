@@ -1,0 +1,79 @@
+@charset "iso-8859-1";
+/* CSS Document */
+
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #000000;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	padding:0px;
+	background-image: url(images/bkg.jpg);
+}
+a:link {
+	color: #D255F4;
+}
+a:visited {
+	color: #D255F4;
+}
+a:hover {
+	color: #D255F4;
+}
+a:active {
+	color: #D255F4;
+}
+form{
+margin:0px;padding:0px;
+}
+.menu{
+background-image:url(images/header.jpg);background-repeat:no-repeat;
+}
+#wht{
+color:#BBBBBB;text-decoration:none;
+}
+#wht2{
+color:#FFFFFF;text-decoration:none;
+}
+.txt{
+color:#BBBBBB;
+}
+.cls{
+width:100px;background-color:#353535;color:#BBBBBB;
+}
+.int{
+width:147px;background-color:#353535;color:#BBBBBB;font-family:Arial, Helvetica, sans-serif;font-size:12px;
+}
+.button{
+background-image:url(images/button1.jpg);background-repeat:no-repeat;width:209px;height:32px;color:#BBBBBB;
+}
+.button1{
+background-image:url(images/spo2.jpg);background-repeat:no-repeat;width:209px;height:31px;color:#BBBBBB;
+}
+.tbody{
+background-color:#FFFFFF;
+}
+.style1 {font-size: 22px}
+
+.buttonwhite{
+width:209px;height:31px;background-image:url(images/buttonwhite.jpg);background-repeat:no-repeat;font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#000000;
+}
+#black{
+color:#000000;text-decoration:none;
+}
+.news{
+background-image:url(images/news.jpg);background-repeat:repeat-x;
+}
+.WhiteNews{
+font-family:Arial, Helvetica, sans-serif;font-size:22px;color:#FFFFFF;
+}
+.NewsInfo{
+width:159px;background-color:#353535;border-style:solid;border-color:#4C4C4C;font-family:Arial, Helvetica, sans-serif;font-size:14px;color:#BBBBBB;border-width:1px;
+}
+.style2 {color: #E33B3F}
+.footer{
+background-image:url(images/footer.jpg);background-repeat:repeat-x;
+}

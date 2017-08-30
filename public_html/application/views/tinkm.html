@@ -1,0 +1,84 @@
+<link rel="stylesheet" type="text/css" href="<?php echo site_url()?>css/style.css" />
+<script type="text/javascript" src="<?php echo site_url()?>tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript" src="<?php echo site_url()?>tinymce/jscripts/tiny_mce/tinyMce.admincf.js"></script>
+<div class="content-header"><center>
+	<p></p>
+	
+    <h3 class="icon-head head-system-account">Hãy đăng tin khuyến mại Miễn phí, không cần đăng ký thành viên!</h3> 
+	</center>
+</div>
+<div class="entry-edit">
+<div class="fieldset " id="base_fieldset">
+<div class="hor-scroll">
+<form name="form1" enctype="multipart/form-data" method="post" action="<?php echo site_url('raovat/dangtinkm');?>">
+<div class="main-div">
+<table width="100%" cellspacing="3" cellpadding="3">
+  <tbody>
+    <tr>
+    <td class="label" align=right>Tiêu đề tin: </td>
+    <td><input type="text" size="90" name="title" value="<?php echo $tintucinfo->getTitle();?>">*</td>
+  </tr>
+  <tr>
+    <td class="label" align=right>Ảnh đại diện tin: </td>
+    <td><input type="file" size="40" id="some_name" value="" name="img_file_src">
+    <br><input type="text" size="40" value="<?php echo $tintucinfo->getImg();?>" name="img_src">
+    <br><span id="width_height" style="display:block" class="notice-span">Ảnh kích thước: 200px x 200px - Bắt buộc phải có ảnh</span>
+    </td>
+  </tr>  
+  <tr>
+    <td class="label" align=right>Mô tả tin: </td>
+    <td>
+    <textarea name="summary" rows="3" cols="100"><?php echo $tintucinfo->getSummary();?></textarea>
+    </td>
+  </tr>
+  <tr>
+    <td class="label" align=right>Nội dung tin: </td>
+    <td>
+    <textarea name="news_detail" rows="5" cols="100"><?php echo trim($tintucinfo->getDetail());?></textarea>
+    </td>
+  </tr>
+  
+  <tr>
+    <td class="label" align=right>Link tin gốc: </td>
+    <td><input type="text" size="90" name="url" value="<?php echo $tintucinfo->getUrl();?>"></td>
+  </tr>
+  <tr>
+    <td class="label" align=right>Phân loại tin: </td>
+    <td>
+	<select name="cat">
+	<?php foreach ($newscat as $item):?>
+	<option value="<?php echo $item->getId();?>" <?php if ($tintucinfo->getCat()==$item->getId()) echo ' selected ';?>> <?php echo $item->getName();?></option>
+	<?php endforeach;?>
+	</select>
+    </td>
+  </tr>  
+</tbody></table>
+<input type="hidden" name="id" value="<?php echo $tintucinfo->getId();?>">
+</div>
+<br>
+<input type="submit" style="width:100px;margin-left:130px;cursor:pointer" class="button" value="Đăng tin" id="button" name="button" onclick="javascript:return check(this.form);">
+</form>
+</div>
+</div>
+</div>
+<div style="margin-left:30px;">
+<p sttyle="padding:10px;"><strong><u>Lưu ý:</u></strong><br><br>
+Những tin khuyến mãi do các bạn đăng hoàn toàn miễn phí :<br><br>
+
+Các bạn là một doanh nghiệp, shop, cửa hàng … Có tổ chức các trương trình khuyến mãi, giảm giá, quà tặng…<br><br>
+
+Doanh nghiệp, shop, cửa hàng, tổ chức, cá nhân, shop online các bạn mới khai trương .<br><br>
+
+Muốn giới thiệu đến tất cả các khách hàng trên toàn quốc . <br><br>
+</p>
+</div>
+<script type="text/javascript">
+function check(frm) {
+	if (frm.title.value=='') {
+		alert("Nhập vào tiêu đề tin khuyến mãi");
+		frm.title.focus();
+		return false;
+	}
+	return true;
+}
+</script>

@@ -1,0 +1,198 @@
+/* CSS Main */
+
+*{
+	font-family:Arial, Tahoma;
+}
+a{
+	text-decoration:none;
+}
+body{
+	font-size:12px;
+	margin:0px;
+	padding:0px;
+}
+h1, h2, h3, h4, h5, h6, form, input, select, ul{
+	margin:0px;
+}
+img{
+	border:none;
+	-ms-interpolation-mode:bicubic;
+}
+p{
+	margin:16px 0px 16px 0px;
+}
+p.p_first{
+	margin-top:0px;
+}
+p.p_last{
+	margin-bottom:0px;
+}
+ul{
+	list-style:none;
+	padding:0px;
+}
+
+.absolute{
+	position:absolute;
+}
+.break_module, .break_module_line, .break_content, .break_content_line, .clear{
+	display:block;
+	font-size:0px; /* for IE -- avoid any space from phantom text */
+	clear:both;
+	line-height:0px;
+}
+.break_module{
+	height:5px;
+}
+.break_module_line{
+	height:11px;
+}
+.break_content{
+	height:15px;
+}
+.break_content_line{
+	height:26px;
+}
+.clear{
+	background:transparent; /* for IE -- avoid space from inherited filters */
+	height:1px;
+	margin-bottom:-1px;
+}
+.fl{
+	float:left;
+}
+.fc{
+	float:left;
+}
+.fe{
+	float:right;
+}
+.fr{
+	float:right;
+}
+.hidden{
+	display:none;
+}
+.nowrap{
+	white-space:nowrap;
+}
+
+/*
+### Configuration site ###
+*/
+#body{
+	padding:0px 5px 0px 5px;
+}
+#container_body, #container_content, #container_content_left, .container_content_left, #container_content_center, #container_content_right, #container_footer, .header_banner, .header_menu{
+	overflow:hidden;
+}
+#container_body{
+	background:#FFFFFF;
+	margin:0px auto;
+}
+#container_header{
+	clear:both;
+	margin-bottom:5px;
+}
+#container_content{
+	width:100%;
+}
+#container_content_left{
+	width:180px;
+	float:left;
+}
+#container_content_left .container_content_left{
+	position:absolute;
+	width:180px;
+}
+#container_content_center, #container_content_center_left, #container_content_center_right{
+	float:left;
+	width:100%;
+}
+#container_content_center{
+	margin-right:-300px;
+}
+#container_content_center .container_content_center{
+	margin-left:185px;
+	margin-right:305px;
+}
+#container_content_center_left{
+	margin-right:-300px;
+}
+#container_content_center_left .container_content_center_left{
+	margin-right:305px;
+}
+#container_content_center_right{
+	
+}
+#container_content_center_right .container_content_center_right{
+	margin-left:185px;
+}
+#container_content_right{
+	width:300px;
+	float:right;
+}
+#container_content_right .container_content_right{
+	
+}
+#container_footer{
+	clear:both;
+}
+/*
+--- End Configuration site ---
+*/
+
+/*** Header Bar ***/
+.header_bar{
+	position:fixed;
+	bottom:auto;
+	top:0px;
+	z-index:10;
+}
+* html .header_bar{
+	position:absolute;
+	bottom:auto;
+}
+/*-- End Header Bar --*/
+
+/*--Phan bonus*/
+#bonus_infoacc{
+			position: fixed;
+			bottom: 20px;
+			left: 10px; 
+}
+#bonus_infoacc p.bonus_total{
+	margin: 0px;
+	border: 1px solid #ED9C4A;
+	background-color: #FFFFFF;
+	padding: 5px;
+	color: green;
+	font-weight: bold;
+	border-radius: 5px;
+   -moz-border-radius: 5px;
+   -webkit-border-radius: 5px;
+}
+#bonus_addpoint{
+   position: absolute;
+   bottom: 20px;
+   background-color: #FFFFFF;
+   border-radius: 10px;
+   -moz-border-radius: 10px;
+   -webkit-border-radius: 10px;
+   border: 1px solid #f2f2f2;
+   padding: 5px;
+   left: 20px;
+  }
+#bonus_addpoint .bonus_numadd{
+	font-size: 20px;
+	font-weight: bold;
+	position: relative;
+	top: -8px;
+	margin-left: 2px;
+	color: green;
+}
+.reply {
+	width:700px;
+}
+/*ket thuc phan bonus*/
+

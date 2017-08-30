@@ -1,0 +1,39 @@
+<div class="NewsList">
+<table border="1" cellpadding="0" cellpadding="0" width="100%" id="table3">
+    <tr>
+      <td class="Header">Tiêu đề tin</td>
+      <td class="Header City">Tỉnh/T.phố</td>
+      <td align="center" class="Header View">Xem</td>
+      <td align="center" class="Header Date">Ngày</td>
+      <td align="center" class="Header Image">Ảnh</td>
+      <td align="center" class="Header Authorized">Duyệt</td>
+    </tr>
+   <?php foreach ($rv as $value):?> 
+    <tr>
+	    <td>
+	    <?php echo $value->getSubject();?>
+	    </td>
+	    <td>
+	    <?php echo $value->getProvinceByName();?>
+	    </td>
+	    <td>
+	    </td>
+	    <td>
+	    <?php echo $value->getDate();?>
+	    </td>
+	    <td>
+	    </td>
+	    <td>
+	    </td>
+    </tr>
+   <?php endforeach;?> 
+</table>
+</div>
+<style type="text/css">
+.NewsList .Header
+{
+	border-style:solid;
+	border-color:red;
+	padding:0px;
+}
+</style>

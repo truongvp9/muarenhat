@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><?php echo $video->getTitle();?></title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="<?php echo site_url('js');?>/jquery.js"></script>
+    <script type="text/javascript" src="<?php echo site_url('js');?>/swfobject.js"></script>
+    <script type="text/javascript" src="<?php echo site_url('js');?>/jquery.ytchromeless.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('a.video-link').ytchromeless();
+      });
+    </script>
+    <style type="text/css">
+    .video-player { margin: 20px; width: 640px; }
+    .video-controls { 
+      background: #dedede; 
+      height: 30px;
+      margin: -4px 0 0;
+      position: relative;
+      width: 640px;
+    }
+    .status { height: 20px; left: 30px; position: absolute; top: 5px; width: 455px; }
+    .bar { background: #a4a4a4; height: 10px; position: relative; top: 5px; }
+    .loaded { background: #bbb; height: 10px; left: 0; position: absolute; top: 0; }
+    .indicator { background: #212121; display: block; height: 10px; left: 0; position: absolute; top: 0; width: 20px; }
+    .play-pause, .volume { 
+      background: url(<?php echo site_url();?>/images/btn-controls.png) no-repeat ;
+      display: block;
+      height: 20px;
+      overflow: hidden;
+      position: absolute;
+      text-indent: -9999px;
+      top: 5px;
+      width: 20px;
+    }
+    .play-pause { left: 5px; }
+    .playing { background-position: 0 -20px; }
+    .volume { background-position: 0 -60px; right: 130px; }
+    .muted { background-position: 0 -40px; }
+    .view-youtube { 
+      color: #000;
+      display: block; 
+      float: right; 
+      font-size: 9px; 
+      line-height: 30px;
+      padding: 0 5px 0 0;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .videoholder {
+     	width:700px;
+    	float:left;
+    }
+    .videoholder img {
+    	padding:5px;
+    	margin-left:50px;
+    }
+    .videoholder h1, strong {
+        margin-top:10px;
+       	padding-left:20px;
+    }
+    .adv {
+    	width:250px;
+    	float:right;
+    	padding-right:5px;
+    }
+    .othernews {
+		margin-left:100px;
+		margin-bottom:10px;
+	}
+	.paging li {
+	    background-image: url("http://vnexpress.net/Images/Background/blue-square.gif");    
+	    background-position: 0 7px;
+	    background-repeat: no-repeat;
+	    padding-left: 6px;
+	    position: relative;
+	}
+	.othernews ul {
+	    list-style: none outside none;
+	}
+		ul {	
+		clear: both;
+	}
+	
+	ul.simplePagerNav li{
+	    display:block;
+	    floaT: left;
+	    padding: 3px;
+	    margin-bottom: 10px;
+	    font-family: georgia;
+	}
+	
+	ul.simplePagerNav li a{
+	    color: #333;
+	    text-decoration: none;
+	}
+	
+	li.currentPage {
+		background: red;
+	        background: #83bd63;	
+	}
+	
+	ul.simplePagerNav li.currentPage a {
+		color: #fff;	
+	}
+	.othernews-title {
+	    background-color: #FFF;
+	    color: #8A0000;
+	    font: bold 14px arial;
+	    padding-right: 5px;
+	    margin-top:10px;
+	    margin-bottom: 10px;
+	    margin-left:0px;
+	}
+    </style>
+  </head>
+  <script type="text/javascript" src="<?php echo site_url();?>js/quickpager.jquery.js"></script>
+  <body>
+<div class="videoholder">
+<h1><?php echo $video->getTitle();?></h1>
+<a class="video-link" href="<?php echo $video->getYoutubeId();?>"><?php echo $video->getTitle();?></a>        
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<span style="color:#8A0000;float:left;"><strong>Chia sẻ</strong></span>
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4fa14dd030c4f479"></script>
+<!-- AddThis Button END -->
+<a href="http://muarenhat.net" target="_blank"><img src="http://muarenhat.net/uploads/1c5426173c3d913419df6a984113c4388b91d614.jpg"></a>
+<div class="clear"></div>
+<div class="othernews-title fl">
+&nbsp;Các video đã đưa:
+</div>
+<div class="clear"></div>
+<div class="othernews">
+<ul class="paging">
+<?php foreach ($videokhac as $item):?>
+<li><a class="link-othernews" href="<?php echo site_url();?>video/<?php echo $item->getId();?>-<?php echo khongdau($item->getTitle()); ?>"><?php echo $item->getTitle();?></a></li>
+<?php endforeach;?>
+</ul>
+</div>
+</div>
+<div class="adv">
+<?php $this->load->view("rvquangcao.html");?>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("ul.paging").quickPager();
+});
+</script>

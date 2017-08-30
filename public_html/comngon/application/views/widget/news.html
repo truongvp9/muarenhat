@@ -1,0 +1,15 @@
+
+                   <div class="tintuc_capnhat">
+                    	<h2><a>tin tức mới cập nhật</a></h2>
+                        <div class="bg_cennter">
+                        	<div class="bg_gr">
+                            	<ul class="list_tin">
+                            	<?php foreach ($topnews as $item):?>
+                                	<li><a href="<?php echo site_url();?>news/<?php echo $item->getId();?>-<?php echo khongdau($item->getTitle());?>"><?php echo $item->getTitle();?></a></li>
+                                <?php endforeach;?>
+                                </ul>
+                            </div><!--End class bg_gr-->
+                        </div><!--End class bg_cennter-->
+                        <div class="bot"></div><!--End class bot-->
+                    </div><!--End class tintuc_capnhat-->
+ 

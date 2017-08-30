@@ -1,0 +1,237 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Trang chủ</title>
+<link href="skins/style.css" rel="stylesheet" type="text/css" />
+<!--slide-->
+<link rel="stylesheet" type="text/css" href="js/jqueryslidemenu.css" /> 
+    <link rel="stylesheet" type="text/css" href="js/slider.css" />
+    
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jqueryslidemenu.js"></script> 
+    <script type="text/javascript" src="js/jquery-1.js"></script>
+    <script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
+    <script type="text/javascript">
+        $(window).load(function() {
+            $('#slider').nivoSlider();
+        });
+    </script>
+    
+  <!--back top-->
+
+     <script type="text/javascript">
+        $(document).ready(function() {
+            $('#wrapper').append('<div id="top">Back to Top</div>');
+           $(window).scroll(function() {
+            if($(window).scrollTop() != 0) {
+                $('#top').fadeIn();
+            } else {
+                $('#top').fadeOut();
+            }
+           });
+           $('#top').click(function() {
+            $('html, body').animate({scrollTop:0},500);
+           });
+        });
+     </script>
+
+
+</head>
+
+<body>
+	
+    <div class="search">
+            <div id="searchbox-wrapper">
+                                <div id="searchbox" class=" ">
+                                <form id="cse-search-box" action="#" name="cse-search-box">
+                                <input id="cx" type="hidden" value="" name="cx">
+                                <input id="q" class="fieldhint fieldhint-blur" type="text" onblur="clearText(this)" onfocus="clearText(this)" value="Nhập từ khóa" size="20" name="q">
+                                <input id="sa" type="submit" value="" name="sa">
+                                </form>
+                                </div>
+</div><!--end class searchbox-wrapper-->
+    </div><!--End class search-->
+    <div class="clearfix"></div>
+	<div class="wapper">
+    	<div class="wapper_gr">
+        	
+                <div class="menu">
+                    <ul>
+                        <li><a class="current" href="#"><span>trang chủ</span></a></li>
+                        <li><a href="#"><span>giới thiệu</span></a></li>
+                        <li><a href="#"><span>thực đơn</span></a></li>
+                        <li><a href="#"><span>dịch vụ</span></a></li>
+                        <li><a href="#"><span>liên hệ</span></a></li>
+                    </ul>
+                </div><!--End class menu-->
+            
+            <div class="col-slide">
+                     <div class="slide">
+                          <div class="slider-wrapper theme-default">
+                            <div id="slider" class="nivoSlider">
+                                <img src="skins/images/slide1.jpg" />
+                                <img src="skins/images/slide2.jpg" />
+                                <img src="skins/images/slide3.jpg" />
+                                <img src="skins/images/slide4.jpg" />
+                            </div> 
+                        </div>
+                  </div>
+                          
+                </div><!-- /End-slide -->
+            <div class="thu">
+            	<ul>
+                	<li><a href="#">Thứ 2</a></li>
+                    <li><a href="#">Thứ 3</a></li>
+                    <li><a href="#">Thứ 4</a></li>
+                    <li><a href="#">Thứ 5</a></li>
+                    <li><a href="#">Thứ 6</a></li>
+                    <li><a href="#">Thứ 7</a></li>
+                    <li><a href="#">Chủ nhật</a></li>
+                    
+                </ul>
+            </div><!--End class thu-->
+            <div class="content">
+            	<div class="left">
+                	<ul>
+                    	<li>
+                        	<a href="#"><img src="skins/images/sp1.jpg" /></a>
+                            <h2><a href="#">Sườn non ram mặn</a></h2>
+                            <div class="list_ds">
+                            	<p><a>Cơm gạo tám - Lạc rang mặn</a></p>
+                                <p><a>Nộm dưa chuột - Đậu quả xào </a></p>
+                                <p><a>Canh dưa chua - Chuối quả </a></p>
+                            </div><!--End class list_ds-->
+                        </li>
+                        <li>
+                        	<a href="#"><img src="skins/images/sp1.jpg" /></a>
+                            <h2><a href="#">Thịt kho tầu</a></h2>
+                            <div class="list_ds">
+                            	<p><a>Cơm gạo tám - Lạc rang mặn</a></p>
+                                <p><a>Nộm dưa chuột - Đậu quả xào </a></p>
+                                <p><a>Canh dưa chua - Chuối quả </a></p>
+                            </div><!--End class list_ds-->
+                        </li>
+                        <li>
+                        	<a href="#"><img src="skins/images/sp1.jpg" /></a>
+                            <h2><a href="#">Cơm rang thập cẩm</a></h2>
+                            <div class="list_ds">
+                            	<p><a>Cơm gạo tám - Lạc rang mặn</a></p>
+                                <p><a>Nộm dưa chuột - Đậu quả xào </a></p>
+                                <p><a>Canh dưa chua - Chuối quả </a></p>
+                            </div><!--End class list_ds-->
+                        </li>
+                        <li>
+                        	<a href="#"><img src="skins/images/sp1.jpg" /></a>
+                            <h2><a href="#">Cá kho</a></h2>
+                            <div class="list_ds">
+                            	<p><a>Cơm gạo tám - Lạc rang mặn</a></p>
+                                <p><a>Nộm dưa chuột - Đậu quả xào </a></p>
+                                <p><a>Canh dưa chua - Chuối quả </a></p>
+                            </div><!--End class list_ds-->
+                        </li>
+                        <li>
+                        	<a href="#"><img src="skins/images/sp1.jpg" /></a>
+                            <h2><a href="#">Gà rang gừng</a></h2>
+                            <div class="list_ds">
+                            	<p><a>Cơm gạo tám - Lạc rang mặn</a></p>
+                                <p><a>Nộm dưa chuột - Đậu quả xào </a></p>
+                                <p><a>Canh dưa chua - Chuối quả </a></p>
+                            </div><!--End class list_ds-->
+                        </li>
+                        <li>
+                        	<a href="#"><img src="skins/images/sp1.jpg" /></a>
+                            <h2><a href="#">Trứng rán</a></h2>
+                            <div class="list_ds">
+                            	<p><a>Cơm gạo tám - Lạc rang mặn</a></p>
+                                <p><a>Nộm dưa chuột - Đậu quả xào </a></p>
+                                <p><a>Canh dưa chua - Chuối quả </a></p>
+                            </div><!--End class list_ds-->
+                        </li>
+                    </ul>
+                </div><!--End class left-->
+                <div class="right">
+                	<div class="hotrotructuyen">
+                    	<h2><a>hỗ trợ trực tuyến</a></h2>
+                        <div class="bg_cennter">
+                        	<div class="bg_gr">
+                            	<h3><a>HOTLINE: 0124 737 6688</a></h3>
+                                <div class="hotro1">
+                                	<div class="online"><a><img src="skins/images/online.png" /></a></div><!--End class online-->
+                                    <div class="name">
+                                    	<p class="ten">Mss Thanh Huyền</p>
+                                        <p class="so">0983...</p>
+                                    </div><!--End class name-->
+                                </div><!--End class hotro1-->
+                                <div class="hotro1">
+                                	<div class="online"><a><img src="skins/images/online.png" /></a></div><!--End class online-->
+                                    <div class="name">
+                                    	<p class="ten">Mss Ngọc Mai</p>
+										<p class="so">0983....</p>
+                                    </div><!--End class name-->
+                                </div><!--End class hotro1-->
+                            </div><!--End class hotrotructuyen-->
+                        </div><!--End class hotrotructuyen-->
+                        <div class="bot"></div><!--End class bot-->
+                    </div><!--End class hotrotructuyen-->
+                    
+                    <div class="tintuc_capnhat">
+                    	<h2><a>tin tức mới cập nhật</a></h2>
+                        <div class="bg_cennter">
+                        	<div class="bg_gr">
+                            	<ul class="list_tin">
+                                	<li><a href="#">Khẩu phần ăn hợp lý cho cả ngày</a></li>
+                                    <li><a href="#">5 cách chế biến món cá cơm thơm ngon</a></li>
+                                    <li><a href="#">Mực ống kho rim</a></li>
+                                    <li><a href="#">Thịt ba chỉ kho măng</a></li>
+                                </ul>
+                            </div><!--End class bg_gr-->
+                        </div><!--End class bg_cennter-->
+                        <div class="bot"></div><!--End class bot-->
+                    </div><!--End class tintuc_capnhat-->
+                    
+                    
+                    <div class="truycap">
+                    	<h2><a>số lượt truy cập</a></h2>
+                        <div class="bg_cennter">
+                        	<div class="bg_gr">
+                            	<ul class="number">
+                                	<li><a>Visit today<span>100</span></a></li>
+                                    <li><a>Pages<span>100.000</span></a></li>
+                                    <li><a>Online<span>50</span></a></li>
+                                </ul>
+                            </div><!--End class bg_gr-->
+                        </div><!--End class bg_cennter-->
+                        <div class="bot"></div><!--End class bot-->
+                    </div><!--End class tintuc_capnhat-->
+                    
+                </div><!--End class right-->
+            </div><!--End class content-->
+            <div class="border_bt">
+            	<img src="skins/images/border_bt.png" />
+                <p>Từ <span>20.000</span> đến <span>35.000</span> VNĐ/ suất. (Giá chưa bao gồm VAT). Quý khách gọi 01 suất sẽ bao gồm 01 món chính và 06 món phụ.<br />
+Quý khách vui lòng gọi <span>Cơm ngon Hà Nội</span> trước 10h30' và 17h30' trong ngày để được phục vụ tốt nhất. <br />
+Nếu có bất kỳ thắc mắc gì về chất lượng suất ăn và cách thức phục vụ, quý khách vui lòng gọi điện đến Cơm ngon Hà Nội. <br />
+<span>Hotline: 0124 737 6688</span>.</p>
+            </div><!--End class border_bt-->
+            <div class="menu_bottom">
+            	<div class="ontop" id="top"><a href="#"><img src="skins/images/ontop.png" /></a></div>
+                <div class="menu_bt">
+                	<ul>
+                    	<li><a href="#">Trang chủ</a></li>
+                        <li><a href="#">giới thiệu</a></li>
+                        <li><a href="#">thực đơn</a></li>
+                        <li><a href="#">dịch vụ</a></li>
+                        <li><a href="#">liên hệ</a></li>
+                        
+                    </ul>
+                </div><!--End class menu_bt-->
+            </div><!--End class menu_bottom-->
+        </div><!--End class wapper_gr-->
+    </div><!--End class wapper-->
+    <div class="footer">
+    	<div class="footer_gr"><p>Số 13, ngõ 145, Quan Nhân, Cầu Giấy, Hà Nội.</p></div><!--End class footer-->
+    </div><!--End class footer-->
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Hỏi đáp mua bán</title>
+<!-- OF COURSE YOU NEED TO ADAPT NEXT LINE TO YOUR tiny_mce.js PATH -->
+<script type="text/javascript" src="<?php echo site_url()?>tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript" src="<?php echo site_url()?>tinymce/jscripts/tiny_mce/tinyMce.conf.js"></script>
+</head>
+<body>
+<div class="hoidap">
+<form method="post" action="<?php echo site_url('hoidap/dangcauhoi');?>" name="frm" id="itemForm" onsubmit="return check(this.form);">
+<div class="Header"><span>Hỏi đáp</span></div>
+<table cellspacing="0" cellpadding="0">
+  <tr>    
+    <td colspan="2">Những ô có dấu sao (*) là bắt buộc phải nhập.</td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2"> Bạn phải sử dụng Tiếng Việt có dấu, nếu không câu hỏi của bạn sẽ bị xóa mà không cần báo trước</td>
+  </tr>
+  <tr>
+    <td align="left" colspan="2">1. Nhập câu hỏi của bạn</td>
+  </tr>
+  <tr>
+    <td>* Câu hỏi của bạn :</td>
+    <td><input name="hd_name" type="text" id="hd_name" title="Câu hỏi của bạn" onkeypress="check_strlen('hd_name', 'hd_name_length', 150)" onkeydown="timewait=0" onkeyup="timewait=0; check_strlen('hd_name', 'hd_name_length', 150)" value="" size="68" maxlength="150" autocomplete="off">
+        <br>
+      Giới hạn trong <strong id="hd_name_length">150</strong> ký tự.</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><label>
+      <textarea name="hd_cauhoi" id="hd_cauhoi" cols="75" rows="10"></textarea>
+    </label></td>
+  </tr>
+  </tr>
+  <tr>
+    <td colspan="2">2). Chọn danh mục cần đăng câu hỏi theo danh sách bên dưới.</td>
+    </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>
+    <label>
+      <select name="cat_id" id="select">
+      <?php foreach ($category as $value):?>
+      <option value="<?php echo $value->getId();?>"><?php echo $value->getName();?></option>
+      <?php foreach ($subcat[$value->getId()] as $subval):?>
+      <option value="<?php echo $subval->getId();?>"><?php echo "&nbsp;&nbsp;&nbsp;".$subval->getName();?></option>
+      <?php endforeach;?>
+      <?php endforeach;?>
+      </select>
+     </label>    
+     </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>
+    <div style="padding:10px;">
+      <input type="submit" name="button2" id="button2" value="Đăng câu hỏi" class="button" onsubmit="return check(this.form);">
+    </div>
+    </td>
+  </tr>
+  <tr>
+  		<td colspan="2">&nbsp;</td>
+  </tr>
+  </table>
+  <input type="hidden" name="userid" value="<?php echo $userid;?>">
+  </form>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+function check(frm) {
+	var f = document.getElementById('itemForm');
+	var hd_cauhoi = tinyMCE.get('hd_cauhoi').getContent();
+    document.getElementById('hd_cauhoi').value=hd_cauhoi;//fix lỗi thông báo "bạn cần nhập nội dung"
+  
+	if (f.hd_name.value=="") {
+		alert("Bạn chưa nhập tiêu đề câu hỏi!");
+		f.hd_name.focus();
+		return false;
+	}
+	if (f.hd_cauhoi.value=="") {
+		alert("Bạn chưa nhập nội dung câu hỏi!");
+		f.hd_cauhoi.focus();
+		return false;
+	}
+	return true;
+}
+</script>

@@ -1,0 +1,71 @@
+<link rel="stylesheet" type="text/css" href="<?php echo site_url();?>css/CSS2.css" medial="all" />
+<?php
+ include_once("seotiengviet.php");
+?>
+	<div class="wrapper-middle">
+		<div class="box-left">
+			<?php $this->load->view("menu.html");?>
+			<?php $this->load->view("fbleft.html");?>
+		</div>
+		<div class="box-right">
+		 	<div class="box-pt">
+				<div class="duongdan">
+				<?php if (count($cat)>0) { ?>
+				<a href="<?php echo site_url('catalog').'/'.$cat[0]->getId().'-'.khongdau($cat[0]->getName());?>"> 
+				<?php echo $cat[0]->getName();?>
+				</a>
+				<?php } ?>
+				</div>
+				<!--end duongdan-->
+			</div><!--end box-pt-->
+		<div class="box-lietke" style="width:100%;margin-left:10px;">
+			<?php $i=0; foreach($product as $value):?>
+			<div class="productItem <?php echo 'item'.$i;?> tooltip" id="<?php echo $value->getId();?>">
+			<div class="ProductInfo">
+				<div class="imageLocation"><a href="<?php echo site_url('product').'/'.$value->getId().'-'.khongdau($value->getName());?>"><img height="100px;" src="<?php if (substr($value->getImageDefault(), 0, 4)=='http') { echo $value->getImageDefault(); } else if ($value->getImageDefault()=='') { echo site_url().'images/no_picture.gif'; } else { if (substr_count($value->getImageDefault(),"jpg")>0) { echo site_url().$value->getImageThumbNail();} else { echo site_url().$value->getImageDefault(); } }?>"></a></div>
+				<div style="height:50px;">
+				<div class="productName"><a href="<?php echo site_url('product').'/'.$value->getId().'-'.khongdau($value->getName());?>"><?php echo $value->getNiceName();?></a></div>
+				<div class="price"><?php echo $value->getNicePrice();?>&nbsp;VNĐ</div>
+				</div>
+			</div>
+			<div class="ProductInfo" style="display:none;" id="product_<?php echo $value->getId();?>">
+				<div class="productName"><?php echo $value->getName();?></div> 
+				<?php if (intval($value->getPrice())==0) {?>
+				<div class="price">Chưa có giá</div>
+				<?php } else { ?>
+				<div class="price"><?php echo $value->getNicePrice();?> VNĐ</div>
+				<?php } ?>
+				<img src="<?php if (substr($value->getImageDefault(), 0, 4)=='http') { echo $value->getImageDefault(); } else if ($value->getImageDefault()=='') { echo site_url().'images/no_picture.gif'; } else {   echo site_url(). $value->getImageDefault(); } ?>" width="300">
+			</div>					
+			</div>
+			<?php $i++; endforeach;?>
+		</div>
+				<div class="clear"></div>
+				<div class="paging" style="margin-left:300px;padding:10px;">
+				  <?php if (isset($paging) && trim($paging)!='') echo "Trang: ";?><?php echo $paging;?>
+				</div><!--end phantrang-->
+				<div style="margin-left:50px;"><a target="_blank" href="http://muarenhat.vn"><img src="http://muarenhat.vn/uploads/1c5426173c3d913419df6a984113c4388b91d614.jpg"></a></div>
+		</div>		
+	</div>
+	<script type="text/javascript">
+	/*$('.tooltip').tooltip({ 
+	    delay: 0, 
+	    showURL: false, 
+	    bodyHandler: function() { 
+	        return $(this).html(this.html); 
+	    } 
+	});
+	$(document).ready(function(){
+		$(".paging a ").addClass("pagelink");
+		$(".paging strong ").addClass("pagecurrent");
+	});*/	
+	$('.tooltip').tooltip({ 
+		delay: 0, 
+		showURL: false, 
+		bodyHandler: function() { 
+			var id = $(this).attr("id");
+			// return $(this).html(this.html); 
+			return $('#product_'+id).html(this.html); 
+		} 
+	});	
+	</script>

@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Liên hệ</title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#contactForm").validate();
+  });
+</script>
+</head>
+
+<body>
+<form id="contactForm" action="contact.php" method="post">
+<table width="100%" border="0">
+  <tr>
+    <td>Họ và tên *</td>
+    <td>
+      <label>
+        <input type="text" name="fullname" id="fullname" class="required" />
+        </label>
+    </td>
+  </tr>
+  <tr>
+    <td>Địa chỉ *</td>
+    <td><input type="text" name="address" id="address" class="required" /></td>
+  </tr>
+  <tr>
+    <td>Điện thoại *</td>
+    <td><input type="text" name="phone" id="phone" class="required" /></td>
+  </tr>
+  <tr>
+    <td>Di động *</td>
+    <td><input type="text" name="mobile" id="mobile" class="required" /></td>
+  </tr>  
+  <tr>
+    <td>Email *</td>
+    <td><input type="text" name="email" id="email" class="required email"/></td>
+  </tr>
+  <tr>
+    <td>Fax</td>
+    <td><input type="text" name="fax" id="fax" /></td>
+  </tr>
+  <tr>
+    <td>Nội dung</td>
+    <td><label>
+      <textarea name="feedback" id="feedback" cols="45" rows="5" class="required"></textarea>
+    </label></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><label>
+      <input type="submit" name="button" id="button" value="Gửi đi" />
+    </label>
+      <label>
+      <input type="reset" name="button2" id="button2" value="Làm lại" />
+    </label></td>
+  </tr>
+</table>
+</form>
+
+</body>
+</html>

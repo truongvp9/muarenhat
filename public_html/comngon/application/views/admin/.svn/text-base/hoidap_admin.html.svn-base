@@ -1,0 +1,33 @@
+<div class="NewsList">
+<table border="1" cellpadding="0" cellpadding="0" width="100%" id="table3">
+    <tr>
+      <td class="Header">Tiêu đề câu hỏi</td>
+      <td class="Header City">Chuyên mục</td>
+      <td align="center" class="Header Date">Ngày hỏi</td>
+      <td align="center" class="Header Authorized">Duyệt</td>
+    </tr>
+   <?php foreach ($hoidap as $value):?> 
+    <tr>
+	    <td>
+	    <?php echo $value->getTitle();?>
+	    </td>
+	    <td>
+	    <?php echo $value->getCatId();?>
+	    </td>
+	    <td>
+	    <?php echo $value->getDateAsk();?>
+	    </td>
+	    <td>
+	    </td>
+    </tr>
+   <?php endforeach;?> 
+</table>
+</div>
+<style type="text/css">
+.NewsList .Header
+{
+	border-style:solid;
+	border-color:red;
+	padding:0px;
+}
+</style>

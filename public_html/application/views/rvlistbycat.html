@@ -1,0 +1,124 @@
+<?php
+function html2text($html)
+{
+    $tags = array (
+    0 => '~<h[123][^>]+>~si',
+    1 => '~<h[456][^>]+>~si',
+    2 => '~<table[^>]+>~si',
+    3 => '~<tr[^>]+>~si',
+    4 => '~<li[^>]+>~si',
+    5 => '~<br[^>]+>~si',
+    6 => '~<p[^>]+>~si',
+    7 => '~<div[^>]+>~si',
+    );
+    $html = preg_replace($tags,"\n",$html);
+    $html = preg_replace('~</t(d|h)>\s*<t(d|h)[^>]+>~si',' - ',$html);
+    $html = preg_replace('~<[^>]+>~s','',$html);
+    // reducing spaces
+    $html = preg_replace('~ +~s',' ',$html);
+    $html = preg_replace('~^\s+~m','',$html);
+    $html = preg_replace('~\s+$~m','',$html);
+    // reducing newlines
+    $html = preg_replace('~\n+~s',"\n",$html);
+    $html = str_replace("\n"," ",$html);
+	$html = str_replace("\n<br>"," ",$html);
+	$html = str_replace("\n<br/>"," ",$html);
+	$html = str_replace("\n<p>"," ",$html);
+	$html = str_replace("  "," ",$html);
+	$html = str_replace("'","",$html);
+	$html = str_replace("\"","",$html);
+	$html = str_replace("<br>"," ",$html);
+	$html = str_replace("<br/>"," ",$html);
+	$html = str_replace("<p>"," ",$html);
+	$html = str_replace("</p>"," ",$html);	
+    $string = explode(" ", $html);
+		$max = count($string);
+		if ($max<100) return $html;
+		$result = '';
+		for ($i=0; $i<100 && $i<$max; $i++) {	
+			if (is_string($string[$i]) && strlen($string[$i])>2)	{ 	
+				$st = trim($string[$i]);
+				$result.= " ".$st;
+			}
+		}
+		$result = trim($result)."...";
+		return $result;
+    //return $html;
+}
+?>
+<?php 
+    include_once("seotiengviet.php");
+?>
+<div style="margin-left:5px;float:left;color:#716A5C;font-weight:bold"><span>Tin đăng thuộc:</span>&nbsp;</div>
+<div style="float:left;" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+<a href="<?php echo site_url('raovat');?>" itemprop="url"><span itemprop="title">Toàn bộ danh mục</span></a>
+</div>
+<div style="float:left;" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">&nbsp;
+<?php if ($province->getProvince()!='') echo '› '; ?> <a href="<?php echo site_url('raovat/xemtheotinh').'/'.$province->getId();?>" itemprop="url"><span itemprop="title"><?php echo $province->getProvince();?></span></a>
+</div>
+<?php if ($cat->getName()!='') { ?>
+<div style="float:left;" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">&nbsp;› 
+<a href="<?php echo site_url('raovat/xemraovat').'/'.$cat->getId().'-'.khongdau($cat->getName());?>" itemprop="url">
+<span itemprop="title"><?php echo $cat->getName();?></span></a> 
+</div>          
+<div class="clear"></div>
+<div id="RequestBar">
+     <div class="Navication1">
+            <a class="All" href="<?php echo site_url('raovat/xemraovat').'/'.$cat->getId();?>">&raquo; Tất cả</a>
+            <?php foreach ($need as $value):?>
+            <a class="Item" href="<?php echo site_url('raovat/xemraovat').'/'.$cat->getId().'/0/0/0/'.$value->getId();;?>"><?php echo $value->getNeed(); ?></a>
+            <?php endforeach;?> 
+	</div>
+	<div class="Navication2"><div class="break_module_line"></div>
+	        <a class="All" href="<?php echo site_url('raovat/xemraovat').'/'.$cat->getId();?>">&raquo; Tất cả</a>
+            <?php foreach ($type as $value):?>
+            <a class="Item" href="<?php echo site_url('raovat/xemraovat').'/'.$cat->getId().'/0/'.$value->getId();;?>"><?php echo $value->getType(); ?></a>
+            <?php endforeach;?> 
+	</div>
+</div>   
+<?php } ?>
+<div class="clear"></div>   
+<div class="paging" style="padding-left:5px;"><?php echo $paging;?></div>      
+<div class="NewsList">
+<table border="0" cellpadding="0" width="99%" id="table3">
+  <tbody>
+    <tr>
+      <td class="Header">Tiêu đề tin</td>
+      <td class="Header City">Tỉnh/T.phố</td>
+      <td align="center" class="Header View">Xem</td>
+      <td align="center" class="Header Date">Ngày</td>
+      <td align="center" class="Header Image">Ảnh</td>
+    </tr>
+	<?php $i=0;
+	foreach ($rvbycat as $value):?> 
+	<?php
+	if ($i++ % 2 ==0) { $class = "Even"; }
+	else 
+	{ $class="Odd"; }
+	?>
+    <tr class="<?php echo $class;?>">
+      <td align="left" >
+      <a class="newsTitle" rel="nofollow" href="<?php echo site_url('raovat/xemtin').'/'.$value->getId().'/'.khongdau($value->getSubject());?>" onmouseover="ddrivetip('<?php echo html2text($value->getContent());?>');" onmouseout="hideddrivetip();">
+      <?php echo $value->getSubject();?>
+      </a>
+      </td>
+      <td><?php echo $value->getProvinceByName();?></td>
+      <td align="center"><?php echo $value->getPageView();?></td>
+      <td align="center"><?php echo date('d/m/Y',strtotime($value->getDate()));?></td>
+      <td align="right">
+      <div>
+      <a href="http://rongbay2.vcmedia.vn/thumb_max/up_new/2011/09/30/834860/201109231519_552011114030704.jpg" rel="thumbnail" target="_blank" onclick="return false"><img title="Xem ảnh" src="http://rongbay.com/style/images/spacer.gif" width="20" height="20" border="0" /></a>
+      </div>
+      </td>
+    </tr>
+	<?php endforeach;?>
+  </tbody>
+</table>
+</div>
+<div class="paging" style="padding-left:5px;"><?php echo $paging;?></div> 
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".paging a ").addClass("pagelink");
+	$(".paging strong ").addClass("pagecurrent");
+});
+</script>

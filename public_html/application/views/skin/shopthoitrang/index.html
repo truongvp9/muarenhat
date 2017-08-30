@@ -1,0 +1,44 @@
+<?php require('seotiengviet.php');?>
+		<div id="wrapper">
+			<div id="background">
+			<?php
+				$this->load->view("skin/".$skin_id."/left.html");
+			?>
+				<div id="center">
+					<div id="discount">
+						<img src="<?php echo site_url();?>skin/shopthoitrang/images/discount.png" alt="" width="121" height="119" border="0" usemap="#Map" class="transparent" />
+						<map name="Map">
+						  <area shape="circle" coords="61,57,55" href="#">
+						</map>
+					</div>
+					<div id="photo">
+						<img src="<?php echo site_url();?>/skin/shopthoitrang/images/tpart.png" alt="" width="49" height="23" class="transparent" /><br />
+						<div class="text">
+							<p><span>Lorem ipsum</span> - dolor sit amet, sectetu adip scing varius interdum incid unt quis, libero. Aenean mturpis. </p>
+							<p>Maecenas hendrerit masa<br /> laoreet iaculipede mnisl ulam-<br /> corper. Tellus er sodales enim,<br /> in tincidunt mauris in odio. Massa<br /> ac laoreet iaculipede nisl<br /> ulla mcorpermassa, </p>
+						</div>
+					</div>
+					<div id="items">
+					  <?php foreach ($product as $item):?>
+					  <div class="item">
+							<h5><?php echo $item->getNiceName();?></h5>
+							<div class="itemimage">
+								<a href="<?php echo site_url('product').'/'.$item->getId().'-'.khongdau($item->getName());?>"><img class="size" id="p_image" src="<?php if (substr($item->getImageDefault(), 0, 4)=='http') { echo $item->getImageThumbNail(); } else { echo site_url().$item->getImageThumbNail();}?>" alt="<?php echo $item->getName();?>" width="150"  /></a><br />
+								<p class="more"><a href="<?php echo site_url('product').'/'.$item->getId().'-'.khongdau($item->getName());?>">xem chi tiết</a></p>
+							</div>
+							<div class="price">
+								<p><span class="new"><?php echo $item->getNicePrice();?> VNĐ</span><!--<span class="old"><strike>$440</strike></span>--></p><br />
+								<form action="#" class="button">
+									<a href="<?php echo site_url();?>cart/addtocart/<?php echo $item->getId();?>"><img src="<?php echo site_url();?>skin/shopthoitrang/images/buy.jpg" alt="Mua hàng" width="53" height="23" /></a>
+								</form>
+							</div>
+						</div>
+						<?php endforeach;?>
+					</div>
+				</div>
+			<?php
+				$this->load->view("skin/".$skin_id."/right.html");
+			?>				
+			</div>
+		</div>
+	</div>	

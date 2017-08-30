@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="<?php echo $this->config->site_url('css');?>/admin.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $this->config->site_url('css');?>/menu.css" />
+<script type="text/javascript" src="<?php echo $this->config->site_url('js');?>/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() { 
+	//alert('hi');
+	$("#nav li").hover(function(){ 
+			$(this).addClass('over');
+	        $(this).find('ul:first').css({visibility: "visible",display: "none"}).show(400); 
+	        },function(){ 
+	        $(this).find('ul:first').css({visibility: "hidden"}); 
+	        $(this).removeClass('over');
+	        }); 
+	});  
+</script>
+</head>
+<body>
+<div class="wrapper"><div class="header">
+				<div class="nav-bar">
+				<ul id="nav">
+					<li class="parent">
+					<a href="<?php echo $this->config->site_url('admin');?>">
+					<span>Trang chủ</span>
+					</a>
+						<ul>
+							<li class="level1">
+								<a href="<?php echo $this->config->site_url('admin/catalog');?>"><span>Quản lý trang chủ</span></a>
+							</li>
+							<li class="last level1">
+								<a href="<?php echo $this->config->site_url('admin/slider');?>"><span>Quản lý Slider</span></a>
+							</li>
+						</ul>					
+					</li>
+					<li class="parent">
+					<a href="<?php echo $this->config->site_url('admin/sanpham');?>"><span>Sản phẩm</span></a>
+						<ul>
+							<li class="level1">
+								<a href="<?php echo $this->config->site_url('admin/addcategory');?>"><span>Thêm danh mục sp</span></a>
+							</li>
+							<li class="last level1">
+								<a href="<?php echo $this->config->site_url('admin/catalogorder');?>"><span>Vị trí các chuyên mục</span></a>
+							</li>	
+						</ul>
+					</li>
+					<li class="parent">
+					<a href="<?php echo site_url('admin/raovat');?>"><span>Rao vặt</span></a>
+						<ul>
+							<li class="level1">
+								<a href="<?php echo $this->config->site_url('admin/addtype');?>"><span>Thêm loại rao vặt</span></a>
+							</li>
+							<li class="level1">
+								<a href="<?php echo $this->config->site_url('admin/addneed');?>"><span>Thêm nhu cầu rao vặt</span></a>
+							</li>					
+							<li class="last level1">
+								<a href="<?php echo $this->config->site_url('admin/raovatorder');?>"><span>Vị trí rao vặt</span></a>
+							</li>					
+						</ul>
+					</li>
+					<li class="parent">
+					<a href="<?php echo site_url('admin/hoidap');?>"><span>Hỏi đáp</span></a>
+					</li>
+					<li class="parent">
+					<a href="<?php echo site_url('admin/order');?>"><span>Đơn hàng</span></a>
+					</li>										
+					<li class="parent">
+					<a href="<?php echo site_url('admin/gianhang');?>"><span>Gian hàng</span></a>
+					</li>
+					<li class="parent">
+					<a href="<?php echo site_url('admin/member');?>"><span>Thành Viên</span></a>
+					</li>					
+					<li class="parent">
+					<a href="<?php echo site_url('admin/quangcao');?>"><span>Quảng cáo</span></a>
+						<ul>
+							<li class="last level1">
+								<a href="<?php echo $this->config->site_url('admin/link');?>"><span>Liên kế web</span></a>
+							</li>					
+						</ul>	
+					
+					</li>			
+					<li class="parent">
+					<a href="<?php echo site_url('admin/tintuc');?>"><span>Tin tức</span></a>
+						<ul>
+							<li class="last level1">
+								<a href="<?php echo $this->config->site_url('admin/cat_news');?>"><span>Chuyên mục tin</span></a>
+							</li>					
+						</ul>	
+					</li>
+					<li class="parent">
+					<a href="<?php echo site_url('admin/video');?>"><span>Video</span></a>
+					</li>					
+					<li class="parent">
+					<a href="<?php echo site_url('admin/baocaosms');?>"><span>Báo cáo SMS</span></a>
+					</li>	
+					<li class="parent">
+					<a href="<?php echo site_url('admin/content');?>"><span>Cms</span></a>
+					</li>																		
+					<li class="parent">
+					<a href="#"><span>Hệ thống</span></a>
+						<ul>
+							<li class="level1">
+								<a href="<?php echo $this->config->site_url('admin/metainfo');?>"><span>Cấu hình trang web</span></a>
+							</li>
+							<li class="last level1">
+								<a href="<?php echo $this->config->site_url('admin/myaccount');?>"><span>Tài khoản</span></a>
+							</li>					
+						</ul>					
+					</li>					
+					<li class="parent">
+					<a href="<?php echo site_url('logout');?>"><span>Logout</span></a>
+					</li>
+				</ul>
+				</div>
+				<div style="clear:both;"></div>
+				<hr></hr>
+				</div>
+				<p></p>
+</body>
+</html>		

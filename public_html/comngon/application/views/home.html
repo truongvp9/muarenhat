@@ -1,0 +1,28 @@
+<?php include_once("seotiengviet.php");?>
+            <div class="content">
+            	<div class="left">
+                	<ul>
+                    	<?php foreach ($listproduct as $item):?>
+                    	<li>
+                        	<a href="#"><img src="<?php echo site_url().$item->getImageDefault();?>" /></a>
+                            <h2><a href="#"><?php echo $item->getNiceName();?></a></h2>
+                            <div class="list_ds">
+                            	<p>
+                            	<?php echo $item->getDescription();?>
+                            	</p>
+                            </div><!--End class list_ds-->
+                        </li>
+                        <?php endforeach;?>
+                        
+                    </ul>
+                </div><!--End class left-->
+                <div class="right">
+                	
+                	<?php $this->load->view('widget/support_online.html');?>
+                    
+                    <?php $this->load->view('widget/news.html');?>
+                   
+                    <?php $this->load->view('widget/users_online.html');?>
+                    
+                </div><!--End class right-->
+            </div><!--End class content-->

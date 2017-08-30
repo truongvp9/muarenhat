@@ -1,0 +1,124 @@
+<?php
+	include_once("seotiengviet.php");
+?>
+<div class="clear"></div> 
+<div style="padding:5px;"> 
+<h3>Tin đăng của bạn</h3> 
+</div>
+<div class="NewsList">
+<table border="0" cellpadding="0" width="99%" id="table3" class="uptop">
+</table>
+<table border="0" cellpadding="0" width="99%" id="table3">
+  <tbody>
+    <tr>
+      <td class="Header" width="5%">Mã tin</td>
+      <td class="Header" width="60%">Tiêu đề tin</td>
+      <td class="Header City" width="10%">Tỉnh/T.phố</td>
+      <td align="center" class="Header View" width="5%">Xem</td>
+      <td align="center" class="Header Date" width="10%">Ngày</td>
+      <td align="center" class="Header Image" width="5%">Up Tin</td>
+      <td align="center" class="Header Image" width="5%">Tin Vip</td>
+      <td align="center" class="Header Image" width="5%">Sửa</td>
+      <td align="center" class="Header Image" width="5%">Xóa</td>
+    </tr>
+
+	<?php $i=0;
+	foreach ($myitem as $value):?> 
+	<?php
+	if ($i++ % 2 ==0) { $class = "Even"; }
+	else 
+	{ $class="Odd"; }
+	?>
+    <tr class="<?php echo $class;?>" id="up1<?php echo $value->getId();?>">
+      <td align="center">
+      <?php echo $value->getId();?>
+      </td>
+      <td align="left" width="65%">
+      <a class="newsTitle" rel="nofollow" href="<?php echo site_url('raovat/xemtin').'/'.$value->getId().'/'.khongdau($value->getSubject());?>" onmouseover="ddrivetip('<?php echo stripslashes($value->getSubject());?>');" onmouseout="hideddrivetip();">
+      <?php echo $value->getSubject();?>
+      </a>
+      </td>
+      <td><?php echo $value->getProvinceByName();?></td>
+      <td align="center"><?php echo $value->getPageView();?></td>
+      <td align="center"><?php echo $value->getDate();?></td>
+      <td>
+      <div style="text-align:center">  
+      <a href="#" class="uptin" id="<?php echo $value->getId();?>" alt="Kích vào đây để up tin">
+      <img src="http://rongbay.com/style/images/usercp/02.png">
+      </a>
+      </div>
+      </td>
+      <td>
+      <div style="text-align:center">    
+      <a href="#" class="tinvip" id="<?php echo $value->getId();?>" alt="Kích vào đây để đăng tin vip">
+      <img src="http://tructiep.vn/website/images/icon_vip2.gif">
+      </a>
+      </div>
+      </td>   
+      <td>
+      <a href="/myitem/edit/<?php echo $value->getId();?>"><img src="/images/b_edit.png"></a>
+      </td>
+      <td>
+      <a href="/myitem/removeraovat/<?php echo $value->getId();?>" class="tinvip" id="<?php echo $value->getId();?>" alt="Xóa tin này" onclick="return confirm('Bạn có thực sự muốn xóa tin này không?');">
+      <img src="/images/b_drop.png">
+      </a>      
+      </td>   
+    </tr>
+	<?php endforeach;?>
+  </tbody>
+</table>
+</div>
+<div class="paging" style="margin-left:5px;">
+<?php echo $paging;?>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	// phan trang
+	$(".paging a ").addClass("pagelink");
+	$(".paging strong ").addClass("pagecurrent");
+	// up tin
+	$(".uptin").click(function(){ 
+		    var id = $(this).attr("id");
+		    //alert('Soạn tin SMS: RV UP ' + id + ' Gửi đến 8345 (3.000đ/tin)');
+			// if (confirm('Bạn hãy nhắn tin SMS tới số 8x88 theo cú pháp [UP mã tin] gửi 8x88?')) {
+			var id = $(this).attr("id");			
+			$.ajax({ 
+				type : 'POST',			
+				url : '/uptin/up',			
+				dataType : 'html',
+				data: {
+					id : id,key: "<?php echo sha1('muaban!2');?>" 
+				},
+				success: function(){
+					alert('Tin '+id+' của bạn đã được up');
+					var html = $('#up1'+id).html();
+					html = '<tr class="Even">'+html+'</tr>';
+					// alert(html);
+					$('#up1'+id).remove();
+					$('.uptop').append(html);
+					//location.reload();
+				}
+			});/**/
+			//}
+		});
+	$(".tinvip").click(function(){ 
+		var id = $(this).attr("id");
+		//alert('Soạn tin SMS: RV VIP ' + id + ' Gửi 8345 (3.000đ/tin)');
+		// if (confirm('Bạn hãy nhắn tin SMS tới số 8x88 theo cú pháp [UP mã tin] gửi 8x88?')) {
+		var id = $(this).attr("id");			
+		$.ajax({ 
+			type : 'POST',			
+			url : '/uptin/vip',			
+			dataType : 'html',
+			data: {
+				id : id,key: "<?php echo sha1('muaban!2');?>" 
+			},
+			success: function(){
+				alert('Tin '+id+' của bạn đã là tin vip');
+				// location.reload();
+			}
+		});
+		//}
+	});
+	});
+	</script>

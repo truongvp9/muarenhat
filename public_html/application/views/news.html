@@ -1,0 +1,211 @@
+<style>
+.Title {
+    font-family: 'Times New Roman';
+    font-size: 14pt;
+    font-weight: bold;
+    margin-top: 0;
+}
+.Lead {
+    color: #5F5F5F;
+    font-family: Arial;
+    font-size: 11pt;
+    font-weight: bold;
+}
+.Normal {
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    float:left;
+	margin-bottom:10px;
+}
+
+.fl {
+    float: left;
+}
+
+.othernews-title {
+    background-color: #FFF;
+    color: #8A0000;
+    font: bold 14px arial;
+    padding-right: 5px;
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+.news {
+	margin:10px;
+}
+.link-othernews {
+    font: 12px arial;
+}
+.othernews {
+	margin-left:68px;
+	margin-bottom:10px;
+}
+.paging li {
+    background-image: url("http://vnexpress.net/Images/Background/blue-square.gif");    
+    background-position: 0 7px;
+    background-repeat: no-repeat;
+    padding-left: 6px;
+    position: relative;
+}
+.othernews ul {
+    list-style: none outside none;
+}
+.clear {
+	clear:both;
+}
+.news-menu ul {
+    background: url("http://muaban12.net/img/mainnav.gif") repeat-x scroll left top #434747;
+    /*background-color: #3883CC;*/
+    border-bottom: 2px solid #DA0101;
+    clear: both;
+    float: left;
+    font-weight: bold;
+    height: 37px;
+    list-style: none outside none;
+    width: 1000px;
+    list-style: none outside none;
+}
+.news-menu li a:hover {
+	background: url("http://muaban12.net/img/menurep.gif") repeat-x scroll 0 0 transparent;
+}
+.news-menu li a {
+    border-right: 1px solid #4B80A5;
+    color: #FFFFFF;
+    display: block;
+    float: left;
+    height: 37px;
+    line-height: 37px;
+    padding: 0 4px;
+}
+.folder-header {
+    background: url("http://vnexpress.net/Images/Background/folder-header.gif") repeat-x scroll center top #F5F5F7;
+    color: #8C8C8C;
+    font: 11px arial;
+    height: 22px;
+    margin-bottom: 2px;
+    text-align:right;
+}
+
+.left-news {
+	width:740px;
+	float:left;
+}
+
+.right-news {
+	width:250px;
+	float:right;
+}
+
+ul {	
+	clear: both;
+}
+
+ul.simplePagerNav li{
+    display:block;
+    floaT: left;
+    padding: 3px;
+    margin-bottom: 10px;
+    font-family: georgia;
+}
+
+ul.simplePagerNav li a{
+    color: #333;
+    text-decoration: none;
+}
+
+li.currentPage {
+	background: red;
+        background: #83bd63;	
+}
+
+ul.simplePagerNav li.currentPage a {
+	color: #fff;	
+}
+</style>
+<script type="text/javascript" src="<?php echo site_url();?>js/quickpager.jquery.js"></script>
+<?php
+ include_once("seotiengviet.php");
+?>
+<div class="news">
+<div class="news-menu">
+	<ul>
+		<?php foreach ($category as $item) : ?>
+		<li>
+		<a href="<?php echo site_url('newslist').'/'.$item->getId().'-'.khongdau($item->getName());?>"><span><?php echo $item->getName();?></span></a>
+		</li>
+		<?php endforeach;?>
+	</ul>
+</div>
+<div class="clear"></div>
+<div class="left-news">
+<div style="width:740px;float:left;">
+<div class="folder-header">
+<?php echo date("d/m/Y H:s:i",strtotime($news->getDate()));?>&nbsp;
+</div>
+<h1 class="Title">
+<?php 
+ echo $news->getTitle();
+?>
+</h1>
+<div style="width:200px;float:left;">
+<img src="<?php echo site_url(); if ($news->getImg()=='' || $news->getImg()=='images/') { echo 'images/no_picture.gif'; }  else echo $news->getImg();?>" width="175">
+</div>
+<div style="width:500px;float:right;">
+<h2 class="Lead">
+<?php 
+ echo $news->getSummary();
+?>
+</h2>
+</div>
+
+<div class="clear"></div>
+<div class="Normal">
+<?php 
+ echo $news->getDetail();
+?>
+</div>
+<br>
+<div style="clear:both;"></div>
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style ">
+<span style="color:#8A0000;float:left;"><strong>Chia sẻ</strong></span>
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4fa14dd030c4f479"></script>
+<!-- AddThis Button END -->
+<div class="clear"></div>
+
+<div class="othernews-title fl">
+Các tin đã đưa:
+</div>
+<div class="clear"></div>
+<div class="othernews">
+<ul class="paging">
+<?php foreach ($tin as $item):?>
+<li><a class="link-othernews" href="<?php echo site_url();?>news/<?php echo $item->getId();?>-<?php echo khongdau($item->getTitle()); ?>"><?php echo $item->getTitle();?></a></li>
+<?php endforeach;?>
+</ul>
+</div>
+</div>
+
+
+</div>
+<!--  end left news -->
+
+<div class="right-news">
+<?php $this->load->view("rvquangcao.html");?>
+</div>
+
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("ul.paging").quickPager();
+});
+</script>

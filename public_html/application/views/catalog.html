@@ -1,0 +1,98 @@
+<?php
+	include_once("seotiengviet.php");
+?>
+<link rel="stylesheet" type="text/css" href="<?php echo site_url();?>css/CSS2.css" medial="all" />
+	<div class="wrapper-middle">
+		<div class="box-left">
+			<?php $this->load->view("menu.html");?>
+			<?php $this->load->view("fbleft.html");?>
+		</div>
+		<div class="box-right">
+		<div style="padding:5px;margin-left:5px;"> 
+		<h3>Sản phẩm trong gian hàng của bạn</h3> 
+		</div>
+		<div class="box-lietke">
+			<?php foreach($product as $value):?>
+				<div class="productItem" id="sp_<?php echo $value->getId();?>">
+				<div class="ProductInfo" style="height:200px;">			
+					<div class="imageLocation left" style="height:100px;">
+					<a href="<?php echo site_url('product/index').'/'.$value->getId();?>">
+					<img style="height:100px;" class="size" src="<?php if (substr($value->getImageDefault(), 0, 4)=='http') { echo $value->getImageDefault(); } else { if (substr_count($value->getImageDefault(),"jpg")>0) { echo site_url().$value->getImageThumbNail();} else { echo site_url().$value->getImageDefault(); } }?>"/>
+					</a>
+					</div><!--end left-->
+					<div style="height:45px;">
+					<div class="center">
+					  <h3>
+					  <a href="<?php echo site_url('product/index').'/'.$value->getId();?>">
+					  <?php echo $value->getNiceName();?>
+					  </a>
+					  </h3>					  	
+					</div><!--end center-->
+					<div class="right">					
+					<div class="gia"><?php echo $value->getNicePrice();?>&nbsp;VNĐ</div>
+					</div>
+					<div>
+					<div style="text-align:center;margin:5px;">
+					<a href="#" class="upsp" id="<?php echo $value->getId();?>">Up sp</a> |
+					<a href="<?php echo site_url('sanpham/edit').'/'.$value->getId();?>">Sửa</a> | 
+					<a href="#" alt='Không đăng sản phẩm này' class="remove_" id="<?php echo $value->getId();?>">Xóa</a>
+					</div>	
+					</div>					
+					</div><!--end right-->
+				</div><!--end product-info-->
+				</div><!--end box-sp-->
+			<?php endforeach;?>
+		</div>
+		<div class="clear"></div>
+			<div class="box-pt">
+				<div class="paging">
+					<?php echo $paging;?>
+				</div><!--end phantrang-->
+			</div><!--end box-pt-->
+		</div>
+	</div>
+	<div class="clear"></div>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$(".upsp").click(function(){
+			var id = $(this).attr("id");			
+			$.ajax({ 
+				type : 'POST',			
+				url : '/upsp/up',			
+				dataType : 'html',
+				data: {
+					id : id,key: "<?php echo sha1('muaban!2');?>" 
+				},
+				success: function(){
+					alert('Sản phẩm '+id+' của bạn đã được up');
+					/*var html = $('#up1'+id).html();
+					html = '<tr class="Even">'+html+'</tr>';
+					// alert(html);
+					$('#up1'+id).remove();
+					$('.uptop').append(html);*/
+					//location.reload();
+				}
+			});			
+		});	
+		$(".remove_").click(function(){ 
+			if (confirm('Bạn có muốn xóa sản phẩm này không?')) {
+			var id = $(this).attr("id");			
+			$.ajax({ 
+				type : 'POST',			
+				url : '/sanpham/remove',			
+				dataType : 'html',
+				data: {
+					id : id,key: "<?php echo sha1('muaban!2');?>" 
+				},
+				success: function(){
+					$("#sp_"+id).remove();
+				}
+			});
+			}
+		});
+	});
+	$(document).ready(function(){
+		$(".paging a ").addClass("pagelink");
+		$(".paging strong ").addClass("pagecurrent");
+	});	
+	</script>

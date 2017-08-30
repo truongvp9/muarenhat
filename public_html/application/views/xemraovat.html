@@ -1,0 +1,202 @@
+<?php
+function html2text($html)
+{
+    $tags = array (
+    0 => '~<h[123][^>]+>~si',
+    1 => '~<h[456][^>]+>~si',
+    2 => '~<table[^>]+>~si',
+    3 => '~<tr[^>]+>~si',
+    4 => '~<li[^>]+>~si',
+    5 => '~<br[^>]+>~si',
+    6 => '~<p[^>]+>~si',
+    7 => '~<div[^>]+>~si',
+    );
+    $html = preg_replace($tags,"\n",$html);
+    $html = preg_replace('~</t(d|h)>\s*<t(d|h)[^>]+>~si',' - ',$html);
+    $html = preg_replace('~<[^>]+>~s','',$html);
+    // reducing spaces
+    $html = preg_replace('~ +~s',' ',$html);
+    $html = preg_replace('~^\s+~m','',$html);
+    $html = preg_replace('~\s+$~m','',$html);
+    // reducing newlines
+    $html = preg_replace('~\n+~s',"\n",$html);
+    $html = str_replace("\n"," ",$html);
+	$html = str_replace("\n<br>"," ",$html);
+	$html = str_replace("\n<br/>"," ",$html);
+	$html = str_replace("\n<p>"," ",$html);
+	$html = str_replace("  "," ",$html);
+	$html = str_replace("'","",$html);
+	$html = str_replace("\"","",$html);
+	$html = str_replace("<br>"," ",$html);
+	$html = str_replace("<br/>"," ",$html);
+	$html = str_replace("<p>"," ",$html);
+	$html = str_replace("</p>"," ",$html);	
+    $string = explode(" ", $html);
+		$max = count($string);
+		if ($max<100) return $html;
+		$result = '';
+		for ($i=0; $i<100 && $i<$max; $i++) {	
+			if (is_string($string[$i]) && strlen($string[$i])>2)	{ 	
+				$st = trim($string[$i]);
+				$result.= " ".$st;
+			}
+		}
+		$result = trim($result)."...";
+		return $result;
+    //return $html;
+}
+?>
+<?php 
+    include_once("seotiengviet.php");
+?>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<div id="ContentLayout">
+<table cellspacing="0" cellpadding="0">
+  <tr>
+    <td id="ContentLeft" valign="top"><div></div>
+      <div id="NewsDetail">         
+        <table border="0" cellpadding="0" width="100%">
+          <tbody>
+            <tr>
+              <td valign="top">
+                  <div id="NewsLayout">
+                    <div id="NewsInfo">
+                        <div id="box-path">
+                        <div style="float:left;color:#716A5C;font-weight:bold"><span>Tin đăng thuộc:</span>&nbsp;</div>
+                        <div style="float:left;" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                        <a href="<?php echo site_url('raovat').'/'.khongdau($raovat->getProvinceByName());?>" itemprop="url">
+                        <span itemprop="title"><?php echo $raovat->getProvinceByName();?></span></a> › 
+                        </div>
+                        <div style="float:left;" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                        <a href="<?php echo site_url('raovat/xemraovat').'/'.$raovat->getCatId().'-'.khongdau($cat->getName());?>" itemprop="url">
+                        <span itemprop="title"><?php echo $cat->getName();?></span></a> › 
+                        </div>                        
+                        <div style="float:left;" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                        <a href="<?php echo site_url('raovat/xemraovat').'/'.$raovat->getCatId().'/0/0/0/'.$raovat->getSubCategory();?>" itemprop="url">
+                        <span itemprop="title"><?php echo $need;?></span></a> › 
+                        </div>
+                        <div style="float:left;" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                        <a href="<?php echo site_url('raovat/xemraovat').'/'.$raovat->getCatId().'/0/'.$raovat->getType();?>" itemprop="url">
+                        <span itemprop="title"><?php echo $type;?></span>
+                        </a>
+                        </div>
+                      </div>
+                      <table border="0" cellpadding="0" width="98%">
+                        <tbody>
+                          <tr>
+                            <td valign="top"><div id="searchArea">
+                              <h1><?php echo $raovat->getSubject();?></h1>
+                              <div>
+                                <div class="LeftBlock">
+                                  <div>Đăng lúc: <strong><?php echo $raovat->getDate();?></strong> - <a href="<?php echo site_url('raovat/xemraovat').'/'.$raovat->getCatId().'/'.$raovat->getProvince();?>"><strong><?php echo $raovat->getProvinceByName();?></strong></a></div>
+                                  <div>Đã xem: <strong><?php echo $raovat->getPageView();?></strong> Mã Tin: <strong><?php echo $raovat->getId();?></strong> </div>
+                                  <div> <a href="javascript:void(0)" onclick="shop.cart.frmChoicePackage(10251452, 'Điện thoại', 'Tai nghe cho điện thoại di dộng các loại')"></a></div>
+                                </div>
+                                <?php if ($raovat->getUserId()) { ?>
+                                <div class="RightBlock">
+                                	<strong>Người đăng:</strong> <a href="#" rel="nofollow"><?php echo $user->getName();?></a> <img src="http://rongbay.com/style/images/detail/detail_pm.gif" title="Gửi tin nhắn cho <?php echo $user->getName();?>" alt="PM" onclick="show_pm(397427,'<?php echo $user->getName();?>');" align="absmiddle">
+                                    <div><strong>E-mail:</strong> <a href="mailto:<?php echo $user->getEmail();?>"><?php echo $user->getEmail();?></a></div>
+                                </div>
+                                <?php } 
+                                else { ?>
+                                <div class="RightBlock">
+                                	<strong>Người đăng:</strong> <a href="#" rel="nofollow">Khách vãng lai</a> <img src="http://rongbay.com/style/images/detail/detail_pm.gif" title="Gửi tin nhắn cho Khách vãng lai" alt="PM" align="absmiddle">                                    
+                                </div>
+                                <?php } ?>
+                                <div style="clear:both;"></div>
+                              </div>
+                              <div id="item_vip_detail">
+                                <ul>
+                                  <?php foreach ($tinvip as $tin) {?>
+                                  <li style="padding:5px;"><a href="<?php echo site_url('raovat/xemtin').'/'.$tin->getId().'/'.khongdau($tin->getSubject());?>" onmouseover="ddrivetip('<?php echo html2text($tin->getContent());?>');" onmouseout="hideddrivetip();"><?php echo $tin->getSubject();?></a></li>
+                                  <?php } ?>
+                                </ul>                                
+                              </div>                               
+                              <div id="NewsContent">
+                              <?php echo $raovat->getContent();?>
+                              </div>
+                            </div></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <!--<div class="box_thong_tin_chi_tiet">
+					  Up tin này, bạn hãy soạn tin nhắn theo cú pháp <font color="red"><strong>RV UP <?php echo $raovat->getId();?></strong></font> gửi <strong>8345</strong> (3.000đ/sms)<br>
+					  Đăng tin này thành tin VIP, bạn hãy soạn tin nhắn theo cú pháp <font color="red"><strong>RV VIP <?php echo $raovat->getId();?></strong></font> gửi <strong>8345</strong> (3.000đ/sms)
+					  </div>-->                      
+                      <div id="detail_back" style="clear:both;">
+                      <?php if ($raovat->getUserId()) { ?>
+                      <a href="#" title="Gửi tin nhắn cho <?php echo $user->getName();?>" alt="PM" onclick="show_pm(397427,'<?php echo $user->getName();?>');return false"><img src="http://rongbay.com/style/images/detail/detail_pm.gif" align="absmiddle"> Gửi tin nhắn cho người rao</a><a href="<?php echo site_url('raovat/xemraovat').'/'.$cat->getId();?>" title="Quay lại chuyên mục '<?php echo $cat->getName();?>'!"><img src="http://rongbay.com/style/images/detail/detail_back.gif" align="absmiddle"> Quay lại chuyên mục "<?php echo $cat->getName();?>"</a>
+                      <?php } else { ?>
+                      <a href="<?php echo site_url('raovat/xemraovat').'/'.$cat->getId();?>" title="Quay lại chuyên mục '<?php echo $cat->getName();?>'!"><img src="http://rongbay.com/style/images/detail/detail_back.gif" align="absmiddle"> Quay lại chuyên mục "<?php echo $cat->getName();?>"</a>
+                      <?php } ?>
+					  <div style="padding:10px;width:450px;">
+					  <!-- AddThis Button BEGIN -->
+						<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+						<a class="addthis_button_preferred_1"></a>
+						<a class="addthis_button_preferred_2"></a>
+						<a class="addthis_button_preferred_3"></a>
+						<a class="addthis_button_preferred_4"></a>
+						<a class="addthis_button_compact"></a>
+						<a class="addthis_counter addthis_bubble_style"></a>
+						</div>
+						<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f4657d70976d836"></script>
+					  <!-- AddThis Button END -->
+					  </div>
+                      </div>
+                      <!--  
+                      <div>
+                        <div id="ad_tags_list">
+                        Tham khảo thêm:
+                        <span id="ad_tags_contents">
+                        <a href="#"><strong>V80</strong></a>
+                        </div>
+                        <a name="location_up"></a>
+                        <div></div>
+                      </div> 
+                      -->
+                    </div>
+<div style="margin:5px;float:right;width:260px;">
+<center>
+<ul>
+<li>
+<img src="<?php echo site_url();?>img/lhqc.png">
+</li>
+</ul>
+</center>
+</div>
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="clear:both;">
+                      <tbody>
+                        <tr>
+                          <td valign="top"><div id="OtherNews">
+                            <div title="Đóng/Mở khung này" id="OtherNewsHead">Các tin cùng danh mục</div>
+                            <div id="OtherNewsList" class="OtherNewsList">
+                            <ul>
+                            <?php $i=1; foreach ($thesamecat as $value):?>
+                            <li>
+                            <a <?php if ($i%2==0) echo 'class="Odd"'; else echo 'class="Even"'?> href="<?php echo site_url('raovat/xemtin').'/'.$value->getId().'/'.khongdau($value->getSubject());?>" onmouseover="ddrivetip('<?php echo html2text($value->getContent());?>');" onmouseout="hideddrivetip();"><?php echo $value->getSubject();?></a>
+                            </li>
+                            <?php $i++; endforeach;?>
+                            </ul>
+                            </div>
+                          </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </td>
+  </tr>
+</table>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#OtherNewsHead').click(function(){
+		$('#OtherNewsList').toggle();	
+	});
+});
+</script>

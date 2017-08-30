@@ -1,0 +1,213 @@
+/* CSS Document */
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	padding: 0px;
+	font-size:12px;
+}
+.list-menu1 ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+	float:left;
+}
+.list-menu1 ul li{
+	margin:5px 5px;
+	padding:0;
+	display:inline;
+	float:left;
+} 
+.list-menu1 a{	
+	margin:0;
+	padding:0;
+	color:#FFFFFF;
+	font:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+.list-menu1 .size{
+	width:26px;
+	height:26px;
+}
+
+.list-menu2 ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.list-menu2 ul li{
+	border-right:1px solid #000000;
+	margin:0;
+	padding:0px 30px;
+	display:inline;
+}
+.list-menu2 a{
+	font:bold 12px Arial, Helvetica, sans-serif;
+	color:#0099FF;
+	text-decoration:none;
+}
+.list-menu3 ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.list-menu3 ul li{
+	border-right:1px solid #000000;
+	margin:0;
+	padding:0px 10px;
+	display:inline;
+}
+.list-menu3 a{
+	font: bold 12px Arial, Helvetica, sans-serif;
+	color:#0099FF;
+	text-decoration:none;
+}
+.clear {
+clear:both;
+}
+.menutrai ul{
+	margin:0;
+	padding:0px;
+	list-style:none;
+	width:180px;
+	display:block;	
+}
+.menutrai ul li{
+	height:27px;
+	margin:0px 0px;
+	padding:0;
+	border:#CCCCCC solid 1px;
+	padding:0px;
+	background-image:url('../image/menu_home_bg.gif');
+	background-repeat:no-repeat;
+}
+.menutrai a{
+	width:172px;
+	margin:0;
+	padding:3px;
+	font: bold 12px Arial, Helvetica, sans-serif;
+	color:#000000;
+	text-decoration:none;
+}
+td .menutrai{
+	width:177px;
+}
+
+.list-menu4 ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.list-menu4 ul li{
+	margin:0;
+	border-right:solid 1px #000000;
+	padding:0px 7px;
+	display:inline;
+} 
+.list-menu4 a{	
+	margin:0;
+	padding:0;
+	color:#0099FF;
+	font:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size:12px;
+	text-decoration:none;
+}
+
+.logo{
+	background:url(../image/nen-kengang.jpg);
+	background-repeat:repeat-x;
+	margin:0px 3px;
+	padding-left:8px;
+	color:#FFFFFF;
+	font-weight:bold;
+}
+.boder-sp{
+	width:114px;
+	border:solid 1px #E4E4E4;
+	margin:2px 1px;
+	padding:0;
+}
+.raovat-bg{
+	background:url(../image/raovat-center.jpg) repeat;
+	font:14px ;
+	font-weight:bold;
+	color:#FFFFFF;
+	margin:0px;
+	padding:0px;
+}
+.raovat{
+	border:solid 1px #888888;
+}
+.raovat ul{
+	margin:0;
+	padding:0;
+	list-style:inside;
+}
+.raovat ul li{
+	margin:0;
+	padding:5px 5px;
+	list-style-image:url(../image/icon/icon-raovat.png);
+}
+.raovat li a{
+	margin:0;
+	padding-left:5px;
+	text-decoration:none;
+	color:#000000;
+}
+.raovat li a:hover{
+	margin:0;
+	padding:5px;
+	color:#0099FF;
+	background-color:#FFFFFF;
+}
+.banner-duoi{
+	height:57px;
+	background:url(../image/nen-duoi.jpg);
+	font-size:10px;
+	font-weight:bold;
+}
+.banner-duoi a{
+	text-decoration:none;
+}
+.productlist {
+	width: 100%;
+	margin:0px;
+	padding:0px;
+	display:block;
+}
+
+.paging a.pagelink, a.pagelinklast, span.pagecurrent {
+    background-color: #EBFAFF;
+    border: 1px solid #D5E3E8;
+    color: #000000;
+    display: inline-block;
+    font-family: Tahoma,Verdana,Arial;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 6px;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.paging strong.pagecurrent {
+    background-color: #FEF7D6;
+    border: 1px solid #FF6C24;
+    color: #000000;
+    display: inline-block;
+    font-family: Tahoma,Verdana,Arial;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 6px;
+    padding: 5px;
+    text-decoration: none;    
+}
+
+.paging a.pagelink:hover, a.pagelinklast:hover {
+    background-color: #FEF7D6;
+    border: 1px solid #FF6C24;
+    color: #000000;
+}

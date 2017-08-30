@@ -1,0 +1,73 @@
+<div class="widgetProduct">
+<?php foreach ($productList as $productItem): ?> 
+	<div class="header" style="width:100%;">
+	<div class="catalog">
+	<label><a href="<?php echo site_url('catalog').'/'.$productItem['category']->getId().'-'.khongdau($productItem['category']->getName());?>"><?php echo $productItem['category']->getName(); ?></a></label>
+	</div>
+	<div class="fe" style="float:right;width:400px;text-align:right;">
+	<span><a href="<?php echo site_url('catalog').'/'.$productItem['category']->getId().'-'.khongdau($productItem['category']->getName());?>" class="text_link" title="<?php echo $productItem['category']->getName(); ?> Mới cập nhật">Mới cập nhật</a></span> &nbsp;|&nbsp; <span><a href="#" class="text_link" title="<?php echo $productItem['category']->getName(); ?> Nhất tuần">Nhất tuần</a></span> &nbsp;|&nbsp; <span><a href="#" class="text_link" title="<?php echo $productItem['category']->getName(); ?> Rẻ nhất">Rẻ nhất</a></span> &nbsp;|&nbsp; <span class="view_all"><a href="<?php echo site_url('catalog').'/'.$productItem['category']->getId().'-'.khongdau($productItem['category']->getName());?>" class="text_link">Xem tất cả</a></span>
+	</div>	
+	</div>
+	<?php $i=0;?>
+	<?php foreach ($productItem['products'] as $value):?>
+	<div class="productItem <?php echo 'item'.$i;?> tooltip" id="<?php echo $value->getId();?>">
+		<div class="ProductInfo" >
+			<div class="imageLocation">
+			<a class="tooltip_click" href="<?php echo site_url('product').'/'.$value->getId().'-'.khongdau($value->getName());?>">
+			<?php
+			if (substr($value->getImageDefault(), 0, 4)=='http') { ?>
+			<img src="<?php echo $value->getImageDefault();?>">
+			<?php }
+			else {
+			if (substr_count($value->getImageThumbNail(),"jpg")>0) {?>
+			<?php if (strlen($value->getImageThumbNail()) == 0) {?>
+			<img src="<?php echo site_url();?>image/noimage.jpg">
+			<?php } else { ?>
+			<img src="<?php echo $value->getImageThumbNail();?>">
+			<?php }?>
+			<?php } else { ?>
+			<?php if (strlen($value->getImageDefault()) == 0) {?>
+			<img src="<?php echo site_url();?>image/noimage.jpg">
+			<?php } else { ?>
+			<img src="<?php echo $value->getImageDefault();?>">			
+			<?php }
+				}
+			}
+			?>
+			</a>
+			</div>
+			<div class="productName"><?php echo $value->getNiceName();?></div>
+			<div class="price"><?php echo $value->getNicePrice();?> VNĐ</div>
+		</div>
+		<div class="ProductInfo" style="display:none;" id="product_<?php echo $value->getId();?>">
+			<div class="productName"><?php echo $value->getName();?></div> 
+			<?php if (intval($value->getPrice())==0) {?>
+			<div class="price">Chưa có giá</div>
+			<?php } else { ?>
+			<div class="price"><?php echo $value->getNicePrice();?> VNĐ</div>
+			<?php } ?>
+			<img src="<?php echo $value->getImageDefault();?>" width="300">
+		</div>		
+	</div>
+	<?php $i++; endforeach; ?>
+	<div style="clear: both;"></div>
+<?php endforeach; ?>
+</div>
+<script type="text/javascript">
+/*$('.tooltip').tooltip({ 
+    delay: 0, 
+    showURL: false, 
+    bodyHandler: function() { 
+        return $(this).html(this.html); 
+    } 
+});*/
+$('.tooltip').tooltip({ 
+    delay: 0, 
+    showURL: false, 
+    bodyHandler: function() { 
+    	var id = $(this).attr("id");
+        // return $(this).html(this.html); 
+        return $('#product_'+id).html(this.html); 
+    } 
+});
+</script>

@@ -1,0 +1,54 @@
+<div class="content-header">
+    <h3 class="icon-head head-system-account">Sản phẩm - Thêm danh mục sản phẩm mới</h3> 
+    <div class="form-buttons">
+	<button onclick="return check(frm);" class="scalable save" type="button" id="id_"><span>Thêm mới</span></button>    
+    </div>
+</div>
+<div class="entry-edit">
+<div class="entry-edit-head">
+<h4 class="icon-head head-edit-form fieldset-legend">Thêm danh mục sản phẩm mới</h4>
+</div>
+<form id="form1" name="frm" method="post" action="<?php echo $this->config->site_url('admin');?>/do_add_new_cat">  
+<div class="fieldset " id="base_fieldset">
+<div class="hor-scroll">
+  <table width=100% class="form-list">
+  <tr>
+  <td>
+  Danh mục gốc:  
+  </td>
+  <td>
+  <select name="cate_id">
+  <option value="0" selected>= Danh mục gốc =</option>
+  <?php foreach ($category as $value): ?>
+  <option value="<?php echo $value->getId();?>"><?php echo $value->getName();?></option>
+  <?php endforeach;?>
+  </select>
+  </td>
+  </tr>
+  <tr>
+  <td>
+  Danh mục sản phẩm: 
+  </td>
+  <td>
+  <label>
+  <input type="text" name="cat_name" size="60" value="" class="input-text" />  *
+  </label>
+  </td>
+  </tr>
+  </table>
+  </div>
+  </div>
+</form>
+</div>
+
+<script language=javascript>
+function check(frm) {
+	if (frm.cat_name.value=="") {
+		alert("Bạn chưa nhập tên danh mục sản phẩm!");
+		frm.cat_name.focus();
+		return false;
+	}
+	frm.submit();
+	return true;
+}
+</script>

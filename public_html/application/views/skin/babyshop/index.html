@@ -1,0 +1,24 @@
+
+		<div id="main">
+			<img src="<?php echo site_url();?>/skin/babyshop/images/photo.jpg" alt="" width="682" height="334" border="0" usemap="#Map" />
+            <br />
+			<div id="inside">
+				<img src="<?php echo site_url();?>/skin/babyshop/images/title3.gif" alt="" width="159" height="15" /><br />
+				<div class="info">
+					<img src="<?php echo site_url();?>/skin/babyshop/images/pic2.jpg" alt="" width="159" height="132" />
+					<p><?php echo $tin[0]->getSummary();?></p>
+					<a href="#" class="more"><img src="images/more.gif" alt="" width="106" height="28" /></a>					
+				</div>
+				<img src="<?php echo site_url();?>/skin/babyshop/images/title4.gif" alt="" width="159" height="17" /><br />
+				<div id="items">
+				<?php $i=2; foreach ($product as $item):?>
+					<div <?php if ($i%3==0) {?> class="item center" <?php } else {?>  class="item"  <?php }?>>
+						<a href="<?php echo site_url('product').'/'.$item->getId().'-'.$item->getName();?>"><img src="<?php echo site_url().$item->getImageDefault();?>" width="213" height="192" /></a><br />
+						<p><a href="<?php echo site_url('product').'/'.$item->getId().'-'.$item->getName();?>"><?php echo $item->getName();?></a></p><span class="price"><?php echo $item->getNicePrice();?></span><br />
+					</div>
+				<?php $i++; endforeach;?>
+				</div>
+			</div>
+		</div>
+	</div>
+	

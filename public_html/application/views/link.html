@@ -1,0 +1,52 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="vi">
+<head>
+<title>Xem tất cả liên kết</title>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8" />
+<link rel=stylesheet href="/css/global.css?22.4.2011" type=text/css />
+<style type="text/css">
+.page {margin:20px 0 0 50px;width:890px}
+.wlink {float:left;width:290px;padding:3px}
+.wlink .domain a {
+font-size:7.5pt;font-weight:bold;text-decoration:underline;
+}
+.wlink .domain div.pos {
+background:#f7f7f7;
+float:left;width:16px;border:solid 1px #eeeeee;margin:3px;padding:1px;font-size:6pt;color:#996633;font-weight:bold;text-align:right;
+}
+.wlink .domain div.pos:hover {
+background:#ffffff;
+}
+.wlink .descr {
+overflow: hidden; text-overflow: ellipsis;
+}
+.wlink .descr a {
+font-size:7.5pt;color:#555555;
+}
+.home {padding:15px 0;clear:both;}
+.home a {padding:2px;}
+.frm {padding:0 0 0 5px}
+.frm .tl {font-size:8pt}
+</style>
+</head>
+<body>
+	<div class="page">
+		<div class="frm">
+			<div style="padding:3px 0"><script type="text/javascript" src="/javascripts/vkmenu.js"></script></div>
+		<div class="tl">Tìm kiếm</div>
+		<form action="" method="get">
+			<input type="text" name="kw" value="" />
+		</form>
+		</div>
+	<?php $i=1; foreach ($link as $item) {?>
+	<div class="wlink">
+		<div class="domain"><div class="pos"><?php echo $i++; ?></div> <a href="<?php echo $item->getUrl();?>" target="_blank" title="<?php echo $item->getTitle();?>"><?php echo $item->getUrl();?></a></div>
+		<div class="descr"><a href="<?php echo $item->getUrl();?>" title="<?php echo $item->getTitle();?>" target="_blank"><?php echo $item->getTextlink();?></a></div>
+	</div>
+	<?php } ?>
+	</div>
+</body>
+</html>
+	

@@ -1,0 +1,23 @@
+	<div style="text-align:center">
+	<h3>Cùng người bán</h3>
+	</div>
+	<?php foreach($thesame_saler as $value):?>
+		  <div class="productItem" style="width:180px;float:left;padding:1px;">
+					<div class="ProductInfo">
+						<div class="imageLocation"><a onmouseout="hideddrivetip();" onmouseover="ddrivetip('<?php echo $value->getName();?>');" href="<?php echo site_url('product').'/'.$value->getId().'-'.khongdau($value->getName());?>"><img height="100px;" src="<?php if (substr($value->getImageDefault(), 0, 4)=='http') { echo $value->getImageDefault(); } else if ($value->getImageDefault()=='') { echo site_url().'images/no_picture.gif'; } else { if (substr_count($value->getImageDefault(),"jpg")>0) { echo site_url().$value->getImageThumbNail();} else { echo site_url().$value->getImageDefault(); } }?>"></a></div>
+						<div class="productName"><?php echo $value->getNiceName();?></div>
+						<div class="price"><?php echo $value->getNicePrice();?>&nbsp;VNĐ</div>
+					</div>
+		  </div>
+	<?php endforeach;?>	
+	<script type="text/javascript"><!--
+	google_ad_client = "ca-pub-7558111651436432";
+	/* ADmuarenhat250_250 */
+	google_ad_slot = "0994594758";
+	google_ad_width = 250;
+	google_ad_height = 250;
+	//-->
+	</script>
+	<script type="text/javascript"
+	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script>

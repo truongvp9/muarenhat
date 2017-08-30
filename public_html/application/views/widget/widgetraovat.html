@@ -1,0 +1,66 @@
+<?php
+	function niceTitle($html) {
+        $string = explode(" ", $html);
+		$max = count($string);
+		if ($max<15) return $html;
+		$result = '';
+		for ($i=0; $i<15 && $i<$max; $i++) {	
+			$st = trim($string[$i]);
+			$result.= " ".$st;
+		}
+		$result = trim($result)."...";
+		return $result;
+	}
+?>
+<div class="raovatmoi" style="margin-top:5px;float:left;">
+<ul>
+<li class="raovat-bg">          
+		  <div style="float:left;">
+          <img src="<?php echo site_url();?>image/raovat-left.jpg" width="11" height="25" />
+          </div>
+          <div class="center">         
+          <span>
+          Rao v&#7863;t m&#7899;i nh&#7845;t 
+          </span>          
+          </div>
+          <div style="float:right">
+          <img src="<?php echo site_url();?>image/raovat-right.jpg" width="11" height="25" />
+          </div>
+</li>
+<li>     
+        <ul>
+          <?php foreach ($topraovat as $value):?> 
+          <li><a href="<?php echo site_url('raovat/xemtin').'/'.$value->getId().'-'.khongdau($value->getSubject());?>"><?php echo niceTitle($value->getSubject());?></a></li>
+          <?php endforeach;?>
+        </ul>
+</li>        
+<li>
+<div class="view_all"><a href="/raovat/" class="text_link">Xem tất cả</a></div>
+</li>
+</ul>
+</div>
+
+<div class="raovatmoi" style="clear:both;margin-top:5px;float:left;padding-bottom:10px;">
+<ul>
+<li class="raovat-bg">          
+		  <div style="float:left;">
+          <img src="<?php echo site_url();?>image/raovat-left.jpg" width="11" height="25" />
+          </div>
+          <div class="center">         
+          <span>
+          Gian hàng tiêu biểu
+          </span>          
+          </div>
+          <div style="float:right">
+          <img src="<?php echo site_url();?>image/raovat-right.jpg" width="11" height="25" />
+          </div>
+</li>
+<li>     
+        <ul>
+          <li><a href="http://madatvang.com" target="_blank">Mỹ thuật Sao Mai</a></li>
+		  <li><a href="http://shophangnhap.net" target="_blank">Shop hàng xách tay</a></li>
+		  <li><a href="http://ascoffee.net" target="_blank">café AS-Coffee</a></li>
+        </ul>
+</li>        
+</ul>
+</div>

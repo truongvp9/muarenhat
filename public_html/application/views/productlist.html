@@ -1,0 +1,30 @@
+<?php
+ include_once("seotiengviet.php");
+?>
+
+<div class="productlist">
+	<!-- left column -->
+	<div class="column-left c1">
+		<?php $this->load->view("menu.html");?>
+		<?php $this->load->view("widget/widgetraovat.html", array('topraovat' => $topraovat)); ?>
+	</div>
+	<!-- middle and right column -->
+	<div>
+		<div>
+			<div class="column-left">
+				<?php $this->load->view("slider.html"); ?>
+			</div>
+			<div class="c3">
+			<?php $this->load->view("tintuc.html");?>				
+			</div>
+		</div>
+		<div>
+			<div class="column-left" style="width: 800px;">
+				<?php $this->load->view("widget/widgetproduct.html", array('productList' => $productList)); ?>
+			</div>
+			<div class="c3" style="margin-top:0px;margin-left:1025px;position:absolute;">
+				<?php $this->load->view("widget/widgetquangcao.html");?>
+			</div>
+		</div>
+	</div>
+</div>

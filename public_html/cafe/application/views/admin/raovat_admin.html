@@ -1,0 +1,105 @@
+<form action="" method="post">
+	&nbsp;Tiêu đề rao vặt: <input type="text" id="search" name="keyword">
+	<input type="submit" value="Tìm kiếm " name="Submit">
+</form>
+<br>
+Trang: <?php echo $paging;?>		
+<div class="NewsList">
+<table border="0" cellpadding="0" cellpadding="1" width="100%" id="table3">
+    <tr>
+      <td class="Header">Tiêu đề tin</td>
+      <td class="Header City">Tỉnh/T.phố</td>
+      <td align="center" class="Header Date">Ngày</td>
+      <td align="center" class="Header Image">Sửa</td>
+      <td align="center" class="Header Image">VIP</td>
+      <td align="center" class="Header Image">Siêu VIP</td>
+      <td align="center" class="Header View" width=5%>Xóa tin</td>
+    </tr>
+   <?php foreach ($rv as $value):?> 
+    <tr class="Rows">
+	    <td>
+	    <a href="<?php echo site_url('raovat/xemtin').'/'.$value->getId();?>"><?php echo $value->getSubject();?></a>
+	    </td>
+	    <td>
+	    <?php echo $value->getProvinceByName();?>
+	    </td>
+	    <td>
+	    <?php echo $value->getDate();?>
+	    </td>
+		<td align="center">
+      		<a href="/myitem/edit/<?php echo $value->getId();?>"><img src="/images/b_edit.png"></a>
+      	</td>	    
+	    <td>
+	      <div style="text-align:center">    
+		      <a href="#" class="tinvip" id="<?php echo $value->getId();?>" alt="Kích vào đây để đăng tin vip">
+		      <img src="http://tructiep.vn/website/images/icon_vip2.gif">
+		      </a>
+	      </div>	    
+	    </td>
+      <td>
+      <div style="text-align:center">    
+      <a href="#" class="sieuvip" id="<?php echo $value->getId();?>" alt="Kích vào đây để đăng tin siêu vip">
+      <img src="http://static.vatgia.com/css/multi_css_v2/standard/icon_vip.gif">
+      </a>
+      </div>
+      </td>      	    
+	    <td align="center">
+	    <a href="<?php echo site_url('admin/removeraovat').'/'.$value->getId();?>" onclick="return confirm('Bạn có thực sự muốn xóa không?');"><img src='/images/b_drop.png'></a>
+	    </td>
+    </tr>
+   <?php endforeach;?> 
+</table>
+</div>
+Trang: <?php echo $paging;?>
+<style type="text/css">
+.NewsList .Header
+{
+	border: 1px solid #D4DDED;
+	background-color: #01709E;
+	color:white;
+	margin:0px;
+	padding:0px;
+}
+.NewsList .Rows {
+	background-color:#D4DDED;
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".tinvip").click(function(){ 
+		// if (confirm('Bạn hãy nhắn tin SMS tới số 8x88 theo cú pháp [UP mã tin] gửi 8x88?')) {
+		var id = $(this).attr("id");			
+		$.ajax({ 
+			type : 'POST',			
+			url : '/uptin/vip',			
+			dataType : 'html',
+			data: {
+				id : id,key: "<?php echo sha1('muaban!2');?>" 
+			},
+			success: function(){
+				alert('Tin '+id+' của bạn đã là tin vip');
+				// location.reload();
+			}
+		});
+		//}
+	});
+	
+	$(".sieuvip").click(function(){ 
+		// if (confirm('Bạn hãy nhắn tin SMS tới số 8x88 theo cú pháp [UP mã tin] gửi 8x88?')) {
+		var id = $(this).attr("id");			
+		$.ajax({ 
+			type : 'POST',			
+			url : '/uptin/sieuvip',			
+			dataType : 'html',
+			data: {
+				id : id,key: "<?php echo sha1('muaban!2');?>" 
+			},
+			success: function(){
+				alert('Tin '+id+' của bạn đã là tin siêu vip');
+				// location.reload();
+			}
+		});
+		//}
+	});	
+});
+</script>	

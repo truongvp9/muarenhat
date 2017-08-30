@@ -1,0 +1,2524 @@
+* {margin:0;padding:0}
+
+body {
+	background: #E5ECF3;
+	font-family:Arial;
+    font-size: 12px;
+    margin-top: 0px;
+    margin-right: 5px;
+    margin-bottom: 0px;
+    margin-left: 5px;
+    padding: 0;
+}
+tbody, table {
+	margin:auto;
+}
+.wrapper {
+	clear:both;
+	width:1020px;
+	margin:auto;
+	background: #FFFFFF;
+}
+.wrapper_home {
+	clear:both;
+	width:100%;
+	margin:auto;
+	background: #FFFFFF;
+}
+
+.footer {
+	clear:both;
+	width:1020px;
+	font-size:10px;
+}
+.footer_top {
+	width:680px;
+	padding:10px;
+	margin-left:200px;
+}
+.header {
+	width:960px;
+}
+.cloginfrm {
+    border: 1px solid #C9E1F4;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    margin: 32px 25px 25px 200px;
+    padding: 10px 15px;
+    position: relative;
+	width:500px;
+	background-color:#F2F2F2;
+	display:block;
+}
+
+.cloginfrm  span {
+	float:right;
+}
+
+.cloginfrm  input {
+	border: 1px solid #BDC7D8;
+	float:left;
+	font-size: 14px;
+	padding:3px;
+    margin-top: 2px;	
+}
+
+.registerfrm {
+    border: 1px solid #C9E1F4;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    margin-left:100px;
+    margin-top:20px;
+    margin-bottom:20px;
+    padding: 10px 15px;
+    position: relative;
+	width:720px;
+	background-color:#F2F2F2;
+	display:block;
+}
+
+.registerfrm  input {
+	border: 1px solid #BDC7D8;
+	float:left;
+	font-size: 14px;
+	padding:3px;
+    margin-top: 2px;	
+}
+
+.registerfrm  span {
+	float:right;
+}
+
+.require {
+	color: #FF0000;
+}
+
+#signupform label.error {
+    background: url("/images/unchecked.gif") no-repeat scroll 0 0 transparent;
+    color: #EA5200;
+    font-weight: bold;
+    padding-bottom: 0px;
+    padding-left: 16px;
+    margin-left:5px;
+}
+
+#signupform label.checked {
+    background: url("/images/checked.gif") no-repeat scroll 0 0 transparent;
+    margin-left:5px;
+}
+
+#signupform .label {
+  padding-top: 2px;
+  padding-right: 8px;
+  vertical-align: top;
+  text-align: right;
+  width: 125px;
+  white-space: nowrap;
+}
+
+.slim #blueBar {
+    border-bottom: 1px solid #133783;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.52);
+    height: 37px;
+    position: relative;
+}
+
+#blueBar.fixed_elem {
+    left: 0;
+    top: 0;
+}
+
+#blueBar {
+    background-color: #627AAD;
+    min-width: 981px;
+    width: 100%;
+    z-index: 300;
+    margin:auto;
+}
+.fixed_elem {
+    position: fixed !important;
+}
+.slideshow {
+	width:500px;
+	float:left;
+}
+.hoidap {
+	border: 1px solid #C9E1F4;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    margin: 33px 25px 5px;
+    padding: 10px 15px;
+    position: relative;
+	width:800px;
+	background-color:#F2F2F2;
+	display:block;
+}
+
+.raovat {
+	border: 1px solid #C9E1F4;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    margin: 10px 15px;
+    padding: 10px 15px;
+    position: relative;
+	width:900px;
+	background-color:#F2F2F2;
+	display:block;
+}
+.raovatmoi {
+	border: 1px solid #C9E1F4;
+	border-radius: 10px 10px 10px 10px;
+}
+.topraovat {
+	border: 1px solid #C9E1F4;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    margin: 33px 25px 5px;
+    padding: 10px 15px;
+    position: relative;
+	background-color:#F2F2F2;
+	display:block;
+	width:177px;
+}
+
+.gianhang {
+	border: 1px solid #C9E1F4;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    margin: 5px 25px 5px;
+    padding: 10px 15px;
+    position: relative;
+	width:860px;
+	background-color:#F2F2F2;
+	display:block;
+}
+
+.fb {
+	width:200;
+	float:right;"
+}
+
+.headline {
+}
+
+.Header {
+    border-bottom: 1px solid #C8C8C8;
+    color: #FFFFFF;
+    font-weight: 700;
+    padding: 1px;
+}
+
+.Header span {
+    background-color: #0099FF;
+    display: block;
+    font-family: Tahoma,Verdana,Arial;
+    padding: 2px 4px 3px 10px;
+}
+
+input.button {
+    background: none repeat scroll 0 0 #0099FF;
+    border-color: #025475;
+    border-style: solid;
+    border-width: 1px;
+    color: #FFFFFF;
+    font-weight: 700;
+    padding: 0 5px;
+    cursor:pointer;
+}
+
+/* begin css for menu by truong */
+
+.box-left {
+	position: relative;
+	float: left;
+	width: 200px;
+}
+
+.left_menu_home {
+    background: url("line_blue.gif") repeat-x scroll center top #FFFFFF;
+    float:left;
+}
+
+.left_menu_home ul li {
+	list-style: none outside none;
+	float:left;	
+	font-weight:bold;
+	height: 20px;
+}
+
+.container_content_left {
+    position: absolute;
+    width: 180px;
+}
+
+.left_menu_drop {
+	display: none;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 2px solid #90CFFA;
+    border-radius: 0 0.5em 0.5em 0;
+    line-height: 20px;
+    overflow: hidden;
+    padding: 5px 10px;
+    position: absolute;
+    width: 300px;
+    z-index: 3;
+}
+
+.left_menu_drop ul {
+	background:none;
+}
+
+.raovatmoi {
+	float:left;
+}
+
+.raovatmoi ul li {
+	list-style: none outside none;
+ 	background: url("images/icon_vuong.gif") no-repeat scroll left 9px transparent;
+ 	margin:10px;
+ 	padding: 0  0  0 10px;
+}
+	
+/* end css for menu */
+
+/* CSS Document */
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	padding: 0px;
+	font-size:12px;
+}
+
+.menu-left {
+     position: relative;
+    width: 177px;
+}
+
+.menu-left ul li {
+	background: url("line_blue.gif") repeat-x scroll center top #FFFFFF;			
+    position: relative;
+    padding: 5px;
+    list-style: none outside none;
+}
+
+.list-menu1 ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+
+.list-menu1 ul li{
+	margin:5px 5px;
+	padding:0;
+	display:inline;
+}
+
+.list-menu1 a{	
+	margin:0;
+	padding:0;
+	color:#FFFFFF;
+	font:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+.list-menu1 .size{
+	width:26px;
+	height:26px;
+}
+
+.list-menu2 ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+
+.list-menu2 ul li{
+	border-right:1px solid #000000;
+	margin:0;
+	padding:0px 30px;
+	display:inline;
+}
+
+.list-menu2 a{
+	font:bold 12px Arial, Helvetica, sans-serif;
+	color:#0099FF;
+	text-decoration:none;
+}
+
+.list-menu3 ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+
+.list-menu3 ul li{
+	border-right:1px solid #000000;
+	margin:0;
+	padding:0px 10px;
+	display:inline;
+}
+
+.list-menu3 a{
+	font: 11px Arial, Helvetica, sans-serif;
+	color:#0099FF;
+	text-decoration:none;
+}
+
+.clear {
+	clear:both;
+}
+
+.menutrai ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+	width:161px;
+	display:block;
+}
+
+.menutrai ul li{
+	height:27px;
+	margin:2px 0px;
+	padding:0;
+	border:#CCCCCC solid 1px;
+	padding:0px 7px;
+}
+
+.menutrai a{
+	width:172px;
+	margin:0;
+	padding:3px;
+	font: bold 12px Arial, Helvetica, sans-serif;
+	color:#000000;
+	text-decoration:none;
+}
+
+td .menutrai{
+	width:177px;
+}
+
+.list-menu4 ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.list-menu4 ul li{
+	margin:0;
+	border-right:solid 1px #000000;
+	padding:0px 7px;
+	display:inline;
+} 
+.list-menu4 a{	
+	margin:0;
+	padding:0;
+	color:#0099FF;
+	font:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size:12px;
+	text-decoration:none;
+}
+.raovatmoi {
+	width:185px;
+	float:left;
+	margin:0px;
+	padding:0px;
+}
+
+.raovatmoi ul li {
+	background:none;
+	margin:0px;
+	padding:0px;
+}
+
+.raovatmoi ul ul li {
+	background:url(images/icon_vuong.gif) no-repeat scroll left 3px transparent;
+	margin:0px;
+	padding-left:10px;
+}
+
+.raovat-bg{
+	background:url(../image/raovat-center.jpg) repeat;
+	font:14px ;
+	font-weight:bold;
+	color:#FFFFFF;
+	margin:0px;
+	padding:0px;
+	width:185px;
+}
+.raovat-bg .center {
+	background:url(../image/raovat-center.jpg) repeat;
+	height: 25px;
+	width: 163px;
+	margin:0px;
+	padding:0px;	
+	float:left;
+}
+.raovat-bg .center span {
+	padding-top:5px;
+	display:block;
+	padding-left:10px;
+}
+.raovat{
+	border:solid 1px #888888;
+}
+.raovat ul{
+	margin:0;
+	padding:0;
+	list-style:inside;
+}
+.raovat ul li{
+	margin:0;
+	padding:5px 5px;
+	list-style-image:url(../image/icon/icon-raovat.png);
+}
+.raovat li a{
+	margin:0;
+	padding-left:5px;
+	text-decoration:none;
+	color:#000000;
+}
+.raovat li a:hover{
+	margin:0;
+	padding:5px;
+	color:#0099FF;
+	background-color:#FFFFFF;
+}
+.banner-duoi{
+	height:57px;
+	background:url(../image/nen-duoi.jpg);
+	font-size:12px;
+	font-weight:bold;
+}
+.banner-duoi a{
+	text-decoration:none;
+}
+
+/* Begin Product List Module */
+.productlist {
+	width: 100%;
+	margin:0px;
+	padding:0px;
+	display:block;
+}
+.column-left {
+	float: left;
+	width: 200px;
+}
+.c1 {
+	width: 200px;
+}
+.c3 {
+	float: right;
+}
+.widgetProduct .gridProduct {
+	border: 1px solid #C9E1F4;
+	border-radius: 10px 10px 10px 10px;	
+}
+div.widgetProduct .header {
+	width: 100%;
+	line-height: 25px;
+	background: url("line_h.gif") repeat-x scroll center bottom transparent;
+	background-repeat:repeat-x;
+	text-align: left;
+	color: #E97D13;
+}
+div.widgetProduct .header label {
+	margin: 0px 5px;
+	color: #E97D13;
+}
+.widgetProduct .header .catalog a {
+	font-size: 16px;
+    font-weight: bold;
+    color: #E97D13;
+    width:300px;
+    float:left;
+}
+div.widgetProduct .productItem, .productItem {
+	width: 20%;
+	float: left;
+	display: inline;
+	text-align: center;
+}
+div.widgetProduct .productItem .ProductInfo, .ProductInfo {
+	border: none;
+	margin: 2px 1px;
+}
+div.widgetProduct .productItem > div {
+	text-align: center;
+}
+div.widgetProduct .productItem .ProductInfo .imageLocation img {
+	width:auto;
+	height:100px;
+}
+div.widgetProduct .productItem .ProductInfo .productName,.productName {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #333333;
+	font-size: 10pt;
+}
+div.widgetProduct .productItem .ProductInfo .price {
+	color: #FF6633;
+	font-size: 12px;
+	font-weight: bold;
+}
+/* End Product List Module */
+/* Begin image slice*/
+.slideshow {
+	position: relative;
+}
+.slideshow .image img {
+	width: 500px;
+}
+.slideshow .number {
+	position: absolute;
+	display: block;
+    bottom:0;
+    right:0;
+    z-index: 1;
+}
+.slideshow .number span {
+    width: 40px;
+	display: block;
+	text-align: center;
+	cursor: pointer;
+	background-color: #13366e;
+}
+.slideshow .number span.current {
+	background-color: #840000;
+}
+/* End image slice*/
+
+/* Begin Rao vat Module */
+
+.NewsList .Header {
+	background: url(images/dot_line3.gif) repeat-x left bottom;
+	font-weight: 700;
+	color: #606A74;
+	font-size: 11px;
+	font-family: Tahoma, Verdana, Arial;
+	padding-bottom: 3px;
+}
+
+.NewsList a.newsTitle {
+    background: url("images/bullet.gif") no-repeat scroll left 3px transparent;
+    color: #00344F;
+    display: block;
+    font-size: 12px;
+    margin-left: 5px;
+    padding-left: 15px;
+    padding-right: 5px;
+    text-decoration: none;
+}
+
+.NewsList .Odd {
+    background-color: #FAFAFA;
+}
+
+.NewsList .Even {
+    background-color: #E0F0FF;
+}
+
+#NewsInfo {
+    border: 1px solid #CCCCCC;
+    margin-top: 5px;
+    width:740px;
+	float:left;
+}
+
+#NewsInfo .NewsAuthor {
+    color: #70695B;
+    font-size: 12px;
+    margin: 10px 5px 15px 10px;
+    text-align: left;
+}
+
+#NewsInfo .LeftBlock { 
+	float:left;width:410px;border-left:2px solid #d7d7d7;padding-left:5px 
+}
+
+#NewsInfo .RightBlock {
+	float:right;border-left:2px solid #d7d7d7;padding:0 20px 0 5px
+}
+
+#NewsInfo .TitleLabel {
+    color: #DF0023;
+    font-family: Tahoma,Verdana,Arial;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 10px 0 0 10px;
+    text-align: left;
+}
+
+#NewsInfo .NewsContent {
+    font-size: 12px;
+    text-align: left;
+}
+
+#box-path {
+    color: #003ACB;
+    float: left;
+    font-size: 12px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+#box-path a {
+    color: #003ACB;
+    text-decoration: none;
+    float:left;
+}
+
+#box-path span {
+	float: left;
+}
+
+#box-path a:hover {
+    color: #E8641A;
+}
+
+#detail_back {
+    color: #422F93;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 10px 0;
+    text-align: left;
+}
+
+#NewsLayout .ButtonBar {
+    border-bottom: 1px solid #CCCCCC;
+    border-left: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    text-align: center;
+}
+#NewsLayout .ButtonBar a {
+    color: #868F98;
+    font-family: Tahoma,Verdana,Arial;
+    font-size: 11px;
+    margin-right: 0;
+    padding-left: 7px;
+    text-decoration: none;
+}
+#NewsLayout .ButtonBar a img {
+    margin-right: 3px;
+}
+#NewsLayout .ButtonBar a:hover {
+    color: #CC0000;
+    text-decoration: underline;
+}
+#NewsReply {
+    border: 1px solid #CCCCCC;
+    margin-top: 5px;
+}
+#NewsLayout .Header {
+    background: url("images/i_sub.gif") no-repeat scroll 99% 6px #0A88BB;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Tahoma,Verdana,Arial;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    text-align: left;
+}
+#NewsLayout .HeaderRed {
+    background: none repeat scroll 0 0 #CC0000;
+    color: #FFFFFF;
+    cursor: default;
+    font-family: Tahoma,Verdana,Arial;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+}
+#NewsLayout .HeaderCyan {
+    background: none repeat scroll 0 0 #BAD6A2;
+    color: #FFFFFF;
+    cursor: default;
+    font-family: Tahoma,Verdana,Arial;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+}
+#NewsLayout .HeaderPlus {
+    background: url("images/i_plus.gif") no-repeat scroll 99% 6px #0A88BB;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Tahoma,Verdana,Arial;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+}
+#NewsLayout .BackLink {
+    padding: 5px 10px;
+}
+#NewsLayout .BackLink a {
+    font-family: Tahoma,Verdana;
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none;
+}
+#NewsLayout .BackLink a:hover {
+    color: #CC0000;
+}
+#NewsReply UL {
+    list-style: none outside none;
+    margin: 0;
+    padding: 3px 0 0;
+}
+#NewsReply .CommentList LI {
+    background: url("images/language.png") no-repeat scroll left 2px transparent;
+    border-bottom: 1px solid #E1E1E1;
+    font-size: 12px;
+    margin: 0 5px;
+    padding: 3px 0 3px 22px;
+}
+#NewsReply .CommentList LI.me {
+    background: url("images/star.png") no-repeat scroll left 2px transparent;
+    border-bottom: 1px solid #E1E1E1;
+    margin: 0 5px;
+    padding: 3px 0 3px 22px;
+}
+#NewsReply .CommentList LI a {
+    color: #444444;
+    font-family: Tahoma,Verdana,Arial;
+    font-size: 11px;
+    text-decoration: none;
+}
+#NewsReply .CommentList LI.me a {
+    color: #00892A;
+    font-family: Tahoma,Verdana,Arial;
+    font-size: 11px;
+    text-decoration: none;
+}
+#NewsReply .CommentList LI a:hover {
+    color: #FF6701;
+    text-decoration: underline;
+}
+#NewsReply .NoReply {
+    display: block;
+    font-size: 12px;
+    padding: 5px;
+    text-align: center;
+}
+#NewsReply .ReplyForm {
+    padding: 2px 5px;
+}
+#NewsReply .SecCode {
+    font-size: 12px;
+    padding-top: 5px;
+}
+#OtherNews {
+    border: 1px solid #CCCCCC;
+    margin-top: 5px;
+}
+.OtherNews {
+    border: 1px solid #CCCCCC;
+    margin-top: 5px;
+}
+.OtherNewsList ul li a.Even {
+    background: url("images/bullet_2.gif") no-repeat scroll 4px 8px #E6F3FF;
+    color: #00344F;
+    display: block;
+    font-size: 12px;
+    padding: 5px 5px 5px 18px;
+    text-align: left;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+.OtherNewsList ul li a.Odd {
+    background: url("images/bullet_2.gif") no-repeat scroll 4px 8px #FFFFFF;
+    color: #00344F;
+    display: block;
+    font-size: 12px;
+    padding: 5px 5px 5px 18px;
+    text-align: left;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+.OtherNewsList ul li a.Even:hover {
+    color: #CC0000;
+    text-decoration: underline;
+}
+.OtherNewsList ul li a.Odd:hover {
+    color: #CC0000;
+    text-decoration: underline;
+}
+#NewsDetail {
+    float: left;
+    width: 100%;
+}
+.Panel {
+    background-color: #FFFFFF;
+    border: 1px solid #D4DDED;
+    float: left;
+    margin: 3px;
+    width: 245px;
+    height: 260px;
+}
+
+.Panel .title {
+	padding: 5px;
+	color:#FFFFFF;
+	background-color:#627AAD;
+	font-weight:bold;
+}
+
+.Panel .title a {
+	color:#FFFFFF;
+}
+
+.Panel ul li {
+	list-style: none outside none;
+ 	background: url("images/bullet_arrow.gif") no-repeat scroll left 5px transparent;
+ 	font-size:9pt;
+ 	border-bottom: 1px solid #E2EBEC;
+ 	margin-left: 3px;
+    padding-left: 3px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-bottom: 3px;
+    text-align: left;
+}
+
+#Cate1 UL LI.itemHot {
+    background: url("images/bullet_orange.gif") no-repeat scroll left 5px transparent;
+    font-weight: 700;
+    line-height: 15px;
+    margin: 0 5px 0 3px;
+    padding: 0 0 3px 3px;
+    text-align: left;
+}
+/* End Rao vat Module */
+
+
+/* Begin menu */
+
+.menu_left {
+    display: block;
+    left: 0;
+    margin: 0;
+    padding: 5px;
+    position: relative;
+    text-decoration: none;
+    width: 185px;
+}
+	
+.menu_left ul li {
+    display: block;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    text-decoration: none;
+    width: 185px;
+}
+
+.menu_left_drop {
+  display: none;
+}
+
+.menu_left_drop .root {
+    color: #004B91;
+    font-family: Arial,sans-serif;
+    font-size: 12px;
+    line-height: 120%;
+    margin-left: 18px;
+    position: relative;
+    text-decoration: none;
+}
+
+/* End menu left */
+
+
+/* Menu ngang tren */
+
+#nav, #nav ul {
+    list-style:  none;
+    position: relative;
+    line-height: 1.5em;
+}
+
+#nav a:link, #nav a:active,
+#nav a:visited {
+    display: block;
+    padding: 0px;
+    border: 1px solid #627AAD;
+    color: white;
+    text-decoration: none;
+    background: #627AAD;
+    text-align:left;
+}
+
+#nav a:hover {
+    background: #fff;
+    color: #333;
+}
+
+#nav li {
+    float: left;
+    position: relative;
+}
+
+#nav ul {
+    position: absolute;
+    width: 12em;
+    top: 1.6em;
+    display: none;
+}
+
+#nav li ul a {
+    width: 12em;
+    float: left;
+}
+
+#nav ul ul {
+    top: auto;
+}
+
+#nav li ul ul {
+    left: 12em;
+    margin: 0px;
+    float:left;
+}
+
+#nav li ul span {
+    margin: 0px;
+    padding: 2px;
+    float:left;
+}
+
+#nav li ul li ,
+#nav li ul a {
+    margin: 0px;
+    padding: 0px;
+    float:left;
+}
+
+#nav li:hover ul ul, 
+#nav li:hover ul ul ul,
+#nav li:hover ul ul ul ul {
+    display: none;
+}
+
+#nav li:hover ul,
+#nav li li:hover ul,
+#nav li li li:hover ul,
+#nav li li li li:hover ul {
+    display: block;
+}
+
+/* End Menu ngang tren */
+
+.left_menu_home span {
+	height: 29px;
+}
+
+.left_menu_home ul li {
+	padding: 3px;
+	margin: 0px;
+	line-height: 29px;
+    white-space: nowrap;
+}
+
+.left_menu_drop .root a {
+	background:none;
+}
+
+.left_menu_drop .root a:hover {
+	background:none;
+}
+
+.hidden {
+    border: 1px solid #C9E1F4;
+    display: block;
+    float: left;
+    padding: 10px 15px;
+    position: absolute;	
+	background:white;
+	float:left;
+}
+
+/* begin tooltip */
+#dhtmltooltip{
+position: absolute;
+width: 150px;
+border: 2px solid black;
+padding: 2px;
+background-color: lightyellow;
+visibility: hidden;
+z-index: 100;
+/*Remove below line to remove shadow. Below line should always appear last within this CSS*/
+filter: progid:DXImageTransform.Microsoft.Shadow(color=gray,direction=135);
+}
+/* end tooltip*/
+
+#dhtmltooltip
+{
+	border: #666 2px solid;
+	padding: 5px;
+	font-size: 10pt;
+	z-index: 100;
+	-moz-opacity: 0.9;
+	opacity: 0.9;
+	filter: alpha(opacity=90);
+	left: -300px; top:0px;
+	visibility: hidden;
+	font-family: Arial;
+	position: absolute;
+	background-color: lightyellow;
+	width: 300px;
+	text-align:left;
+}
+#dhtmlpointer
+{
+	z-index: 101;
+	left: -300px; top:0px;
+	visibility: hidden;
+	position: absolute;
+}
+
+/* */
+.sub_link {
+	inherit: none; 
+	float:left;
+	background:none;
+}
+
+/* */
+
+/* rao vat */
+
+#CityCateBar {
+    color: #FFFFFF;
+    display: block;
+    float: right;
+    font-size: 11px;
+    height: 19px;
+    margin-right: 5px;
+    margin-top: 5px;
+    padding-right: 10px;
+    position: relative;
+    text-align: right;
+}
+#CityCateBar .colspan {
+    float: right;
+    position: absolute;
+    right: 5px;
+    top: 25px;
+    width: 28px;
+}
+#CityCateBar .rowBarCon {
+    float: right;
+    height: 20px;
+    position: absolute;
+    right: 35px;
+    text-align: left;
+    top: 25px;
+    width: 686px;
+}
+#CityCateBar .CityBar {
+    background-color: #FFFFFF;
+    float: left;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 0 1px;
+    text-align: left;
+}
+#CityCateBar .CityBar a {
+    color: #828A8F;
+    font-family: Tahoma,Verdana;
+    text-decoration: none;
+}
+#CityCateBar .CityBar a:hover {
+    color: #000000;
+}
+#CityCateBar .CityBar .arrow_bottom {
+    background: url("images/arrow_bottom.gif") no-repeat scroll right 5px transparent;
+    padding-right: 11px;
+}
+#CityCateBar .CateTitle {
+    display: block;
+    padding: 3px 0 2px;
+}
+#CityCateBar .CateTitle a {
+    background: url("images/arrow_bottomLarger.gif") no-repeat scroll right 5px transparent;
+    color: #FFFFFF;
+    font-family: Tahoma,Verdana,Arial;
+    font-size: 11px;
+    font-weight: 700;
+    padding-right: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+#CityCateBar .CateTitle a:hover {
+    color: #000000;
+}
+#RequestBar {
+    border: 1px solid #D4DDEC;
+    float: left;
+    margin-bottom: 0;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-top: 1px;
+    position: relative;
+    width: 990px;
+}
+#RequestBar .colspan {
+    float: right;
+    position: absolute;
+    right: 5px;
+    top: 3px;
+    width: 28px;
+}
+#RequestBar .rowBarCon {
+    float: right;
+    height: 20px;
+    position: absolute;
+    right: 35px;
+    text-align: left;
+    width: 686px;
+}
+#RequestBar .CateHeader {
+    border-bottom: 1px solid #D4DDEC;
+}
+#RequestBar .CateHeader .CateTitle {
+    background: none repeat scroll 0 0 #0A88BB;
+    color: #FFFFFF;
+    display: block;
+    font-size: 11px;
+    margin: 1px;
+    padding: 2px 10px;
+}
+#RequestBar .CateHeader .CateTitle a {
+    color: #FFFFFF;
+    font-family: Tahoma,Verdana,Arial;
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+#RequestBar .Navication1 {
+    margin: 7px 10px;
+    text-align: left;
+}
+#RequestBar .Navication1 a.Item {
+    border-left: 1px solid #FFFFFF;
+    border-right: 1px solid #FFFFFF;
+    color: #105CB6;
+    font-family: Tahoma,Verdana;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 25px;
+    padding: 3px 7px;
+    text-decoration: none;
+}
+#RequestBar .Navication1 a.Item:hover {
+    background: none repeat scroll 0 0 #105CB6;
+    color: #FFFFFF;
+}
+#RequestBar .Navication1 a.All {
+    background: url("images/arrow_blue.gif") no-repeat scroll left 7px transparent;
+    color: #105CB6;
+    font-family: Tahoma,Verdana;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 150%;
+    padding: 3px 15px 3px 10px;
+    text-decoration: none;
+}
+#RequestBar .Navication1 a.All:hover {
+    background: none repeat scroll 0 0 #105CB6;
+    color: #FFFFFF;
+}
+#RequestBar .Navication1 a.selected {
+    background: none repeat scroll 0 0 #105CB6;
+    color: #FFFFFF;
+}
+#RequestBar .Navication2 {
+    background: url("images/dot_line2.gif") repeat-x scroll left top transparent;
+    display: inline-block;
+    margin: 0 10px;
+    padding: 3px 0;
+    text-align: left;
+}
+#RequestBar .Navication2 a.Item {
+    background: url("images/bullet_gray.gif") no-repeat scroll left 7px transparent;
+    color: #7B858A;
+    font-family: Tahoma,Verdana;
+    font-size: 11px;
+    line-height: 200%;
+    padding: 3px 10px 3px 15px;
+    text-decoration: none;
+}
+#RequestBar .Navication2 a.Item:hover {
+    background: url("images/bullet_gray.gif") no-repeat scroll left -7px transparent;
+    color: #FF8A00;
+}
+#RequestBar .Navication2 a.selected {
+    color: #FF8A00;
+    font-weight: 700;
+}
+#RequestBar .Navication2 a.All {
+    background: url("images/arrow_gray.gif") no-repeat scroll left 7px transparent;
+    color: #7B858A;
+    font-family: Tahoma,Verdana;
+    font-size: 11px;
+    padding: 3px 15px 3px 10px;
+    text-decoration: none;
+}
+#RequestBar .Navication2 a.All:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+#RequestBar .Navication3 {
+    background: url("images/dot_line2.gif") repeat-x scroll left top transparent;
+    color: #7B858A;
+    font-family: Tahoma,Verdana;
+    font-size: 11px;
+    margin: 5px 10px;
+    padding: 3px 0;
+    text-decoration: none;
+}
+#ContentLayout .NewsList {
+    float: left;
+    margin-top: 10px;
+    width: 100%;
+}
+#ContentLayout .NewsList .Header {
+    background: url("images/dot_line3.gif") repeat-x scroll left bottom transparent;
+    color: #606A74;
+    font-family: Tahoma,Verdana,Arial;
+    font-size: 11px;
+    font-weight: 700;
+    padding-bottom: 3px;
+}
+#ContentLayout .NewsList .City {
+    width: 90px;
+}
+#ContentLayout .NewsList .City a {
+    color: #00344F;
+    font-size: 12px;
+    text-decoration: none;
+}
+#ContentLayout .NewsList .City a:hover {
+    color: #CC0000;
+    text-decoration: underline;
+}
+#ContentLayout .NewsList .View {
+    width: 40px;
+}
+#ContentLayout .NewsList .Date {
+    width: 90px;
+}
+#ContentLayout .NewsList .Image {
+    width: 30px;
+}
+.smsStick {
+    color: #CC0000;
+}
+.NewsList a.newsTitle {
+    background: url("images/bullet_2.gif") no-repeat scroll left 3px transparent;
+    color: #00344F;
+    display: block;
+    font-size: 12px;
+    margin-left: 5px;
+    padding-left: 15px;
+    padding-right: 5px;
+    text-decoration: none;
+}
+.NewsList a.newsTitle:visited {
+    color: #888888;
+}
+.NewsList a.newsTitle:hover {
+    color: #CC0000;
+    text-decoration: underline;
+}
+.NewsList a.titleComment {
+    background: url("images/language.png") no-repeat scroll left 3px transparent;
+    color: #00344F;
+    display: block;
+    font-size: 12px;
+    margin-left: 0;
+    padding-left: 25px;
+    padding-right: 5px;
+    text-decoration: none;
+}
+.NewsList a.titleComment:visited {
+    color: #888888;
+}
+.NewsList a.titleComment:hover {
+    color: #CC0000;
+    text-decoration: underline;
+}
+.NewsList a.titleBookmark {
+    background: url("images/i_save.gif") no-repeat scroll left 3px transparent;
+    color: #00344F;
+    display: block;
+    font-size: 12px;
+    margin-left: 0;
+    padding-left: 25px;
+    padding-right: 5px;
+    text-decoration: none;
+}
+.NewsList a.titleBookmark:visited {
+    color: #888888;
+}
+.NewsList a.titleBookmark:hover {
+    color: #CC0000;
+    text-decoration: underline;
+}
+.NewsList .Odd {
+    background-color: #FFFFFF;
+}
+.NewsList .Even {
+    background-color: #E6F3FF;
+}
+.NewsList .Odd2 {
+    background-color: #FAFAFA;
+}
+.NewsList .Even2 {
+    background-color: #E0F0FF;
+}
+.NewsList .Odd td, .Even td, .Odd2 td, .Even2 td {
+    color: #00344F;
+    font-size: 12px;
+    padding: 3px;
+}
+.NewsList a.lnk {
+    color: #00344F;
+    font-size: 12px;
+    text-decoration: none;
+}
+.NewsList a.lnk:hover {
+    color: #CC0000;
+    text-decoration: underline;
+}
+#ContentLayout .NewsList .preImg {
+    border: 1px solid #E1E1E1;
+}
+#ContentLayout .NaviPage {
+    float: left;
+    padding-top: 10px;
+    text-align: center;
+    width: 735px;
+}
+#ContentLayout .NaviPage a.pagelink, a.pagelinklast, span.pagecurrent {
+    background-color: #EBFAFF;
+    border: 1px solid #D5E3E8;
+    color: #000000;
+    display: inline-block;
+    font-family: Tahoma,Verdana,Arial;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 6px;
+    padding: 5px;
+    text-decoration: none;
+}
+#ContentLayout .NaviPage a.pagelink:hover, a.pagelinklast:hover {
+    background-color: #FEF7D6;
+    border: 1px solid #FF6C24;
+    color: #000000;
+}
+#ContentLayout .NaviPage span.pagecurrent {
+    background-color: #FEF7D6;
+    border: 1px solid #FF6C24;
+    color: #000000;
+}
+#ContentLayout .NaviPage a.ByDate {
+    background: url("images/i_cal.gif") no-repeat scroll right top transparent;
+    float: right;
+    font-size: 12px;
+    padding-right: 20px;
+    text-decoration: none;
+}
+#ContentLayout .NaviPage a.ByDate:hover {
+    color: #CC0000;
+}
+#CateList {
+    background: url("images/cateList_left.gif") no-repeat scroll left top transparent;
+    clear: left;
+    margin-top: 20px;
+    padding: 0 4px;
+    width: 100%;
+}
+#CateList .CateRight {
+    background: url("images/cateList_right.gif") no-repeat scroll right top transparent;
+    padding: 0 4px 0 0;
+    width: 100%;
+}
+#CateList .CateCenter {
+    background: url("images/cateList_bg.gif") repeat-x scroll 0 0 transparent;
+    clear: both;
+    height: 115px;
+    overflow: visible;
+    padding: 7px 0 0;
+    text-align: left;
+    width: 100%;
+}
+#CateList .CateCol {
+    float: left;
+    width: 24.5%;
+}
+#CateList .CateCol a {
+    display: block;
+    font-family: Tahoma,verdana,Arial;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 10px;
+    text-decoration: none;
+}
+#CateList .CateCol a:hover {
+    text-decoration: underline;
+}
+.cateother {
+    float: right;
+    margin: 8px 10px 0 0;
+}
+.cateother a {
+    background: url("images/arrow_down2.gif") no-repeat scroll right 4px transparent;
+    color: #838383;
+    font-family: Tahoma,Verdana,Arial;
+    font-weight: 700;
+    padding-right: 14px;
+    text-decoration: none;
+}
+.cateother a:hover {
+    background: url("images/arrow_down2.gif") no-repeat scroll right 6px transparent;
+    color: #CC9900;
+}
+#otherCate {
+    background: url("images/i_close.gif") no-repeat scroll 98% 6px #EFEFEF;
+    border: 2px solid #CBD4D9;
+    display: none;
+    padding: 10px;
+    position: absolute;
+    text-align: left;
+    width: 200px;
+    z-index: 100;
+}
+#otherCate .other {
+    padding: 2px;
+    text-align: left;
+}
+#otherCate .other a {
+    color: #333333;
+    font-family: Tahoma,Verdana,Arial;
+    font-size: 11px;
+    text-align: left;
+    text-decoration: none;
+}
+#otherCate .other a:hover {
+    color: #CC0000;
+    text-decoration: underline;
+}
+#otherCate .other a.active {
+    color: #CC0000;
+    font-family: Tahoma,Verdana,Arial;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: left;
+    text-decoration: none;
+}
+#BarConditions {
+    float: left;
+    margin: 10px 0 10px 10px;
+}
+#boxCity {
+    border-bottom: 1px solid #D3DCE1;
+    float: left;
+    margin: 7px 0 5px 7px;
+    padding-bottom: 10px;
+    position: relative;
+    width: 720px;
+}
+.item-condition {
+    background: url("images/bullet_orange.gif") no-repeat scroll left center transparent;
+    color: #105BB6;
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    text-align: left;
+    text-indent: 9px;
+    width: 100px;
+}
+.item-condition a {
+    color: #105BB6;
+    font-size: 11px;
+    font-weight: normal;
+    text-decoration: none;
+}
+.item-condition a:hover {
+    text-decoration: underline;
+}
+.item-condition a.selectCondition {
+    color: #FF8A00;
+    font-weight: bold;
+}
+.item-condition-more {
+    color: #000000;
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    width: 100px;
+}
+.item-condition-more a {
+    color: #000000;
+    font-size: 11px;
+    font-weight: normal;
+    text-decoration: none;
+}
+.item-condition-more a:hover {
+    text-decoration: underline;
+}
+.item-condition-more a.selectCondition {
+    color: #FF8A00;
+    font-weight: bold;
+}
+.item-con-city {
+    background: url("images/bullet_other.gif") no-repeat scroll left center transparent;
+    color: #105BB6;
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    text-align: left;
+    text-indent: 9px;
+    width: 100px;
+}
+.item-con-city a {
+    color: #105BB6;
+    font-size: 11px;
+    font-weight: normal;
+    text-decoration: none;
+}
+.item-con-city a:hover {
+    text-decoration: underline;
+}
+.item-con-city a.selectCondition {
+    color: #FF8A00;
+    font-weight: bold;
+}
+.item-condition-city {
+    background: url("images/bullet_other.gif") no-repeat scroll left center transparent;
+    color: #105BB6;
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    text-indent: 9px;
+    width: 100px;
+}
+.item-condition-city a {
+    color: #105BB6;
+    font-size: 11px;
+    font-weight: normal;
+    text-decoration: none;
+}
+.item-condition-city a:hover {
+    text-decoration: underline;
+}
+.item-condition-city a.selectCondition {
+    color: #FF8A00;
+    font-weight: bold;
+}
+#boxCity .colspanCity {
+    float: right;
+    position: absolute;
+    right: 0;
+    width: 28px;
+}
+.btnMoreExp, .btnMoreOverExp {
+    background: url("images/icon_expan_search.gif") no-repeat scroll left top transparent;
+    border: 0 none;
+    cursor: pointer;
+    display: block;
+    height: 20px;
+    margin-left: -2px;
+    width: 28px;
+}
+.btnMoreOverExp {
+    background: url("images/icon_expan_search.gif") no-repeat scroll left -20px transparent;
+    display: block;
+}
+.btnMoreCol, .btnMoreOverCol {
+    background: url("images/icon_colspan_search.gif") no-repeat scroll left top transparent;
+    border: 0 none;
+    cursor: pointer;
+    display: block;
+    height: 20px;
+    margin-left: -2px;
+    width: 28px;
+}
+.btnMoreOverCol {
+    background: url("images/icon_colspan_search.gif") no-repeat scroll left -20px transparent;
+    display: block;
+}
+.text_link {
+}
+.list_dangtin ul li {
+	display:block;
+	padding:2px;
+}
+
+/* bat dong san */
+.province {
+    background-color: #F2F2F2;
+    border: 1px solid #C9E1F4;
+    border-radius: 5px 5px 5px 5px;
+    display: block;
+    float: left;
+    margin: 10px;
+    padding: 10px 15px;
+    position: relative;
+    width: 700px;
+} 
+.province ul li {
+	line-height: 1.5em;
+    list-style: none outside none;
+    position: relative;
+	float:left;
+	padding:0px;
+	background: none;
+}
+
+.province a, .province a:hover {
+    background: none repeat scroll 0 0 #627AAD;
+    border: 1px solid #627AAD;
+    color: white;
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+}
+
+/* banners */
+
+#header_top {
+    background: none repeat scroll 0 0 #01709E;
+    height: 46px;
+    width: 100%;
+}
+#box-logo {
+    float: left;
+    height: 46px;
+    width: 177px;
+}
+#box-head-top {
+    height: 46px;
+    width: 1000px;
+}
+#box-search-top {
+    float: left;
+}
+#box-head-top .add_item {
+    float: right;
+}
+#BannerLayout {
+    width: 1000px;
+}
+#HeadLine {
+    color: #9E9D9D;
+    padding: 2px 15px 2px 0;
+    text-align: right;
+}
+#HeadLine a {
+    color: #9E9D9D;
+    text-decoration: none;
+}
+#HeadLine a:hover {
+    color: #2D2D2D;
+}
+#Banner {
+    float: right;
+}
+#Banner .BannerRight {
+}
+#top_content {
+    background: url("images/top_left.gif") no-repeat scroll left top #FFFFFF;
+    padding-left: 15px;
+    position: relative;
+}
+#top_content .top_contentRight {
+    background: url("images/top_right.gif") no-repeat scroll right top #FFFFFF;
+}
+#Banner .BannerCenter {
+    height: 46px;
+    text-align: left;
+    width: 100%;
+}
+#Hmenu {
+    color: #3A3A3A;
+    float: right;
+    font-size: 11px;
+}
+#Hmenu .mnItem {
+    line-height: 46px;
+    text-align: left;
+}
+#Hmenu .mnItem a.hm_link {
+    background: url("images/split_head.gif") no-repeat scroll right center transparent;
+    color: #FFFFFF;
+    display: block;
+    float: right;
+    font-weight: bold;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-decoration: none;
+}
+#Hmenu .mnItem a.hm_link:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+#Hmenu .mnItem .google {
+    background: url("images/otherAcc.png") no-repeat scroll left 2px transparent;
+    color: #898989;
+    padding-left: 3px;
+    padding-right: 7px;
+}
+#Hmenu .mnItem .googleOver {
+    background: url("images/otherAcc.png") no-repeat scroll left -10px transparent;
+    color: #898989;
+    padding-left: 3px;
+    padding-right: 7px;
+}
+#Hmenu .mnItem .yahoo {
+    background: url("images/icon_ym.png") no-repeat scroll left 2px transparent;
+    color: #898989;
+    padding-left: 20px;
+}
+#Hmenu .mnItem .yahooOver {
+    background: url("images/icon_ym.png") no-repeat scroll left -11px transparent;
+    color: #898989;
+    padding-left: 20px;
+}
+#rb_manage {
+    color: #CC0000;
+    display: inline;
+    margin: 0;
+    position: relative;
+    right: 3px;
+}
+#rb_manage_box {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 2px solid #034B8A;
+    color: #034B8A;
+    display: none;
+    padding-bottom: 8px;
+    position: absolute;
+    right: -2px;
+    top: 33px;
+    width: 160px;
+    z-index: 100000;
+}
+#rb_manage_box a {
+    background: none repeat scroll 0 0 transparent;
+    color: #034B8A;
+    display: block;
+    float: none;
+    font-weight: bold;
+    line-height: 150%;
+    margin: 0 15px;
+    padding-top: 5px;
+    text-decoration: none;
+}
+#rb_manage_box a:hover {
+    color: #FF8B00;
+    text-decoration: none;
+}
+.google {
+    background: url("images/otherAcc.png") no-repeat scroll left 2px transparent;
+    color: #898989;
+    padding-left: 3px;
+    padding-right: 7px;
+}
+.googleOver {
+    background: url("images/otherAcc.png") no-repeat scroll left -10px transparent;
+    color: #898989;
+    padding-left: 3px;
+    padding-right: 7px;
+}
+.yahoo {
+    background: url("images/icon_ym.png") no-repeat scroll left 2px transparent;
+    color: #898989;
+    padding-left: 20px;
+}
+.yahooOver {
+    background: url("images/icon_ym.png") no-repeat scroll left -11px transparent;
+    color: #898989;
+    padding-left: 20px;
+}
+#Hbtnnew {
+    float: right;
+    margin-right: 7px;
+    margin-top: 8px;
+    width: 100px;
+}
+#mnPlace {
+    color: #838383;
+    float: right;
+    font-family: Tahoma,Verdana,Arial;
+    font-weight: 700;
+    margin: 5px 10px 0 0;
+}
+#mnPlace a {
+    background: url("images/arrow_more.gif") no-repeat scroll right 4px transparent;
+    color: #004F9F;
+    font-family: Tahoma,Verdana,Arial;
+    font-weight: 700;
+    padding-right: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+#mnPlace a:hover {
+    background: url("images/arrow_more.gif") no-repeat scroll right -9px transparent;
+    color: #CC9900;
+}
+.btnAdvertise, .btnAdvertiseOver {
+    background: url("images/btn_new.png") no-repeat scroll left top transparent;
+    border: 0 none;
+    cursor: pointer;
+    display: block;
+    float: right;
+    height: 28px;
+    width: 100px;
+}
+.btnAdvertiseOver {
+    background: url("images/btn_new.png") no-repeat scroll left -28px transparent;
+    display: block;
+}
+#cart_box {
+    color: #FFFFFF;
+    font-weight: bold;
+    position: relative;
+    text-decoration: none;
+}
+#cart_box a {
+    background: url("images/split_head.gif") no-repeat scroll right center transparent;
+    color: #FFFFFF;
+    display: block;
+    float: right;
+    font-weight: bold;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-decoration: none;
+}
+#cart_box a.btnHistoryIcon, a.btnHistoryIconOver {
+    background: url("images/history_cart.png") no-repeat scroll left 0 transparent;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 46px;
+    width: 10px;
+}
+#cart_box a.btnHistoryIconOver {
+    background: url("images/history_cart.png") no-repeat scroll left -46px transparent;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 46px;
+    width: 10px;
+}
+#cart_box a.btnCartIcon, a.btnCartIconOver {
+    background: url("images/icon-cart.png") no-repeat scroll left 0 transparent;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 46px;
+    width: 10px;
+}
+#cart_box a.btnCartIconOver {
+    background: url("images/icon-cart.png") no-repeat scroll left -46px transparent;
+    display: block;
+}
+#cart_box .num_cart {
+    background: url("images/left_alert_cart.gif") no-repeat scroll left center transparent;
+    left: 70px;
+    padding-left: 4px;
+    position: absolute;
+    top: -8px;
+}
+#cart_box .num_cart span {
+    background: url("images/right_alert_cart.gif") no-repeat scroll right center #DF0000;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 6px;
+}
+#box_choice_cate_top {
+    background: url("images/l_cate_top.gif") no-repeat scroll left center transparent;
+    cursor: pointer;
+    float: left;
+    height: 23px;
+    left: 15px;
+    padding-left: 4px;
+    position: absolute;
+    text-align: left;
+    top: -23px;
+}
+#box_choice_cate_top .r_box_cate_top {
+    background: url("images/r_cate_top.gif") no-repeat scroll right center #FFFFFF;
+    color: #8C8C8C;
+    height: 23px;
+    line-height: 23px;
+    padding-right: 14px;
+    position: relative;
+}
+#box_choice_cate_top .arrow_cate {
+    background: url("images/arrow_cate_top.gif") no-repeat scroll 3px 10px #FFFFFF;
+    padding-left: 18px;
+}
+#boxCate {
+    border-bottom: 1px solid #D3DCE1;
+    float: left;
+    padding: 10px;
+}
+#box-search-top .SearchField {
+    float: left;
+    margin-top: 9px;
+    overflow: hidden;
+    text-align: center;
+}
+#Banner .exam {
+    float: right;
+    font-family: Tahoma;
+    overflow: hidden;
+    padding: 5px 0 0;
+    text-align: left;
+    width: 580px;
+}
+#Banner .exam a {
+    font-family: Tahoma;
+    text-decoration: none;
+}
+#Banner .exam a:hover {
+    color: #CC9900;
+    text-decoration: underline;
+}
+#box-search-top .searchLeftOn {
+    background: url("images/search_VE_new.png") no-repeat scroll left top transparent;
+    height: 27px;
+    width: 27px;
+}
+#box-search-top .searchLeftOff {
+    background: url("images/search_VE_new.png") no-repeat scroll left -27px transparent;
+    height: 27px;
+    width: 27px;
+}
+#box-search-top .searchOTCLeftOff {
+    background: url("images/search_otc_VE.gif") no-repeat scroll left -43px transparent;
+    height: 37px;
+    width: 25px;
+}
+#box-search-top .searchOTCLeftOn {
+    background: url("images/search_otc_VE.gif") no-repeat scroll left top transparent;
+    height: 37px;
+    width: 25px;
+}
+#box-search-top .searchText {
+    background: url("images/search_bg_new.png") repeat-x scroll left top transparent;
+    padding: 0 5px;
+}
+#box-search-top .searchText input {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    color: #B4B4B4;
+    padding-top: 3px;
+    width: 100%;
+}
+#box-search-top .searchCate {
+    background: url("images/search_byCate.gif") no-repeat scroll left top transparent;
+    cursor: pointer;
+    width: 179px;
+}
+#box-search-top .searchBtn {
+    background: url("images/search_btn_new.png") no-repeat scroll right top transparent;
+    cursor: pointer;
+    width: 27px;
+}
+#box-search-top .searchBtnOn {
+    background: url("images/search_btn_new.png") no-repeat scroll right -27px transparent;
+    cursor: pointer;
+    width: 27px;
+}
+#Banner .viewCitySelectHead {
+    cursor: pointer;
+    float: right;
+    font-size: 16px;
+    font-weight: normal;
+    margin-right: 10px;
+    margin-top: 12px;
+    text-align: left;
+}
+#Banner .viewCityHead {
+    float: right;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-top: 15px;
+    text-align: right;
+}
+#Banner .viewCityHead a {
+    background: url("images/split_head_city.gif") no-repeat scroll right 3px transparent;
+    color: #353535;
+    padding-left: 10px;
+    padding-right: 9px;
+    text-decoration: none;
+}
+#Banner .viewCityHead a:hover {
+    color: #FF0000;
+}
+#Banner .viewCityHead .selected {
+    background: url("images/l_selected_city.png") no-repeat scroll left center transparent;
+    color: #FFFFFF;
+    padding-bottom: 5px;
+    padding-right: 0;
+    padding-top: 5px;
+    position: relative;
+}
+#Banner .viewCityHead .selected:hover {
+    color: #FFFFFF;
+}
+#Banner .viewCityHead .selected span {
+    background: url("images/c_selected_city.png") repeat-x scroll left center transparent;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+#Banner .viewCityHead .selected span span {
+    background: url("images/r_selected_city.png") no-repeat scroll right center transparent;
+    padding: 5px 20px 5px 16px;
+}
+#Banner .viewCityHead .boxCityOther {
+    color: #707070;
+    font-size: 11px;
+    font-weight: normal;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+#Banner .viewCityHead .boxCityOther a {
+    color: #707070;
+}
+#Banner .viewCityHead .boxCityOther a:hover {
+    color: #FF0000;
+}
+#Banner .viewCityHead .boxCityOther .selectedOther {
+    color: #FF0000;
+}
+#Banner .viewCityHead .boxCityOther {
+    font-size: 11px;
+    font-weight: normal;
+    margin-top: 5px;
+}
+#Banner .viewCityHead .choiceCity {
+    background: url("images/arrow_choice_city.gif") no-repeat scroll right 5px transparent;
+    color: #353535;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 15px;
+    padding-left: 10px;
+    padding-right: 15px;
+    text-decoration: none;
+}
+#Banner .viewCityHead .choiceCity:hover {
+    background: url("images/arrow_choice_city.gif") no-repeat scroll right -7px transparent;
+    color: #FF0000;
+}
+#Banner .bgr_left_city {
+    background: url("images/left_box_city.gif") no-repeat scroll left top transparent;
+    float: left;
+    height: 38px;
+    width: 4px;
+}
+#Banner .bgr_cen_city {
+    background: url("images/center_box_city.gif") repeat-x scroll left top transparent;
+    cursor: pointer;
+    float: left;
+    height: 38px;
+    text-indent: 2px;
+}
+#Banner .bgr_right_city {
+    background: url("images/right_box_city.gif") no-repeat scroll right top transparent;
+    float: left;
+    height: 38px;
+    padding-right: 3px;
+}
+#cityPlace {
+    color: #484848;
+    float: left;
+    font-family: Tahoma,Verdana,Arial;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 36px;
+    margin-right: 3px;
+    text-align: left;
+}
+#cityPlace a {
+    background: url("images/arrow_box_city.gif") no-repeat scroll right 6px transparent;
+    color: #0583D0;
+    font-family: Tahoma,Verdana,Arial;
+    font-size: 14px;
+    font-weight: bold;
+    padding-right: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+#cityPlace a:hover {
+    background: url("images/arrow_box_city.gif") no-repeat scroll right -6px transparent;
+    color: #CC9900;
+}
+#Banner .searchCateOn {
+    background: url("images/search_byCateOver.gif") no-repeat scroll left top transparent;
+    cursor: pointer;
+    width: 179px;
+}
+#Banner .searchOTCBtn {
+    background: url("images/viewPrice_btn.gif") no-repeat scroll right top transparent;
+    cursor: pointer;
+    width: 130px;
+}
+#Banner .searchOTCBtnOn {
+    background: url("images/viewPrice_btn.gif") no-repeat scroll right -43px transparent;
+    cursor: pointer;
+    width: 130px;
+}
+#chooseCatePanel {
+    background: url("images/i_close.gif") no-repeat scroll 98% 6px #ECF8FF;
+    border: 2px solid #EB8A00;
+    display: none;
+    padding: 10px;
+    position: absolute;
+    text-align: left;
+    width: 350px;
+    z-index: 100;
+}
+#chooseCatePanel .CateTitle {
+    float: left;
+    padding: 3px;
+    width: 165px;
+}
+#chooseCatePanel .CateTitle a {
+    background: url("images/bullet_blue.gif") no-repeat scroll left 5px transparent;
+    color: #003839;
+    font-size: 12px;
+    padding-left: 10px;
+    text-decoration: none;
+}
+#chooseCatePanel .CateTitle a:hover {
+    color: #005989;
+    text-decoration: underline;
+}
+#chuyenmuc {
+    background: url("images/i_close.gif") no-repeat scroll 98% 6px #ECF8FF;
+    border: 2px solid #EB8A00;
+    display: none;
+    padding: 10px;
+    position: absolute;
+    text-align: left;
+    top: 100px;
+    width: 380px;
+    z-index: 100;
+}
+#chuyenmuc .CateTitle {
+    float: left;
+    padding: 3px;
+    width: 180px;
+}
+#chuyenmuc .CateTitle a {
+    background: url("images/bullet_blue.gif") no-repeat scroll left 5px transparent;
+    color: #003839;
+    font-size: 12px;
+    padding-left: 10px;
+    text-decoration: none;
+}
+#chuyenmuc .CateTitle a:hover {
+    color: #005989;
+    text-decoration: underline;
+}
+#chooseCity {
+    display: none;
+    position: absolute;
+    width: 379px;
+    z-index: 100;
+}
+#chooseCity .boxOvlCityTop {
+    background: url("images/ovl_city_top.gif") no-repeat scroll left top transparent;
+    float: left;
+    height: 5px;
+    width: 100%;
+}
+#chooseCity .boxOvlCityBottom {
+    background: url("images/ovl_city_bottom.gif") no-repeat scroll left top transparent;
+    float: left;
+    height: 5px;
+    width: 379px;
+}
+#chooseCity .boxOvlCity {
+    background: url("images/ovl_city_head.gif") repeat-x scroll left top #FFFFFF;
+    border-left: 3px solid #0087C8;
+    border-right: 3px solid #0087C8;
+    float: left;
+    width: 374px;
+}
+#chooseCity .contentOvlCity {
+    float: left;
+    margin: 0 15px 15px;
+}
+#chooseCity .Region {
+    background: url("images/i_close.gif") no-repeat scroll 98% 6px transparent;
+    color: #D34A00;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+#chooseCity .RegionPanel {
+    float: left;
+    text-align: left;
+    width: 113px;
+}
+#chooseCity .RegionPanel .City {
+    padding: 2px;
+}
+#chooseCity .RegionPanel .City a {
+    color: #333333;
+    font-family: Tahoma,Verdana,Arial;
+    font-size: 11px;
+    text-decoration: none;
+}
+#chooseCity .RegionPanel .City a:hover {
+    color: #CC0000;
+    text-decoration: underline;
+}
+#divLogin {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 2px solid #FF9600;
+    display: none;
+    padding: 10px;
+    position: absolute;
+    top: -20px;
+    width: 320px;
+    z-index: 101;
+}
+#divLogin a {
+    color: #666666;
+    font-size: 11px;
+    text-decoration: none;
+}
+#divLogin a:hover {
+    color: #CC0000;
+}
+#divLogin td {
+    font-size: 12px;
+    padding: 5px;
+}
+#divLogin input.txtBox {
+    background: none repeat scroll 0 0 #F5F5F5;
+    border: 1px solid #D2E7F0;
+    width: 100%;
+}
+input.btnQLogin {
+    background: url("images/btnLoginDialog.gif") no-repeat scroll left -24px transparent;
+    border: 0 none;
+    cursor: pointer;
+    height: 21px;
+    width: 76px;
+}
+input.btnQLogin:active, input.btnQLogin:hover {
+    background: url("images/btnLoginDialog.gif") no-repeat scroll left top transparent;
+    border: 0 none;
+    cursor: pointer;
+    height: 21px;
+    width: 76px;
+}
+#divProfile {
+    background: url("images/i_close.gif") no-repeat scroll 98% 6px #FFFFFF;
+    border: 2px solid #FF9600;
+    display: none;
+    padding: 5px 0;
+    position: absolute;
+    width: 220px;
+    z-index: 101;
+}
+#divProfile a {
+    color: #666666;
+    font-size: 11px;
+    text-decoration: none;
+}
+#divProfile a:hover {
+    color: #CC0000;
+}
+#divProfile td {
+    font-size: 12px;
+    padding: 5px;
+}
+#ovlListCate {
+    display: none;
+    position: absolute;
+    width: 379px;
+    z-index: 100;
+}
+#ovlListCate .boxOvlCityTop {
+    background: url("images/ovl_city_top.gif") no-repeat scroll left top transparent;
+    float: left;
+    height: 5px;
+    width: 100%;
+}
+#ovlListCate .boxOvlCityBottom {
+    background: url("images/ovl_city_bottom.gif") no-repeat scroll left top transparent;
+    float: left;
+    height: 5px;
+    width: 379px;
+}
+#ovlListCate .boxOvlCity {
+    background: url("images/ovl_city_head.gif") repeat-x scroll left top #FFFFFF;
+    border-left: 3px solid #0087C8;
+    border-right: 3px solid #0087C8;
+    float: left;
+    width: 374px;
+}
+#ovlListCate .contentOvlCity {
+    float: left;
+    margin: 0 15px 15px;
+}
+#ovlListCate .Region {
+    background: url("images/i_close.gif") no-repeat scroll 98% 6px transparent;
+    color: #D34A00;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+#ovlListCate .RegionPanel {
+    background: url("images/i_close.gif") no-repeat scroll 98% 6px transparent;
+    cursor: pointer;
+    float: left;
+    text-align: left;
+}
+#ovlListCate .City {
+    float: left;
+    padding: 2px;
+    width: 168px;
+}
+#ovlListCate .City a {
+    color: #333333;
+    font-family: Tahoma,Verdana,Arial;
+    font-size: 11px;
+    text-decoration: none;
+}
+#ovlListCate .City a:hover {
+    color: #CC0000;
+    text-decoration: underline;
+}
+#ovlListCate .City .selected {
+    color: #0087C8;
+    font-weight: bold;
+}
+
+.store, .store a, .store table td {
+	padding:2px;
+	z-index:999;
+}
+
+/* thumbnail */
+
+.thumbnail, .thumbnail img a {
+	border: 1px solid #605D57;
+	color: #605D57;
+    display: block;
+    width: 50px;
+    float:left;
+    padding:5px;
+    margin:3px;
+    height: 32px;
+}
+/* tin vip */
+#item_vip_detail {
+    background: url("http://rongbay.com/style/images/bgr_vip.jpg") no-repeat scroll right top #F7F8F9;
+    font-size: 12px;
+    margin: 10px;
+    padding: 7px 1px 1px 10px;
+    text-align: left;
+}
+#item_vip_detail a {
+    background: url("http://rongbay.com/style/images/bullet_2.gif") no-repeat scroll left 3px transparent;
+    color: #003ACB;
+    margin: 5px 9px 3px 3px;
+    padding-left: 15px;
+    text-decoration: none;
+}
+
+#OtherNewsHead {
+	background-color: #627AAD;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Tahoma,Verdana,Arial;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    text-align: left;
+}
+
+.content_store {
+    background-color: none;
+    border: 1px solid #C9E1F4;
+    border-radius: 5px 5px 5px 5px;
+    display: block;
+    float: left;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-top: 20px;
+    padding: 10px 15px;
+    position: relative;
+    width: 900px;
+}
+
+#product_technical {
+	padding:10px;
+}
+.title_tskt span {
+	margin:5px;
+}
+.title_tskt {
+	background:url(../images/bgthongso.png);
+	height:25px;
+	margin-left:5px;
+	margin-right:5px;
+	padding-bottom:0px;
+}
+.tintuc {
+	border: 1px solid #C9E1F4;
+	border-radius: 10px 10px 10px 10px;
+	width:245px;
+	height:200px;
+	padding:2px;
+	margin:0px;
+}
+.icon-search {
+    background: url("../images/btn-search-general.gif") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    width: 40px;
+    height: 20px;
+}
+
+.box_thong_tin_chi_tiet {
+    background-color: #FDF7D1;
+    border: 1px solid #E6E6E6;
+    color: #666666;
+    float: left;
+    font-size: 13px;
+    height: auto;
+    margin-top: 20px;
+    margin-left:10px;
+    padding: 10px;
+    width: 635px;
+}	
+	
+.widget-container {
+	background:#FFF;
+	margin-left:0px;
+	text-align:center;
+}	
+
+.social-profiles-widget a {
+	margin:3px;
+}

@@ -1,0 +1,45 @@
+Trang: <?php echo $paging;?>
+<div class="NewsList">
+<table border="0" cellpadding="0" cellpadding="0" width="100%" id="table3">
+    <tr>
+	  <td class="Header">Mã tin</td>
+      <td class="Header">Tiêu đề tin</td>
+      <td class="Header City">Tỉnh/T.phố</td>
+      <td align="center" class="Header Date">Ngày đăng tin</td>
+      <td align="center" class="Header View" width=5%>Xóa tin</td>
+    </tr>
+   <?php foreach ($rv as $value):?> 
+    <tr class="Rows">
+		<td align="center">
+		<?php echo $value->getId();?>
+	    </td>
+	    <td>
+	    <a href="<?php echo site_url('raovat/xemtin').'/'.$value->getId();?>"><?php echo $value->getSubject();?></a>
+	    </td>
+	    <td>
+	    <?php echo $value->getProvinceByName();?>
+	    </td>
+	    <td>
+	    <?php echo $value->getDate();?>
+	    </td>
+	    <td align="center">
+	    <a href="<?php echo site_url('admin/removeraovat').'/'.$value->getId();?>" onclick="return confirm('Bạn có thực sự muốn xóa không?');"><img src='/images/b_drop.png'></a>
+	    </td>
+    </tr>
+   <?php endforeach;?> 
+</table>
+</div>
+Trang: <?php echo $paging;?>
+<style type="text/css">
+.NewsList .Header
+{
+	border: 1px solid #D4DDED;
+	background-color: #01709E;
+	color:white;
+	margin:0px;
+	padding:0px;
+}
+.NewsList .Rows {
+	background-color:#D4DDED;
+}
+</style>

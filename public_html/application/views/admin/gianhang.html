@@ -1,0 +1,77 @@
+<h3>Quản lý gian hàng</h3>
+Trang: <?php $i=1; echo $paging;?>
+<div class="NewsList">
+<table border="0" cellpadding="0" cellpadding="0" width="100%" id="table3">
+    <tr>
+      <td align="center" class="Header">TT</td>
+      <td class="Header">Tên gian hàng</td>
+      <td class="Header">Tài khoản</td>
+      <td class="Header">Địa chỉ</td>
+      <td class="Header">Email</td>
+      <td align="center" class="Header">Điện thoại/Mobile</td>
+      <td align="center" class="Header">Yahoo/Skype</td>
+      <td align="center" class="Header">Trạng thái</td>
+      <td align="center" class="Header" width=5%>Kích hoạt</td>
+      <td align="center" class="Header" width=5%>Khóa</td>
+    </tr>
+   <?php foreach ($gianhang as $user):?> 
+    <tr class="Rows">
+    	<td align="center">
+    	<?php echo $i++;?>
+	    </td>
+	    <td>	    
+	    <?php echo $user->getName();?>
+	    </td>
+	    <td>	    
+	    <?php echo $user->getAccount();?>
+	    </td>
+	    <td>
+	    <?php echo $user->getAddress();?>
+	    </td>
+	    <td>
+	    <?php echo $user->getEmail();?>
+	    </td>	    
+	    <td>
+	    <?php echo $user->getPhone();?><br>
+		<?php echo $user->getMobile();?>
+	    </td>
+	    <td>
+	    <?php echo $user->getYM();?><br>
+		<?php echo $user->getSkype();?>
+	    </td>
+	    <td align="center"> 
+	    <?php 
+		if ($user->getActive()==0) {
+			echo "<img src='/images/unchecked.gif'>";
+		}
+		else {
+			echo "<img src='/images/checked.gif'>";
+		}
+		?>
+	    </td>
+	    <td align="center">
+	    <a href="<?php echo site_url('admin/activeuser').'/'.$user->getId();?>" onclick="return confirm('Bạn có thực sự muốn kích hoạt gian hàng này không?');"><img src='/images/checked.gif'></a>
+	    </td>
+	    <td align="center">
+	    <a href="<?php echo site_url('admin/inactiveuser').'/'.$user->getId();?>" onclick="return confirm('Bạn có thực sự muốn tạm khóa gian hàng này không?');"><img src='/images/unchecked.gif'></a>
+	    </td>
+    </tr>
+   <?php endforeach;?> 
+</table>
+</div>
+Trang: <?php echo $paging;?>
+<style type="text/css">
+.NewsList .Header
+{
+	border: 1px solid #D4DDED;
+	background-color: #01709E;
+	color:white;
+	margin:0px;
+	padding:0px;
+	text-align:center;
+}
+.NewsList .Rows {
+	background-color:#D4DDED;
+	padding: 0;
+}
+</style>

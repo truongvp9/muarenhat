@@ -1,0 +1,37 @@
+<?php include_once("seotiengviet.php");?>
+<div class="content">
+            	<div class="left">
+                     <div class="thucdon">
+               			<h2>Thực đơn <?php if (count($menu)==1) { echo '>> '.$menu[0]->getName(); } ?></h2>                     
+                    	<ul class="menuitem">
+                        <?php if (count($menu)>1) { foreach ($menu as $item):?>
+	                        <li>
+	                        <a href="<?php echo site_url('thucdon').'/'.$item->getId().'-'.khongdau($item->getName());?>"><?php echo $item->getName();?></a>	  
+	                        </li>
+                        <?php endforeach;
+                        }
+                        else {
+							foreach ($menu as $item):?>
+	                        <li>
+	                        <div class="img">
+	                        <img src="<?php echo site_url().$item->getImage();?>">
+	                        </div>
+	                        <div class="detail">
+	                        <?php echo $item->getDetail();?>                      
+	                        </div>
+	                        </li>
+                        <?php endforeach;						
+                        }?>
+                        </ul>											
+                    </div><!--End class thucdon-->
+                </div><!--End class left-->
+                <div class="right">
+                
+					<?php $this->load->view('widget/support_online.html');?>
+                    
+					<?php $this->load->view('widget/news.html');?>
+                                        
+					<?php $this->load->view('widget/users_online.html');?>
+                    
+                </div><!--End class right-->
+            </div><!--End class content-->

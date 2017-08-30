@@ -1,0 +1,70 @@
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.cmd').click(function(){
+		//if (check_valid_change_pass()) {
+			var id = $('#user_id').val();		
+			var password = $('#new_password').val();
+			var confirm_pass = $('#confirm_password').val();
+			var current_pass = $('#n_passcurrent').val();
+			var submit = true;
+			if (current_pass=='') {
+				alert("Bạn hãy nhập vào mật khẩu hiện thời!");
+				$('#n_passcurrent').focus();
+				submit = false;
+			}			
+			if (password=='' && submit) {
+				alert("Bạn hãy nhập vào mật khẩu mới!");
+				$('#new_password').focus();
+				submit = false;
+			}
+			if (password!=confirm_pass) {
+				alert("Bạn nhập vào mật khẩu chưa đúng!");
+				$('#confirm_password').focus();
+				submit = false;
+			}
+			if (submit) {
+				$.ajax({ 
+					type : 'POST',			
+					url : '/usercp/changepassword',			
+					dataType : 'html',
+					data: {
+						id : id,n_passcurrent: current_pass,password: password,key: "<?php echo sha1('muaban!2');?>" 
+					},
+					success: function(data){
+						if (parseInt(data)==200) {
+							alert('Đổi mật khẩu thành công!');
+						}
+						else {
+							alert(data);
+						}
+					}
+				});
+			}
+		//} // end if 
+	});
+});
+</script>
+<div class="changepass" style="display:none">
+<form onsubmit="return check_valid_change_pass();" method="POST" id="ChangePasswordForm" name="ChangePasswordForm"><input type="hidden" value="49447" name="form_block_id">
+        		<input type="hidden" value="<?php echo $user->getId();?>" name="user_id" id="user_id">                
+                <table align="center" cellspacing="0" cellpadding="0" border="0" class="form_table">
+                    <tbody><tr>
+                        <td width="36%" style="font-size:10pt; color:#00344F" class="form_name">Mật khẩu hiện thời</td>
+                      <td width="64%"><input type="password" value="" name="n_passcurrent" id="n_passcurrent" class="txt form_control"></td>
+                  </tr>
+                    <tr>
+                        <td style="font-size:10pt; color:#00344F" class="form_name">Mật khẩu mới (tối thiểu phải có 6 ký tự)</td>
+                        <td><input type="password" value="" name="n_pass1" class="txt form_control" id="new_password"></td>
+                    </tr>							
+                    <tr>
+                        <td style="font-size:10pt; color:#00344F" class="form_name">Nhập lại mật khẩu mới</td>
+                        <td><input type="password" value="" name="n_pass2" class="txt form_control" id="confirm_password"></td>
+                    </tr>							
+                    <tr>
+                        <td></td>
+                        <td><input type="button" style="width:142px" onclick="return check_valid_change_pass();" class="button cmd" value="Thay đổi mật khẩu" name="button"></td>
+                    </tr>							
+                </tbody>
+                </table>						
+</form>
+</div>

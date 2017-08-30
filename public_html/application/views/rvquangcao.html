@@ -1,0 +1,45 @@
+<div style="width:250px;float:right;">
+<div class="ego_section" style="width:248px;float:right;">
+<div class="uiHeader uiHeaderTopAndBottomBorder mbs uiSideHeader" style="background-color: #F2F2F2;">
+<div class="clearfix uiHeaderTop">
+<a href="/request" class="uiHeaderActions rfloat" style="padding-right:5px;float:right;color: #6D84B4; cursor: pointer;text-decoration: none;">Tạo quảng cáo</a>
+<div style="width:100px;"><h4 class="uiHeaderTitle" style=" color: #333333;font-size: 11px;">Được tài trợ</h4></div>
+</div>
+</div>
+<div class="phs" style="border: 1px solid #C9E1F4;width:248px;float:right;">
+<div class="ego_unit" style="float:right;width:246px;border-top: 1px solid #E9E9E9; padding-top: 8px;">
+<div class="fbMarket">
+<div id="6004146649857-id_4ee8c012537791d06817193" class="fbEmu fbEmuBlock fbEmuEgo"><div id="uht53p_1" class="uiSelector inlineBlock emu_x emuEventfad_hide fbEmuLink uiSelectorRight"><div class="wrap">
+<a aria-haspopup="1" role="button" href="#" ajaxify="" rel="toggle" title="Báo cáo quảng cáo này" class="uiSelectorButton uiCloseButton uiCloseButtonSmall "></a>
+<div class="uiSelectorMenuWrapper uiToggleFlyout">
+<div class="uiMenu uiSelectorMenu" role="menu" >
+<ul class="uiMenuInner" >
+<?php foreach ($quangcao as $item):?>
+<li data-label="Ẩn quảng cáo này" class="uiMenuItem">
+<div class="clear"></div>
+<div class="adv_title" style="margin-left:2px; font-weight: bold; color: #3B5998; cursor: pointer; text-decoration: none;">
+<a href="<?php echo $item->getUrl();?>" target="_blank">
+<?php echo $item->getTitle();?>
+</a>
+</div>
+<div class="adv_image" style="width:100px;float:left; margin-left:2px;">
+<a href="<?php echo $item->getUrl();?>" target="_blank">
+<img src="<?php echo site_url().'/'.$item->getImg();?>" width="100" height="80" alt="<?php echo $item->getTooltip();?>">
+</a>
+</div>
+<div class="adv_tooltip" style="width:130px;float:right;margin-right:2px;"><?php echo $item->getTooltip();?></div>
+</li>
+<div class="break_module_line"></div>
+<?php endforeach;?>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>

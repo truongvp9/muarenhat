@@ -1,0 +1,43 @@
+<html>
+<script type="text/javascript" src="<?php echo site_url()?>tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript" src="<?php echo site_url()?>tinymce/jscripts/tiny_mce/tinyMce.conf.js"></script>
+<style>
+.item {
+	padding:5px;
+	margin:5px;
+	border: 1px solid #CCCCCC;
+}
+#button {
+	margin:5px;
+}
+.ad_description {
+	margin-left:5px;
+}
+</style>
+<body>
+<div class="item">
+<div class="tin-img">
+Người hỏi: <?php echo $item->getUserName();?>
+</div>
+<div class="tin-summary">
+<h4>
+<a href="<?php echo site_url('hoidap/chitiet').'/'.$item->getQid().'-'.khongdau($item->getTitle());?>"><?php echo $item->getTitle();?></a>
+</h4>
+<?php echo $item->getAskContent();?>
+<div class="clear"></div>
+<font color='gray'>Tại chuyên mục:</font> <a href='#'><?php echo $item->getCatName();?></a>
+<div class="clear"></div>
+<div>
+<font color='gray'>Ngày hỏi:</font> <?php echo date('d/m/Y',strtotime($item->getDateAsk()));?>
+</div>
+</div>
+</div>
+<form action="" method="POST">
+<div class="ad_description">
+<textarea name="content" id="ad_description" cols="120" rows="20"></textarea>
+</div>   
+<input type="hidden" name="qid" value="<?php echo $item->getQid();?>">
+<input type="submit" value="Trả lời" class="button" id="button">
+</form>         
+</body>
+</html>

@@ -1,0 +1,118 @@
+<style type="text/css">
+.catalog-lists {
+    border-collapse: collapse;
+    font-family: Arial;
+    font-size: 14px;
+    width: 100%;
+	border: 1px solid #C9E1F4;
+	width:800px;
+}
+.catalog-lists th, .catalog-lists td {
+    border: 1px solid #A4A4A4;
+    height: 40px;
+    padding: 3px 7px 2px 10px;
+}
+.catalog-lists th {
+    background-color: #777777;
+    color: #FFFFFF;
+    height: 40px;
+    padding-bottom: 4px;
+    padding-top: 5px;
+    text-align: left;
+}
+</style>
+<script type="text/javascript" src="<?php echo site_url()?>tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript" src="<?php echo site_url()?>tinymce/jscripts/tiny_mce/tinyMce.admincf.js"></script>
+<div class="content-header">
+    <h3 class="icon-head head-system-account">Video - Đăng video mới</h3> 
+    <div class="form-buttons">
+	<button onclick="return form1.submit();" class="scalable save" type="button" id="id_389b82e4dc5822b9be1927c3f93b1215"><span>Đăng Video</span></button>    
+    </div>
+</div>
+<div class="entry-edit">
+<div class="entry-edit-head">
+<h4 class="icon-head head-edit-form fieldset-legend">Đăng video mới</h4>
+</div>
+<div class="fieldset " id="base_fieldset">
+<div class="hor-scroll">
+<form name="form1" enctype="multipart/form-data" method="post" action="<?php echo site_url('admin/dangvideo');?>">
+<div class="main-div">
+<table width="100%" cellspacing="3" cellpadding="3">
+  <tbody>
+    <tr>
+    <td class="label" align=right>Tiêu đề video: </td>
+    <td><input type="text" size="80" name="title" value="<?php echo $videoinfo->getTitle();?>"></td>
+  </tr>
+  <tr>
+    <td class="label" align=right>Ảnh đại diện video: </td>
+    <td><input type="file" size="40" id="some_name" value="" name="img_file_src">
+    <br><input type="text" size="100" value="<?php echo $videoinfo->getThumbnail();?>" name="img_src">
+    <br><span id="width_height" style="display:block" class="notice-span">Ảnh kích thước: 320px x 180px</span>
+    </td>
+  </tr>  
+  <tr>
+    <td class="label" align=right>Mô tả video: </td>
+    <td>
+    <textarea name="summary" rows="3" cols="100"><?php echo $videoinfo->getDescription();?></textarea>
+    </td>
+  </tr>
+  <tr>
+    <td class="label" align=right>Liên kết video gốc: </td>
+    <td><input type="text" size="80" name="url" value="<?php echo $videoinfo->getYoutubeId();?>"></td>
+  </tr>
+  <tr>
+    <td class="label" align=right>Phân loại video: </td>
+    <td>
+	<select name="cat">
+	</select>
+    </td>
+  </tr>  
+</tbody></table>
+<input type="hidden" name="id" value="<?php echo $videoinfo->getId();?>">
+</div>
+</form>
+</div>
+</div>
+</div>
+<div class="quangcao" style="padding:10px;">
+    <ul style="list-style: none outside none;">
+    <table class="catalog-lists">
+   <tr>
+    <th>
+    Nội dung video
+    </th>
+    <th>
+    Sửa
+    </th>
+    <th>
+    Xóa
+    </th>
+    </tr>    
+	<?php foreach ($video as $item):?>
+		<tr>
+		<td>
+		<li>
+		<div style="float:left;width:800px;">
+		<strong><a href="<?php echo $item->getYoutubeId();?>"><?php echo $item->getTitle();?></a></strong>
+		<div class="clear"></div>
+		<div style="width:150px;float:left;">
+		<img src="<?php if ($item->getThumbnail()=='' || $item->getThumbnail()=='images/') { echo 'images/no_picture.gif'; }  else echo $item->getThumbnail();?>" width="135">
+		</div>
+		<div style="width:650px;float:right;">
+		<?php echo $item->getDescription();?>
+		</div>
+		<div class="clear"></div>  				   
+		</div>
+		</li>
+		</td>
+		<td>
+		<a href="<?php echo site_url('admin/video').'/'.$item->getId();?>"><img src='/images/b_edit.png'></a>		
+		</td>
+		<td>
+		<a href="<?php echo site_url('admin/removevideo').'/'.$item->getId();?>" onclick="return confirm('Bạn có thực sự muốn xóa tin này không?');"><img src='/images/b_drop.png'></a>						
+		</td>
+		</tr>
+	<?php endforeach;?>
+	</table>
+	</ul>
+</div>

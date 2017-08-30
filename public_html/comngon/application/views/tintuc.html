@@ -1,0 +1,39 @@
+<?php include_once("seotiengviet.php");?>
+            <div class="content">
+            	<div class="left">
+                	<div class="tintuc_bd">
+                	<h2><a>Tin tức</a></h2>
+                    <div class="tintuc">
+                    	<ul>
+                    	<?php foreach ($news as $item):?>
+                        	<li>
+                            	<div class="anh_tin"><a href="#"><img src="<?php echo site_url().$item->getImg();?>" /></a> </div>
+                                <h3><a href="<?php echo site_url();?>news/<?php echo $item->getId();?>-<?php echo khongdau($item->getTitle());?>"><?php echo $item->getTitle();?></a></h3>
+                                <p><?php echo $item->getSummary();?></p>
+                                <div class="xemtiep"><a href="<?php echo site_url();?>news/<?php echo $item->getId();?>-<?php echo khongdau($item->getTitle());?>">Xem tiếp »</a></div>
+                            </li>
+                        <?php endforeach;?>
+                    </ul>
+                    </div><!--End class tintuc-->
+                    <div>
+                        	<ul class="phantrang">
+                                <li><a href="#"  class="active">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                        	</ul>
+                        </div><!--End class show_sp-->
+                </div><!--End class right-->
+                </div><!--End class left-->
+                <div class="right">
+ 					
+ 					<?php $this->load->view("widget/support_online.html");?> 
+                    
+                    <?php $this->load->view("widget/news.html");?>                    
+                    
+					<?php $this->load->view("widget/users_online.html");?>
+                    
+                </div><!--End class right-->
+            </div><!--End class content-->
+           

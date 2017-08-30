@@ -1,0 +1,103 @@
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script>
+<script>
+  $(document).ready(function(){	
+    $("#contactForm").validate();
+    //alert('hi');
+  });
+</script>
+					<table cellspacing="0" cellpadding="0">
+					  <tr>
+						<td>
+							<img src="<?php echo site_url();?>/skin/gianhangmau/images/line2l.jpg" alt="" width="283" height="1" class="line2l" />
+							<a class="text3"><strong>THÔNG TIN LIÊN HỆ</strong></a>
+							<img src="<?php echo site_url();?>/skin/gianhangmau/images/line2l.jpg" alt="" width="283" height="1" class="line2l" />
+				            <div><?php echo $storeInfo->getName();?></div>
+				            <div><?php echo $storeInfo->getAddress();?></div>
+				            <div>
+				              <div><strong><img src="http://vatgia.com/images/icon_mobile.gif" align="absmiddle" /> :</strong> <?php echo $storeInfo->getMobile();?></div>
+				              <div><strong><img src="http://vatgia.com/images/icon_phone.gif" align="absmiddle" /> :</strong> <?php echo $storeInfo->getPhone();?></div>
+				              <div><strong><span lang="vi" xml:lang="vi">Fax</span> :</strong> <?php echo $storeInfo->getFax();?></div>
+			              </div>
+				            <div><strong><span lang="vi" xml:lang="vi">Hỗ trợ trực tuyến</span> :</strong></div>
+				            <div>
+				              <div><a title="<?php echo $storeInfo->getMobile();?>" href="ymsgr:sendim?<?php echo $storeInfo->getYm();?>&amp;m=Xin%20chao,%20toi%20muon%20hoi%20ve%20san%20pham%20%20%21" rel="nofollow"><img src="http://opi.yahoo.com/online?u=<?php echo $storeInfo->getYm();?>&amp;m=g&amp;t=5&amp;l=us" alt="Y!M" align="absmiddle" border="0" /> <?php echo $storeInfo->getMobile();?></a></div>
+			              </div>
+						</td>
+						<td>
+							<a href="#"><img src="<?php echo site_url();?>/skin/gianhangmau/images/img.jpg" alt="" width="651" height="329" class="img2" /></a>
+						</td>
+					  </tr>
+					  <tr style="vertical-align:top">
+					  	<td>
+						</td>
+						<td>
+<div id="center">
+<div>
+<?php echo $store_info->getContact();?>
+<p>
+<center>
+Những ô có dấu sao (* ) là bắt buộc phải nhập.
+</center>
+</p>
+</div>
+<form id="contactForm" action="<?php echo site_url();?>contact.php" method="post">
+<table width="100%" border="0">
+  <tr>
+    <td width=100>Họ và tên *</td>
+    <td>
+      <label>
+        <input type="text" name="fullname" id="fullname" class="required" />
+        </label>
+    </td>
+  </tr>
+  <tr>
+    <td>Địa chỉ *</td>
+    <td><input type="text" name="address" id="address" class="required" /></td>
+  </tr>
+  <tr>
+    <td>Điện thoại *</td>
+    <td><input type="text" name="phone" id="phone" class="required" /></td>
+  </tr>
+  <tr>
+    <td>Di động *</td>
+    <td><input type="text" name="mobile" id="mobile" class="required" /></td>
+  </tr>  
+  <tr>
+    <td>Email *</td>
+    <td><input type="text" name="email" id="email" class="required email"/></td>
+  </tr>
+  <tr>
+    <td>Fax</td>
+    <td><input type="text" name="fax" id="fax" /></td>
+  </tr>
+  <tr>
+    <td colspan=2>
+    <div class="feedback" style="margin-left:-2px;">
+    <label>
+      <textarea name="feedback" id="feedback" cols="50" rows="5" class="required"></textarea>
+    </label>
+    </div>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><label>
+      <input type="submit" name="button" id="button" value="Gửi đi" />
+    </label>
+      <label>
+      <input type="reset" name="button2" id="button2" value="Làm lại" />
+    </label></td>
+  </tr>
+</table>
+</form>
+
+</div>
+<?php
+	//$this->load->view("skin/".$skin_id."/right.html");
+?>
+</div>
+						</td>
+
+					  </tr>
+					</table>

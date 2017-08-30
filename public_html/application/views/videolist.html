@@ -1,0 +1,128 @@
+<style type="text/css">
+    .videoholder {
+    	margin-left:0px;
+     	width:560px;
+    	float:left;
+    }
+    .videoholder h1, strong {
+       	padding-left:20px;
+    }
+    .adv {
+    	width:250px;
+    	float:right;
+    	padding-right:5px;
+    }
+    .videoholder ul li {
+    	padding-left:10px;
+    }
+    .videoholder img {
+        clear:both;
+        border: 1px solid #EFEFEF;
+        border-radius: 3px 3px 3px 3px;        
+     	width:180px; 
+     	margin-top:10px;    	
+     	float:left;
+    }
+    .description {
+    	margin-top:10px;  
+    	width:340px;
+    	float:right;
+    }
+	ul {	
+		clear: both;
+	}
+	
+	ul.simplePagerNav li{
+	    display:block;
+	    floaT: left;
+	    padding: 3px;
+	    margin-bottom: 10px;
+	    font-family: georgia;
+	}
+	
+	ul.simplePagerNav li a{
+	    color: #333;
+	    text-decoration: none;
+	}
+	
+	li.currentPage {
+		background: red;
+	        background: #83bd63;	
+	}
+	
+	ul.simplePagerNav li.currentPage a {
+		color: #fff;	
+	}
+
+	.link-othernews {
+	    font: 12px arial;
+	}
+	.othernews {
+		margin-left:10px;
+		margin-bottom:10px;
+	}
+	.paging li {
+	    background-image: url("http://vnexpress.net/Images/Background/blue-square.gif");    
+	    background-position: 0 7px;
+	    background-repeat: no-repeat;
+	    padding-left: 6px;
+	    position: relative;
+	}
+	.othernews ul {
+	    list-style: none outside none;
+	}
+	.othernews-title {
+	    background-color: #FFF;
+	    color: #8A0000;
+	    font: bold 14px arial;
+	    padding-right: 5px;
+	    margin-top:10px;
+	    margin-bottom: 10px;
+	    margin-left:0px;
+	}
+    
+</style>
+<script type="text/javascript" src="<?php echo site_url();?>js/quickpager.jquery.js"></script>
+<?php include_once('seotiengviet.php');?>
+<div style="margin-left:5px;margin-top:0px;float:left;">
+<?php $this->load->view("widget/widgetraovat.html");?>
+</div>
+<div class="videoholder">
+<ul>
+<?php
+foreach ($videolist as $video) { 
+?>
+<li>
+<a href="<?php echo site_url();?>video/<?php echo $video->getId();?>-<?php echo khongdau($video->getTitle())?>"><img src="<?php echo $video->getThumbnail();?>"></a>
+<div class="description">
+<h3>
+<a href="<?php echo site_url();?>video/<?php echo $video->getId();?>-<?php echo khongdau($video->getTitle())?>"><?php echo $video->getTitle();?></a>
+</h3>
+<?php echo $video->getDescription();?>
+</div>
+</li>
+<?php
+}
+?>
+</ul>
+<div class="clear"></div>
+<div class="othernews-title fl">
+&nbsp;Các video đã đưa:
+</div>
+<div class="clear"></div>
+<div class="othernews">
+<ul class="paging">
+<?php foreach ($videokhac as $item):?>
+<li><a class="link-othernews" href="<?php echo site_url();?>video/<?php echo $item->getId();?>-<?php echo khongdau($item->getTitle()); ?>"><?php echo $item->getTitle();?></a></li>
+<?php endforeach;?>
+</ul>
+</div>
+</div>
+<div class="adv">
+<?php $this->load->view("rvquangcao.html");?>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("ul.paging").quickPager();
+});
+</script>

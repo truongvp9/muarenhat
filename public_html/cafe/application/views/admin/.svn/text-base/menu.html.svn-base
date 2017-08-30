@@ -1,0 +1,9 @@
+<div class="menu-left">
+	<ul>
+		<?php foreach ($category as $value) : ?>
+		<li>
+			<a href="<?php echo site_url('admin/sanpham').'/'.$value->getId();?>"><?php echo $value->getName();?></a> &raquo; <a href="<?php echo site_url('admin/editcategory').'/'.$value->getId();?>">Edit</a> &raquo; <a href="<?php echo site_url('admin/deletecategory').'/'.$value->getId();?>">Remove</a>
+		</li>
+		<?php endforeach;?>
+	</ul>
+</div>

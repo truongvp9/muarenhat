@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- OF COURSE YOU NEED TO ADAPT NEXT LINE TO YOUR tiny_mce.js PATH -->
+<script type="text/javascript" src="<?php echo site_url()?>tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript" src="<?php echo site_url()?>tinymce/jscripts/tiny_mce/tinyMce.conf.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#skin_id').change(function(){
+		var select = $(this).val();
+		$('#preview').attr("href",'http://muarenhat.net/'+select);
+	});
+});
+</script>
+</head>
+<style>
+.top_menu {
+    display: block;
+    float: left;
+    margin: 0 0 0 78px;
+}
+.top_menu li {
+    display: inline;
+    float: left;
+    list-style-type: none;
+    padding: 0 12px;
+}
+</style>
+<body>
+
+<div style="margin:10px;">
+<ul class="top_menu">
+<li>
+	<img src='/css/images/icon_vuong.gif'> <a href="<?php echo site_url('setupshop/config');?>">Cài đặt gian hàng</a>
+</li>
+<li>
+	<img src='/css/images/icon_vuong.gif'> <a href="<?php echo site_url('setupshop/setcategory');?>">Quản lý chuyên mục</a>
+</li>
+<li>
+	<img src='/css/images/icon_vuong.gif'> <a href="<?php echo site_url('map/findmap');?>">Tìm bản đồ</a>
+</li>
+</ul>
+
+<div class="clear"></div>
+
+<form method="post" action="<?php echo site_url('setupshop/do_config');?>">
+
+<center><h1>Cài đặt gian hàng</h1></center>
+
+<h3>Lĩnh vực kinh doanh</h3>
+
+<select name="cat_id">
+<?php foreach($category as $item):?>
+<option value="<?php echo $item->getId();?>" <?php if ($store_info->getCatId()==$item->getId()) echo "selected";?>><?php echo $item->getName();?></option>
+<?php foreach($subcat[$item->getId()] as $subitem):?>
+	<option value="<?php echo $subitem->getId();?>" <?php if ($store_info->getCatId()==$subitem->getId()) echo "selected";?>>-- <?php echo $subitem->getName();?></option>
+<?php endforeach;?>		
+<?php endforeach;?>
+</select>
+
+<h3>Mẫu giao diện gian hàng</h3>
+
+<select name="skin_id" id="skin_id">
+<option value="shopthoitrang" <?php if ($store_info->getSkin()=='shopthoitrang') echo "selected";?>>Thời trang style1</option>
+<option value="fashionshop" <?php if ($store_info->getSkin()=='fashionshop') echo "selected";?>>Thời trang style2</option>
+<option value="cuahangmaytinh" <?php if ($store_info->getSkin()=='cuahangmaytinh') echo "selected";?>>Máy tính</option>
+<option value="gianhangmau" <?php if ($store_info->getSkin()=='gianhangmau') echo "selected";?>>Điện thoại</option>
+<option value="shopnoithat" <?php if ($store_info->getSkin()=='shopnoithat') echo "selected";?>>Nội thất</option>
+<option value="babyshop" <?php if ($store_info->getSkin()=='babyshop') echo "selected";?>>Đồ trẻ em</option>
+</select>
+
+<a href="<?php echo site_url($store_info->getSkin());?>" id="preview" target="_blank">Xem thử</a>
+
+<h3>Thông tin về gian hàng</h3>
+
+<strong>
+Giới thiệu về gian hàng
+</strong>
+<textarea name="introduction" cols=120>
+
+<?php
+	echo $store_info->getIntroduction();
+?>
+
+</textarea>
+<strong>
+Chính sách bán hàng
+</strong>
+<textarea name="policy" cols=120>
+
+<?php
+	echo $store_info->getPolicy();
+?>
+
+</textarea>
+
+<!-- 
+
+Bản đồ đến gian hàng
+
+<br>
+
+Hỏi đáp / Câu hỏi thường gặp
+
+<br>
+
+ -->
+<strong>
+Thông tin liên hệ với gian hàng
+</strong>
+<textarea name="contact" cols=120>
+
+<?php
+	echo $store_info->getContact();
+?>
+
+</textarea>
+
+<br>
+
+<input type="submit" name="cmd" value="Lưu cấu hình">
+
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<div id="wrapper">
+<div id="background">
+<?php
+	$this->load->view("skin/".$skin_id."/left.html");
+?>
+<div id="center">
+<div style="color:#BDBDBD;">
+<?php echo $store_info->getContact();?>
+<p>
+<center>
+Những ô có dấu sao (* ) là bắt buộc phải nhập.
+</center>
+</p>
+</div>
+<form id="contactForm" action="<?php echo site_url();?>contact.php" method="post">
+<table width="100%" border="0" style="color:#BDBDBD;">
+  <tr>
+    <td width=100>Họ và tên *</td>
+    <td>
+      <label>
+        <input type="text" name="fullname" id="fullname" class="required" />
+        </label>
+    </td>
+  </tr>
+  <tr>
+    <td>Địa chỉ *</td>
+    <td><input type="text" name="address" id="address" class="required" /></td>
+  </tr>
+  <tr>
+    <td>Điện thoại *</td>
+    <td><input type="text" name="phone" id="phone" class="required" /></td>
+  </tr>
+  <tr>
+    <td>Di động *</td>
+    <td><input type="text" name="mobile" id="mobile" class="required" /></td>
+  </tr>  
+  <tr>
+    <td>Email *</td>
+    <td><input type="text" name="email" id="email" class="required email"/></td>
+  </tr>
+  <tr>
+    <td>Fax</td>
+    <td><input type="text" name="fax" id="fax" /></td>
+  </tr>
+  <tr>
+    <td colspan=2>
+    <div class="feedback" style="margin-left:2px;">
+    <label>
+      <textarea name="feedback" id="feedback" cols="50" rows="5" class="required"></textarea>
+    </label>
+    </div>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><label>
+      <input type="submit" name="button" id="button" value="Gửi đi" />
+    </label>
+      <label>
+      <input type="reset" name="button2" id="button2" value="Làm lại" />
+    </label></td>
+  </tr>
+</table>
+</form>
+
+</div>
+<?php
+	$this->load->view("skin/".$skin_id."/right.html");
+?>
+</div>
+</div>
+</div>

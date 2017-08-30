@@ -1,0 +1,91 @@
+<script language=javascript>
+function check(frm) {
+	if (frm.login.value=="") {
+		alert("Bạn chưa nhập tên truy cập!");
+		frm.login.focus();
+		return false;
+	}
+	if (frm.pass.value=="") {
+		alert("Bạn chưa nhập mật khẩu!");
+		frm.pass.focus();
+		return false;
+	}
+
+	return true;
+}
+</script>
+ <div class="content">
+<form id="frm" name="frm" method="post" action="">
+<div class="cloginfrm">
+<center>
+  <table width="400" border="0" align="center">
+    <tr>
+   <td colspan="2">
+   <div class="form_errorMsg_content" style="display:none;height:28px;">
+   <span class="form_errorMsg" style="float:left;display:inline;"><?php echo $status;?></span>
+   </div>
+   </td>
+   </tr>
+    <tr>
+      <td colspan=2 align="center">
+      Những ô có dấu sao (<font color="red">*</font>) là bắt buộc phải nhập.      
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <span>Tên truy nhập:</span>
+      </td>
+      <td><input type="text" name="login" id="login" value="<?php echo $login;?>"/>
+		<span class="require" style="float:left;padding:5px;">*</span>	  
+        </td>
+    </tr>
+    <tr>
+      <td>
+
+      <span>Mật khẩu:</span>
+      </td>
+      <td><input type="password" name="pass" id="pwd" value="<?php echo $password;?>" /> 
+		<span class="require" style="float:left;padding:5px;">*</span>	  
+        </td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="Submit" value="Đăng nhập" id="cmd" class="button" onclick='return check(this.form)'/>
+	  </td>
+    </tr>
+  </table>
+  <div id="msg"></div>
+  </center>
+  </div>
+</form>
+<form id="frm1" name="frm1" method="post" action="/forgotpwd">
+<div class="cloginfrm forgot_pass" style="display:none">
+<table id="forgot_pass">
+<tr>
+<td class="form_name"><font class="form_asterisk">* </font>Email của bạn:</td>
+<td>
+<input type="text" maxlength="250" style="width:250px; height:px" value="" name="email" id="email" title="Email của bạn" autocomplete="off" class="form_control">
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<input type="submit" value="Khôi phục mật khẩu" class="button">
+</td>
+</tr>
+</table>
+</div>
+</form>
+</div>
+<script language=javascript>
+$(document).ready(function(){
+   var error = $('.form_errorMsg').html();
+   if (error!='') {
+	   $('.form_errorMsg_content').show();
+   }
+   // show forgot password	
+   $("#clickforgot").click(function() {
+		$('.forgot_pass').show();
+   });
+ });
+</script>

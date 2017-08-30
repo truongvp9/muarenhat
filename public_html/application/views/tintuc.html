@@ -1,0 +1,31 @@
+<?php include_once('seotiengviet.php');?>
+<div style="padding:2px;"></div>
+<div class="list_link tintuc">
+    <div style="margin-left:5px;"><h3>Tin khuyến mại</h3> </div>
+    <ul style="list-style: none outside none;">
+	<?php foreach ($tin as $item):?>
+		<li style="margin-left:2px;">
+		<div class="news_tooltip" id="<?php echo $item->getId();?>">
+		<a href="<?php echo site_url('news').'/'.$item->getId().'-'.khongdau($item->getTitle());?>"><?php echo $item->getTitle();?></a>
+		<div id="news_summary<?php echo $item->getId();?>" style="display:none;">
+		<div style="width:400px;">
+		<div style="float:left;width:200px;"><img width=200 src="<?php echo site_url().$item->getImg();?>"></div>
+		<div style="float:right;width:190px;"><?php echo $item->getSummary();?></div>
+		</div>
+		</div>
+		</div>			   
+		</li>
+	<?php endforeach;?>
+	</ul>
+	<div class="view_all"><a href="/raovat/tinkhuyenmai" style="float:left;">Đăng khuyến mại</a>&nbsp;<a href="/tintuc" class="text_link" style="margin-right:5px;">Xem tất cả</a></div>
+</div>
+<script type="text/javascript">
+$('.news_tooltip').tooltip({ 
+    delay: 0, 
+    showURL: false, 
+    bodyHandler: function() { //alert($('.news_summary').html(this.html));
+        var id = $(this).attr("id");    
+        return $('#news_summary'+id).html(this.html); 
+    } 
+});
+</script>

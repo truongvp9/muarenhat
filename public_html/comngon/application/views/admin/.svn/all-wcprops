@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/muaban12/!svn/ver/2/trunk/Sources/application/views/admin
+END
+store.html
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/muaban12/!svn/ver/2/trunk/Sources/application/views/admin/store.html
+END
+hoidap_admin.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/muaban12/!svn/ver/6/trunk/Sources/application/views/admin/hoidap_admin.html
+END
+admin_index.html
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/muaban12/!svn/ver/2/trunk/Sources/application/views/admin/admin_index.html
+END
+header_admin.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/muaban12/!svn/ver/6/trunk/Sources/application/views/admin/header_admin.html
+END
+edit_category.html
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/muaban12/!svn/ver/6/trunk/Sources/application/views/admin/edit_category.html
+END
+menu.html
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/muaban12/!svn/ver/6/trunk/Sources/application/views/admin/menu.html
+END
+raovat_admin.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/muaban12/!svn/ver/6/trunk/Sources/application/views/admin/raovat_admin.html
+END
+addcategory.html
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/muaban12/!svn/ver/6/trunk/Sources/application/views/admin/addcategory.html
+END
+addtype.html
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/muaban12/!svn/ver/6/trunk/Sources/application/views/admin/addtype.html
+END

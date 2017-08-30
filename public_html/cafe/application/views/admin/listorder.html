@@ -1,0 +1,63 @@
+<style>
+.catalog-lists th {
+    background-color: #777777;
+    color: #FFFFFF;
+    height: 40px;
+    padding-bottom: 4px;
+    padding-top: 5px;
+    text-align: left;
+}
+.catalog-lists th, td {
+    border: 1px solid #A4A4A4;
+    height: 40px;
+    padding: 3px 7px 2px 10px;
+}
+</style>
+<?php 
+	function getNicePrice($price)
+	{
+		if (intval($price)==0) {
+			return 0;
+		}
+		$price = strrev($price);
+		$arr = str_split($price,3);
+		$result = implode(".", $arr);
+		$result= strrev($result);
+	    return $result;
+	}
+	$payment = array("dh"=>"TT sau khi đặt hàng","atm"=>"TT Qua thẻ ATM","cc"=>"TT Qua thẻ tín dụng","nl"=>"TT Qua Ngân lượng","pp"=>"TT Qua PayPal");
+	$status = array("0"=>"Mới","new"=>"Mới","process"=>"Đang xử lý","completed"=>"Đã giao hàng");
+?>
+<center><h3>Danh sách đơn hàng</h3></center>
+<table cellspacing="0" width="100%" border="0" class="catalog-lists">
+  <tr>
+    <th width=5%>TT</th>
+    <th>Tên người đặt hàng</th>
+    <th>Địa chỉ người đặt hàng</th>
+    <th>Điện thoại</th>
+    <th>Tên người nhận hàng</th>
+    <th>Địa chỉ người nhận hàng</th>
+    <th>Điện thoại</th>
+    <th>Ngày đặt hàng</th>
+    <th>Tổng Số tiền</th>
+    <th>Phương thức thanh toán</th>
+    <th>Tình trạng</th>
+    <th>Xem chi tiết</th>
+  </tr>
+  <?php $i=1; foreach ($order as $item):?>
+  <tr>
+    <td align="center"><?php echo $i++;?></td>
+    <td><?php echo $item->name_;?></td>
+    <td><?php echo $item->address_;?></td>
+    <td><?php echo $item->phone_;?></td>
+     <td><?php echo $item->shipping_name_;?></td>
+    <td><?php echo $item->shipping_address_;?></td>
+    <td><?php echo $item->shipping_phone_;?></td>
+    <td><?php echo date("d-m-Y",strtotime($item->order_date_));?></td>
+    <td align="right"><?php echo getNicePrice(intval($item->total_amount_));?></td>
+    <td><?php echo $payment[$item->payment_method_name_];?></td>
+     <td><?php echo $status[$item->status_];?></td>
+    <td><a href="/admin/orderdetail/<?php echo $item->id_;?>">Chi tiết</a></td>
+  </tr>
+  <?php endforeach;?>
+</table>

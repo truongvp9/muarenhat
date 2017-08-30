@@ -1,0 +1,66 @@
+<?php 
+	$province = array("0"=>"Hà Nội","1"=>"T.P Hồ Chính Minh","2"=>"Hải Phòng","3"=>"Đà Nẵng","4"=>"Bình Dương");
+	$district = array("Hoàn Kiếm", "Ba Ðình", "Ðống Ða", "Hai Bà Trưng", "Tây Hồ", "Thanh Xuân", "Cầu Giấy", "Long Biên", "Hoàng Mai", "Hà Đông","TX.Sơn Tây","H.Ðông Anh", "H.Sóc Sơn", "H.Thanh Trì", "H.Từ Liêm", "H.Gia Lâm", "H.Ba Vì", "H.Chương Mỹ", "H.Đan Phượng", "H.Hoài Đức", "H.Mỹ Đức", "H.Phú Xuyên", "H.Phúc Thọ", "H.Quốc Oai", "H.Thạch Thất", "H.Thanh Oai", "H.Thường Tín", "H.Ứng Hòa", "H.Mê Linh");
+	$hcm_dist = array("Quận 1", "Quận 2", "Quận 3", "Quận 4", "Quận 5", "Quận 6", "Quận 7", "Quận 8", "Quận 9", "Quận 10", "Quận 11", "Quận 12", "Tân Bình", "Bình Thạnh", "Phú Nhuận", "Thủ Đức", "Gò Vấp", "Bình Tân", "Tân Phú","Nhà Bè", "Cần Giờ", "Hóc Môn", "Củ Chi", "Bình Chánh");
+?>
+<div class="clear"></div>
+<div class="province">
+<ul>
+<?php foreach ($province as $key => $value):?>
+<li id="<?php echo $key;?>">
+<a href="#"><span><?php echo $value;?></span></a>
+</li>
+<?php endforeach;?>
+<li>
+<a href="#" id="other_city"><span>Tỉnh khác</span></a>
+</li>
+</ul>
+</div>
+<div style="float:left;width:100%;padding-top:5px;*padding-top:15px;display:none;" id="hn_dist">
+			<div style="display:block" id="BarConditions">
+				<div style="display: block;" id="content-bar">
+				<?php foreach ($district as $key => $value):?>
+					<div class="item-condition">
+						<a href="#"><?php echo $value;?></a>
+					</div>				
+				<?php endforeach;?>
+			</div>
+	</div>
+</div>		
+<div style="float:left;width:100%;padding-top:5px;*padding-top:15px;display:none;" id="hcm_dist">
+			<div style="display:block" id="BarConditions">
+				<div style="display: block;" id="content-bar">
+				<?php foreach ($hcm_dist as $key => $value):?>
+					<div class="item-condition">
+						<a href="#"><?php echo $value;?></a>
+					</div>				
+				<?php endforeach;?>
+			</div>
+	</div>
+</div>		
+<div class="choose_province" style="display:none;z-index:3;">
+<div onclick="overlayclose('chooseCity');" id="chooseCity" style="display: block; left: 464px; top: 50px;"><div class="boxOvlCityTop"><span></span></div><div class="boxOvlCity"><div class="contentOvlCity"><div style="float:left" class="RegionPanel"><div style="background:none" class="Region">Miền Bắc</div><div class="City"><a style="font-weight:bold;color:#0087c8;" href="Ha-Noi"><b>Hà Nội</b></a></div><div class="City"><a style="font-weight:bold;color:#0087c8;" href="Hai-Phong"><b>Hải Phòng</b></a></div><div class="City"><a href="Bac-Can">Bắc Cạn  </a></div><div class="City"><a href="Bac-Giang">Bắc Giang  </a></div><div class="City"><a href="Bac-Ninh">Bắc Ninh</a></div><div class="City"><a href="Cao-Bang">Cao Bằng</a></div><div class="City"><a href="Dien-Bien">Điện Biên</a></div><div class="City"><a href="Ha-Giang">Hà Giang  </a></div><div class="City"><a href="Ha-Nam">Hà Nam </a></div><div class="City"><a href="Hai-Duong">Hải Dương</a></div><div class="City"><a href="Hoa-Binh">Hoà Bình</a></div><div class="City"><a href="Hung-Yen">Hưng Yên</a></div><div class="City"><a href="Lai-Chau">Lai Châu </a></div><div class="City"><a href="Lang-Son">Lạng Sơn </a></div><div class="City"><a href="Lao-Cai">Lào Cai </a></div><div class="City"><a href="Nam-Dinh">Nam Định</a></div><div class="City"><a href="Ninh-Binh">Ninh Bình  </a></div><div class="City"><a href="Phu-Tho">Phú Thọ  </a></div><div class="City"><a href="Quang-Ninh">Quảng Ninh </a></div><div class="City"><a href="Son-La">Sơn La </a></div><div class="City"><a href="Thai-Binh">Thái Bình</a></div><div class="City"><a href="Thai-Nguyen">Thái Nguyên </a></div><div class="City"><a href="Thanh-Hoa">Thanh Hoá</a></div><div class="City"><a href="Tuyen-Quang">Tuyên Quang  </a></div><div class="City"><a href="Vinh-Phuc">Vĩnh Phúc  </a></div><div class="City"><a href="Yen-Bai">Yên Bái </a></div></div><div style="float:left" class="RegionPanel"><div style="background:none" class="Region">Miền Trung</div><div class="City"><a style="font-weight:bold;color:#0087c8;" href="Da-Nang"><b>Đà Nẵng</b></a></div><div class="City"><a href="Binh-Dinh">Bình Định</a></div><div class="City"><a href="Binh-Phuoc">Bình Phước</a></div><div class="City"><a href="Binh-Thuan">Bình Thuận</a></div><div class="City"><a href="Dak-Lak">Đắk Lắk </a></div><div class="City"><a href="Dak-Nong">Đắk Nông </a></div><div class="City"><a href="Gia-Lai">Gia Lai</a></div><div class="City"><a href="Ha-Tinh">Hà Tĩnh </a></div><div class="City"><a href="Khanh-Hoa">Khánh Hoà </a></div><div class="City"><a href="Kontum">Kontum</a></div><div class="City"><a href="Lam-Dong">Lâm Đồng </a></div><div class="City"><a href="Nghe-An">Nghệ An</a></div><div class="City"><a href="Ninh-Thuan">Ninh Thuận</a></div><div class="City"><a href="Phu-Yen">Phú Yên </a></div><div class="City"><a href="Quang-Binh">Quảng Bình  </a></div><div class="City"><a href="Quang-Nam">Quảng Nam </a></div><div class="City"><a href="Quang-Ngai">Quảng Ngãi  </a></div><div class="City"><a href="Quang-Tri">Quảng Trị  </a></div><div class="City"><a href="Thua-Thien-Hue">Thừa Thiên Huế</a></div><div class="City"><a href="TP-Vinh">TP Vinh</a></div></div><div style="float:left" class="RegionPanel"><div class="Region">Miền Nam</div><div class="City"><a style="font-weight:bold;color:#0087c8;" href="Binh-Duong"><b>Bình Dương</b></a></div><div class="City"><a style="font-weight:bold;color:#0087c8;" href="Can-Tho"><b>Cần Thơ </b></a></div><div class="City"><a style="font-weight:bold;color:#0087c8;" href="TP-HCM"><b>TP HCM</b></a></div><div class="City"><a href="An-Giang">An Giang</a></div><div class="City"><a href="Ba-Ria-Vung-Tau">Bà Rịa - Vũng Tàu</a></div><div class="City"><a href="Bac-Lieu">Bạc Liêu  </a></div><div class="City"><a href="Ben-Tre">Bến Tre</a></div><div class="City"><a href="Ca-Mau">Cà Mau  </a></div><div class="City"><a href="Dong-Nai">Đồng Nai</a></div><div class="City"><a href="Dong-Thap">Đồng Tháp</a></div><div class="City"><a href="Hau-Giang">Hậu Giang</a></div><div class="City"><a href="Kien-Giang">Kiên Giang </a></div><div class="City"><a href="Long-An">Long An</a></div><div class="City"><a href="Soc-Trang">Sóc Trăng </a></div><div class="City"><a href="Tay-Ninh">Tây Ninh </a></div><div class="City"><a href="Tien-Giang">Tiền Giang </a></div><div class="City"><a href="Tra-Vinh">Trà Vinh</a></div><div class="City"><a href="Vinh-Long">Vĩnh Long</a></div></div></div></div><div class="boxOvlCityBottom"></div></div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#other_city').click(function(){
+		$('.choose_province').show();
+	});
+	$('.choose_province').click(function(){
+		$(this).hide();
+	});
+	$('.province ul li').click(function(){
+		var id = $(this).attr('id');
+		$('#hn_dist').hide();
+		$('#hcm_dist').hide();		
+		if (id == 1) {
+			$('#hcm_dist').show();
+			$('#hn_dist').hide();
+		}
+		if (id == 0) {
+			$('#hn_dist').show();
+			$('#hcm_dist').hide();
+		}
+	});
+});
+</script>

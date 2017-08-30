@@ -1,0 +1,28 @@
+<div>
+<div class="menu_product" style="width:200px;float:left;">
+<ul>
+<?php
+foreach ($catalog as $value) {
+?>
+<li class="level_0 normal" style="padding:5px;">
+	<a href="#"><?php echo $value->name;?></a> <a href="<?php echo site_url('category/editcategory').'/'.$value->cid;?>">Sửa</a><a href="#">Xóa</a>
+<?php	
+	foreach ($subcat[$value->cid] as $subval) {
+?>
+<li style="padding:5px;margin-left:10px;">
+	<a href="#"><?php	echo $subval->name;?></a> <a href="<?php echo site_url('category/editcategory').'/'.$subval->cid;;?>">Sửa</a><a href="#">Xóa</a>
+</li>
+<?php 
+	}
+?>
+</li>
+<?php
+}
+?>
+</ul>
+</div>
+<div style="width:700px;float:right;">
+<?php $this->load->view("slider.html");?>
+</div>
+</div>
+<div class="clear"></div>

@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Rao vặt</title>
+<!-- OF COURSE YOU NEED TO ADAPT NEXT LINE TO YOUR tiny_mce.js PATH -->
+<script type="text/javascript" src="<?php echo site_url()?>tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript" src="<?php echo site_url()?>tinymce/jscripts/tiny_mce/tinyMce.conf.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript" src="<?php echo site_url()?>js/ajaxupload.3.5.js" ></script>
+<link rel="stylesheet" type="text/css" href="<?php echo site_url()?>styles.css" />
+<script type="text/javascript" >
+  $(function(){
+    var btnUpload=$('#upload');
+    var status=$('#status');
+    new AjaxUpload(btnUpload, {
+      action: '<?php echo site_url()?>upload-file.php',
+      name: 'uploadfile',
+      onSubmit: function(file, ext){
+         if (! (ext && /^(jpg|png|jpeg|gif)$/.test(ext))){ 
+                    // extension is not allowed 
+          status.text('Only JPG, PNG or GIF files are allowed');
+          return false;
+        }
+        status.text('Uploading...');
+      },
+      onComplete: function(file, response){
+        //On completion clear the status
+        status.text('');
+        //Add uploaded file to list
+        if(response==="success"){
+          //$('<li></li>').appendTo('#files').html('<img src="<?php echo site_url()?>uploads/'+file+'" alt="" /><br />'+file).addClass('success');
+          mce_img_embed('/uploads/'+file);
+          var current = $('#uploadfile').val();
+          if (current!='')
+            current = current + ';'+ file;
+          else
+            current = file;
+          $('#uploadfile').val(current);
+        } else{
+          $('<li></li>').appendTo('#files').text(file).addClass('error');
+        }
+      }
+    });
+    
+  });
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+	 $('#insert_images').click(function(){
+		 var html = $('#files').html();
+		 //alert(html);
+		 $('#ad_description').val(html);
+		 mce_img_embed();
+	 });
+});
+</script>
+</head>
+<body>
+<div class="raovat">
+<div class="Header"><span>Đăng tin rao vặt</span></div>
+<div>
+  <div align="center"> </div>
+  <center>
+    (Tin này sẽ hiển thị "Khách vãng lai" nếu bạn không đăng nhập)<br>
+  </center>
+  <div align="center">
+    <div id="settyper" align="center">Chọn kiểu gõ   
+      <input value="1" name="typer" onClick="return Mudim.SetMethod(4);" type="radio">
+       
+      Tự động   
+      <input checked="checked" value="1" name="typer" onClick="return  Mudim.SetMethod(2);" type="radio">
+       
+      Telex   
+      <input value="1" name="typer" onClick="return  Mudim.SetMethod(1);" type="radio">
+       
+      VNI   
+      <input value="0" name="typer" onClick="return Mudim.SetMethod(0);" type="radio">
+       
+      Tắt</div>
+  </div>
+  <div>
+      <div>
+        <input type="hidden" name="uploadfile" id="uploadfile" value="">
+        <!-- Upload Button, use any id you wish-->
+        <br>
+        <strong>Chọn ảnh để upload:</strong> (gif, png, jpg, jpeg &lt; <strong>1MB</strong>, tối đa <strong>10</strong> ảnh/1 tin)                  
+        <div id="upload" ><span>Upload Ảnh<span></div><span id="status" ></span>
+        </div>
+    <form method="post" action="<?php echo site_url('raovat/dangtin');?>" name="itemForm" id="itemForm" onSubmit="return validate();">
+      <div id="post_form" style="clear:both;">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+          <tbody>
+            <tr height="30">
+              <td><strong>Tiêu đề</strong>:</td>
+              <td width="85%"><input name="subject" type="text" id="ad_title" onKeyPress="return tieude_press(event);" value="" size="68" maxlength="100" tooltiptext="Vui lòng nhập tiếng Việt có dấu, không dùng chữ IN HOA" autocomplete="off">
+                *</td>
+            </tr>
+            <tr height="30">
+              <td valign="top" width="15%">Chuyên mục: </td>
+              <td valign="top">
+		      <select style="width:200px" class="txt" id="ad_cat_id" name="ad_cat_id" tooltiptext="Bạn phải chọn chuyên mục phù hợp với tin đăng. Nếu sai chuyên mục, tin của bạn sẽ bị xóa.">
+		      <option value="">= Chọn chuyên mục =</option>
+		      <?php foreach ($category as $value):?>
+		      <option value="<?php echo $value->getId();?>"><?php echo $value->getName();?></option>
+		      <?php endforeach;?>
+		      </select>              
+              </td>
+            </tr>
+            <tr height="30">
+              <td valign="top" width="15%">Nhu cầu: </td>
+              <td valign="top">
+              <div id="span_pro"> 
+              <select onChange="javascript: return  onChangeNeeds(this);" style="width:200px" class="txt" id="ad_id_pcat" name="ad_id_pcat">              
+              <option value="0">= Chọn nhu cầu =</option>
+              </select>
+              </div>
+              </td>
+            </tr>
+            <tr height="30">
+              <td valign="top">Chủng loại: </td>
+              <td valign="top">
+              <div id="span_cat">
+              <select style="width:200px" class="txt" id="ad_id_subcat" name="ad_id_subcat">
+              <option value="0">= Chọn chủng loại =</option>
+              </select>
+              </div></td>
+            </tr>
+            <tr height="30">
+              <td valign="top">Nơi rao:</td>
+              <td valign="top"> 
+              <select style="width:200px" class="txt" id="ad_city_id" name="ad_city_id">              
+        <option value="">--[Chọn]--</option>
+        <option title="Hà Nội" value="2">Hà Nội</option>
+        <option title="Hồ Chí Minh" value="3">Hồ Chí Minh</option>
+        <option title="Hải Phòng" value="32">Hải Phòng</option>
+        <option title="Đà Nẵng" value="65">Đà Nẵng</option>
+        <option title="An Giang" value="4">An Giang</option>
+        <option title="Bà Rịa - Vũng Tàu" value="5">Bà Rịa - Vũng Tàu</option>
+        <option title="Bắc Cạn" value="14">Bắc Cạn</option>
+        <option title="Bắc Giang" value="7">Bắc Giang</option>
+        <option title="Bạc Liêu" value="12">Bạc Liêu</option>
+        <option title="Bắc Ninh" value="6">Bắc Ninh</option>
+        <option title="Bến Tre" value="13">Bến Tre</option>
+        <option title="Bình Dương" value="8">Bình Dương</option>
+        <option title="Bình Phước" value="10">Bình Phước</option>
+        <option title="Bình Thuận" value="11">Bình Thuận</option>
+        <option title="Bình Định" value="9">Bình Định</option>
+        <option title="Buôn Mê Thuột" value="66">Buôn Mê Thuột</option>
+        <option title="Cà Mau" value="24">Cà Mau</option>
+        <option title="Cần Thơ" value="15">Cần Thơ</option>
+        <option title="Cao Bằng" value="25">Cao Bằng</option>
+        <option title="Gia Lai" value="26">Gia Lai</option>
+        <option title="Hà Giang" value="27">Hà Giang</option>
+        <option title="Hà Nam" value="28">Hà Nam</option>
+        <option title="Hà Nội 2" value="29">Hà Nội 2</option>
+        <option title="Hà Tĩnh" value="30">Hà Tĩnh</option>
+        <option title="Hải Dương" value="31">Hải Dương</option>
+        <option title="Hậu Giang" value="68">Hậu Giang</option>
+        <option title="Hoà Bình" value="33">Hoà Bình</option>
+        <option title="Hưng Yên" value="34">Hưng Yên</option>
+        <option title="Khánh Hòa" value="17">Khánh Hòa</option>
+        <option title="Kiên Giang" value="35">Kiên Giang</option>
+        <option title="Kon Tum" value="36">Kon Tum</option>
+        <option title="Lai Châu" value="37">Lai Châu</option>
+        <option title="Lâm Đồng" value="38">Lâm Đồng</option>
+        <option title="Lạng Sơn" value="39">Lạng Sơn</option>
+        <option title="Lào Cai" value="20">Lào Cai</option>
+        <option title="Long An" value="40">Long An</option>
+        <option title="Nam Định" value="23">Nam Định</option>
+        <option title="Nghệ An" value="41">Nghệ An</option>
+        <option title="Ninh Bình" value="42">Ninh Bình</option>
+        <option title="Ninh Thuận" value="43">Ninh Thuận</option>
+        <option title="Phú Thọ" value="44">Phú Thọ</option>
+        <option title="Phú Yên" value="45">Phú Yên</option>
+        <option title="Quảng Bình" value="46">Quảng Bình</option>
+        <option title="Quảng Nam" value="47">Quảng Nam</option>
+        <option title="Quảng Ngãi" value="48">Quảng Ngãi</option>
+        <option title="Quảng Ninh" value="21">Quảng Ninh</option>
+        <option title="Quảng Trị" value="49">Quảng Trị</option>
+        <option title="Sóc Trăng" value="50">Sóc Trăng</option>
+        <option title="Sơn La" value="51">Sơn La</option>
+        <option title="Tây Ninh" value="52">Tây Ninh</option>
+        <option title="Thái Bình" value="53">Thái Bình</option>
+        <option title="Thái Nguyên" value="54">Thái Nguyên</option>
+        <option title="Thanh Hoá" value="55">Thanh Hoá</option>
+        <option title="Thừa Thiên Huế" value="19">Thừa Thiên Huế</option>
+        <option title="Tiền Giang" value="56">Tiền Giang</option>
+        <option title="Trà Vinh" value="57">Trà Vinh</option>
+        <option title="Tuyên Quang" value="58">Tuyên Quang</option>
+        <option title="Vĩnh Long" value="59">Vĩnh Long</option>
+        <option title="Vĩnh Phúc" value="60">Vĩnh Phúc</option>
+        <option title="Yên Bái" value="61">Yên Bái</option>
+        <option title="Đà Lạt" value="69">Đà Lạt</option>
+        <option title="Đắc Lắc" value="62">Đắc Lắc</option>
+        <option title="Đắc Nông" value="67">Đắc Nông</option>
+        <option title="Đồng Nai" value="22">Đồng Nai</option>
+        <option title="Đồng Tháp" value="64">Đồng Tháp</option>
+      </select>
+              </td>
+            </tr>
+            <tr height="30">
+              <td valign="top">Quận huyện:</td>
+              <td valign="top"> 
+			  <select title="Chọn" id="use_district" name="use_district" size="1">
+        		<option value="">--[Chọn]--</option>
+        	  </select>              
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody>
+          <tr>
+            <td colspan=2><strong>Nội dung đăng </strong> *<br>
+            <textarea name="content" id="ad_description" cols="120" rows="20"></textarea>            
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" align="left">
+              <input type="hidden" name="user_id" value="<?php echo $user_id;?>">
+              <div style="padding:10px;">
+        <?php
+          require_once('recaptchalib.php');
+          $publickey = "6LfmbSUTAAAAALOMR0goST1vuujFGfDgAcYyido1"; // you got this from the signup page
+          echo recaptcha_get_html($publickey);
+        ?>			  
+              <input type="submit" name="button" id="button" value="Đăng tin" class="button" style="width:100px;margin-left:130px;cursor:pointer">
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+function check(frm) {
+	if (frm.captra.value=="Hanoi" || frm.captra.value=="HANOI" || frm.captra.value=="hanoi" || frm.captra.value=="Ha noi" || frm.captra.value=="HaNoi") {
+		return true;
+	}
+	else  {
+		alert("Xin moi ban nhap vao ten thu do cua nuoc Viet nam!");
+		frm.captra.focus();
+		return false;
+	}
+	if (frm.captra2.value==2) {
+		return true;
+	}
+	else  {
+		alert("Xin moi ban nhap vao so 2!");
+		frm.captra2.focus();
+		return false;
+	}	
+	return false;
+}
+function GetDistricts(id) {	
+	var Districts = [];
+	if (id==2) {
+		Districts = ["Hoàn Kiếm", "Ba Ðình", "Ðống Ða", "Hai Bà Trưng", "Tây Hồ", "Thanh Xuân", "Cầu Giấy", "Long Biên", "Hoàng Mai", "Hà Đông","TX.Sơn Tây","H.Ðông Anh", "H.Sóc Sơn", "H.Thanh Trì", "H.Từ Liêm", "H.Gia Lâm", "H.Ba Vì", "H.Chương Mỹ", "H.Đan Phượng", "H.Hoài Đức", "H.Mỹ Đức", "H.Phú Xuyên", "H.Phúc Thọ", "H.Quốc Oai", "H.Thạch Thất", "H.Thanh Oai", "H.Thường Tín", "H.Ứng Hòa", "H.Mê Linh"];
+	}
+	if (id==3) {
+		Districts = ["Quận 1", "Quận 2", "Quận 3", "Quận 4", "Quận 5", "Quận 6", "Quận 7", "Quận 8", "Quận 9", "Quận 10", "Quận 11", "Quận 12", "Tân Bình", "Bình Thạnh", "Phú Nhuận", "Thủ Đức", "Gò Vấp", "Bình Tân", "Tân Phú","Nhà Bè", "Cần Giờ", "Hóc Môn", "Củ Chi", "Bình Chánh"];
+	} 
+	var html='<option value="">--[Chọn]--</option>';
+	var i = 0;
+	for (i=0;i<Districts.length;i++) { 
+		var val = Districts[i];
+		html+='<option value='+i+'>'+val+'</option>';
+	}
+	return html;	
+}
+
+function GetSubCats(id) {
+	var html='<option value="">--[Chọn]--</option>';
+	var Subcats = [];
+	Subcats = ["Samsung","Motorola","Sony Ericsson","Sfone - CDMA","Blackberry/ iPhone","DT Hong Kong/ TQ","Linh phu kien","Khac"]
+	var i = 0;
+	for (i=0;i<Subcats.length;i++) { 
+		var val = Subcats[i];
+		html+='<option value='+i+'>'+val+'</option>';
+	}		
+	return html;
+}
+
+function GetNeeds(id) {
+	var html='<option value="">--[Chọn]--</option>';
+	var Needs = [];
+	if (id==0) {
+		Needs = ["Cần bán","Cần mua","Cần chuyển nhượng","Khác"];
+	}
+	if (id==1) {
+		Needs = ["Cần bán","Cần mua","Sửa chữa","Khác"];
+	}
+	var i = 0;
+	for (i=0;i<Needs.length;i++) { 
+		var val = Needs[i];
+		html+='<option value='+i+'>'+val+'</option>';
+	}		
+	return html;
+}
+
+$(document).ready(function(){ 
+	$("#ad_city_id").change(function() { 
+		var dist_id = this.value;
+		var district = GetDistricts(dist_id);
+		$("#use_district").html(district);
+	})
+	
+	$("#ad_cat_id").change(function(){
+		$.ajax({ 
+			type : 'POST',			
+			url : '/raovat/gettype',			
+			dataType : 'html',
+			data: {
+				cat_id : $(this).val()
+			},
+			success: function(data){
+				$("#ad_id_subcat").html(data);
+			}
+		});
+		$.ajax({ 
+			type : 'POST',			
+			url : '/raovat/getneed',			
+			dataType : 'html',
+			data: {
+				cat_id : $(this).val()
+			},
+			success: function(data){
+				if (data=='<option value=0>-- Chọn nhu cầu --</option>') {
+					$('#ad_id_pcat').attr("disabled",'disabled');
+				}	
+				else {
+					$('#ad_id_pcat').removeAttr("disabled");
+				}
+				$("#ad_id_pcat").html(data);
+			}
+		});
+
+	})
+});
+</script>

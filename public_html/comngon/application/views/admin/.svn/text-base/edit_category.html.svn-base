@@ -1,0 +1,15 @@
+<form id="form1" name="form1" method="post" action="<?php echo $this->config->site_url('admin');?>/do_edit_cat">
+  Danh mục gốc:
+  <select name="parent_id">
+  <option value="0" selected>= Danh mục gốc =</option>
+  <?php foreach ($category as $value): ?> 
+  <option value="<?php echo $value->getId();?>" <?php if ($value->getId()==$cat->getParentId()) echo " selected ";?>><?php echo $value->getName();?></option>
+  <?php endforeach;?>
+  </select>
+  Danh mục sản phẩm: 
+  <label>
+  <input type="text" name="cat_name" size="40" value="<?php echo $cat->getName();?>" />
+  <input type="hidden" name="cat_id" value="<?php echo $cat_id;?>" />    
+  <input type="submit" name="Submit" value="Cập nhật" />
+  </label>
+</form>

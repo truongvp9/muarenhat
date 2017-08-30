@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#contactForm").validate();
+  });
+</script>
+
+<title>
+Form Gửi yêu cầu
+</title>
+
+<!-- Meta Tags -->
+<meta charset="utf-8">
+<meta name="generator" content="Wufoo">
+<meta name="robots" content="index, follow">
+
+<!-- CSS -->
+<link href="css/structure.css" rel="stylesheet">
+<link href="css/form.css" rel="stylesheet">
+
+<!-- JavaScript -->
+<script src="scripts/wufoo.js"></script>
+
+<!--[if lt IE 10]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+
+<body id="public">
+
+
+<div id="container" class="ltr">
+<img src="http://muarenhat.net/image/banner.jpg">
+<center>
+<h3><font color=blue>Bạn cần quảng cáo trên trang web http://muarenhat.net <br>Hãy gửi yêu cầu cho chúng tôi theo mẫu sau</font></h3>
+</center>
+<form id="contactForm" action="http://muarenhat.net/contact.php" method="post">
+<table width="100%" border="0">
+  <tr>
+    <td align="right">Họ và tên <font color="red">*</font></td>
+    <td>
+      <label>
+        <input type="text" name="fullname" id="fullname" class="required field text medium" />
+        </label>
+    </td>
+  </tr>
+  <tr>
+    <td align="right">Địa chỉ <font color="red">*</font></td>
+    <td><input type="text" name="address" id="address" class="required field text medium" /></td>
+  </tr>
+  <tr>
+    <td align="right">Điện thoại <font color="red">*</font></td>
+    <td><input type="text" name="phone" id="phone" class="required field text medium" /></td>
+  </tr>
+  <tr>
+    <td align="right">Di động <font color="red">*</font></td>
+    <td><input type="text" name="mobile" id="mobile" class="required field text medium" /></td>
+  </tr>  
+  <tr>
+    <td align="right">Email <font color="red">*</font></td>
+    <td><input type="text" name="email" id="email" class="required email field text medium"/></td>
+  </tr>
+  <tr>
+    <td align="right">Fax</td>
+    <td><input type="text" name="fax" id="fax"  class="field text medium" /></td>
+  </tr>
+  <tr>
+    <td align="right">Yêu cầu</td>
+    <td><label>
+      <textarea name="feedback" id="feedback" cols="45" rows="5" class="required"></textarea>
+    </label></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><label>
+      <input type="submit" name="button" id="button" value="Gửi đi" />
+    </label>
+      <label>
+      <input type="reset" name="button2" id="button2" value="Làm lại" />
+    </label></td>
+  </tr>
+</table>
+</form>
+
+
+
+</div><!--container-->
+
+
+</body>
+</html>

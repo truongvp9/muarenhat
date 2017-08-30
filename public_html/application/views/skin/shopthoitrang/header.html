@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Fashion stYle</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="<?php echo site_url();?>js/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo site_url();?>js/jquery.validate.js"></script>
+<!-- OF COURSE YOU NEED TO ADAPT NEXT LINE TO YOUR tiny_mce.js PATH -->
+<link rel="stylesheet" type="text/css" href="<?php echo site_url();?>skin/shopthoitrang/style.css" />
+<script>
+  $(document).ready(function(){	
+    $("#contactForm").validate();
+    //alert('hi');
+  });
+</script>
+<script type="text/javascript">
+function transparent(im)
+   {
+   if (!im.transparented && (/\.png/.test(im.src)))
+      {
+      im.transparented = 1;
+      var picture = im.src;
+      var w = im.width;
+      var h = im.height;
+      im.src = "images/spacer.gif";
+      im.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod='scale', src='" + picture + "');";
+      im.width = w;
+      im.height = h;
+      }
+   return "transparent";
+   }
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#login_button').click(function(){
+		$('#frm_login').submit();
+	});
+});
+</script>
+
+</head>
+
+<body>
+	<div id="content">
+		<div id="header">
+			<ul class="top_menu">
+				<li><a href="<?php echo site_url()?>">Muarenhat.net</a></li>
+				<li><a href="<?php echo site_url('shop').'/'.$account;?>" class="active">Trang chủ</a></li>																																																			
+				<li><a href="<?php echo site_url('shop/cms').'/'.$account.'/gioithieu';?>">Giới thiệu</a></li>
+				<li><a href="<?php echo site_url('shop/cms').'/'.$account.'/chinhsach';?>">Chính sách</a></li>
+				<li><a href="<?php echo site_url('shop').'/map/'.$account;?>">Bản đồ</a></li>
+				<li><a href="#">Hỏi đáp</a></li>
+				<li><a href="<?php echo site_url('shop/cms').'/'.$account.'/lienhe';?>">Liên hệ</a></li>
+			</ul>
+			<div id="search">
+				Tìm kiếm<br />																																						
+				<form action="#">
+					<select>
+					<?php foreach ($cat_list as $item): ?>
+						<option><?php echo $item->getName();?></option>
+					<?php endforeach;?>
+					</select>
+					<a href="#"><img src="<?php echo site_url();?>skin/shopthoitrang/images/ok.jpg" alt="setalpm" width="44" height="23" /></a>																																							
+				</form>
+			</div>
+			<img src="<?php echo site_url();?>/skin/shopthoitrang/images/tel.jpg" alt="" width="181" height="13" class="tel" />
+		</div>

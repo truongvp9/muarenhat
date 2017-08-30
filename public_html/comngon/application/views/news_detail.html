@@ -1,0 +1,35 @@
+<?php include_once("seotiengviet.php");?>
+<div class="content">
+            	<div class="left">
+                	<div class="tintuc_bd">
+                	<h2><a>Tin tức</a></h2>
+                    <div class="detail_tintuc">
+                    	<h3><?php echo $news->getTitle();?></h3>
+ 						 <?php echo $news->getSummary();?>
+                         <div class="detail_anh">
+                        	<img src="<?php echo site_url().$news->getImg();?>" />
+                          </div><!--End class detail_anh-->
+                        
+                        <?php echo $news->getDetail();?>
+   											
+                    </div><!--End class detail_tintuc-->
+                    <div class="tinkhac">
+                    	<h3>Các tin khác</h3>
+                    	<ul>
+                    	<?php foreach ($tin as $item):?>
+                        	<li><a href="<?php echo site_url();?>news/<?php echo $item->getId();?>-<?php echo khongdau($item->getTitle());?>"><?php echo $item->getTitle();?> <span>(<?php echo date("d/m/Y",strtotime($item->getDate()));?>)</span></a></li>
+                        <?php endforeach;?>
+                        </ul>
+                    </div><!--End class tinkhac-->
+                </div><!--End class right-->
+                </div><!--End class left-->
+                <div class="right">
+                
+					<?php $this->load->view('widget/support_online.html');?>
+                    
+					<?php $this->load->view('widget/news.html');?>
+                                        
+					<?php $this->load->view('widget/users_online.html');?>
+                    
+                </div><!--End class right-->
+            </div><!--End class content-->

@@ -1,0 +1,20 @@
+<div class="hotrotructuyen">
+                    	<h2><a>hỗ trợ trực tuyến</a></h2>
+                        <div class="bg_cennter">
+                        	<div class="bg_gr">
+                            	<h3><a>HOTLINE: 0124 737 6688</a></h3>
+                            	<?php foreach ($support as $item):?>
+                                <div class="hotro1">
+                                	<div class="online">
+                                	<a href="ymsgr:sendim?<?php echo $item->getYahoo();?>"><img  src="http://opi.yahoo.com/online?u=<?php echo $item->getYahoo();?>&m=g&t=1" /></a>                                	
+                                	</div><!--End class online-->
+                                    <div class="name">
+                                    	<p class="ten"><?php echo $item->getName();?></p>
+                                        <p class="so"><?php echo $item->getMobile();?></p>
+                                    </div><!--End class name-->
+                                </div><!--End class hotro1-->
+                                <?php endforeach;?>
+                            </div><!--End class hotrotructuyen-->
+                        </div><!--End class hotrotructuyen-->
+                        <div class="bot"></div><!--End class bot-->
+</div><!--End class hotrotructuyen-->

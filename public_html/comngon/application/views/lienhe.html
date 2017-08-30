@@ -1,0 +1,95 @@
+<?php include_once("seotiengviet.php");?>
+<script language=javascript>
+function check(frm) {
+	if (frm.name.value=="") {
+		alert("Bạn chưa nhập Tên!");
+		frm.name.focus();
+		return false;
+	}
+	if (frm.email.value=="") {
+		alert("Bạn chưa nhập Email!");
+		frm.email.focus();
+		return false;
+	}
+	
+	if (frm.subject.value=="") {
+		alert("Bạn chưa nhập Tiêu đề!");
+		frm.subject.focus();
+		return false;
+	}
+
+	if (frm.content.value=="") {
+		alert("Bạn chưa nhập Nội dung!");
+		frm.content.focus();
+		return false;
+	}
+
+	
+	return true;
+}
+</script>
+            <div class="content">
+            	<div class="left">
+                	<div class="tintuc_bd">
+                	<h2><a>Liên hệ</a></h2>
+                                        
+                    <div class="contact">
+                <p class="title_contact">Gửi thông tin liên hệ</p>
+ 
+                <form method="post" action="" name="frm">
+            	<div class="fieldwrapper">
+                    <label class="styled"> Họ và tên <span style="color:red">(*)</span></label>
+                    <div class="thefield">
+                    	<input class="subject" name="name" type="text">
+                    </div>
+               </div>
+               <div class="fieldwrapper">
+                    <label class="styled"> Email <span style="color:red">(*)</span></label>
+                    <div class="thefield">
+                    	<input class="subject" name="email" type="text">
+                    </div>
+               </div>
+               <div class="fieldwrapper">
+                    <label class="styled"> Điện thoại</label>
+                    <div class="thefield">
+                    	<input class="subject" name="phone" type="text">
+                    </div>
+               </div>
+               <div class="fieldwrapper">
+                    <label class="styled">Di động </label>
+                    <div class="thefield">
+                    	<input class="subject" name="mobile" type="text">
+                    </div>
+               </div>
+               <div class="fieldwrapper">
+                    <label class="styled">Tiêu đề <span style="color:red">(*)</span></label>
+                    <div class="thefield">
+                    	<input class="subject" name="subject" type="text">
+                    </div>
+               </div>
+               <div class="fieldwrapper">
+                    <label class="styled"> Nội dung <span style="color:red">(*)</span></label>
+                    <div class="thefield">
+                    	<textarea cols="50" rows="5" name="content"></textarea>
+                    </div>
+               </div>
+
+               <div class="send">
+                    <input type="submit" name="cmd" value="Gửi" onclick="return check(this.form);">
+                    <input type="reset" value="Nhập lại">
+                </div>
+                </form> 
+ 
+            </div><!--End class contact-->
+                </div>
+                </div><!--End class left-->
+                <div class="right">
+					
+					<?php $this->load->view('widget/support_online.html');?>
+                    
+					<?php $this->load->view('widget/news.html');?>
+                                        
+  					<?php $this->load->view('widget/users_online.html');?>
+                    
+                </div><!--End class right-->
+            </div><!--End class content-->

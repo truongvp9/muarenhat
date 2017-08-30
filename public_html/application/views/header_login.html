@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title><?php echo $seo->getTitle();?></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="Robots" content="INDEX, ALL" />
+	<meta name="Description" content="<?php echo $seo->getDescription();?>" />
+	<meta NAME="Keywords" content="<?php echo $seo->getKeyword();?>" />
+	<link rel="stylesheet" type="text/css" href="<?php echo site_url();?>css/style.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo site_url();?>css/FSmain.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo site_url();?>css/FStheme.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo site_url();?>css/CSS1.css" />
+	<script type="text/javascript" src="<?php echo site_url();?>js/jquery.min.js"></script>
+	<script type="text/javascript" src="<?php echo site_url();?>js/tooltips.js"></script>
+	<script type="text/javascript" src="http://static.vatgia.com/js/jquery.tooltip.js"></script>
+	<script type="text/javascript" src="<?php echo site_url();?>js/item.js"></script>
+</head>
+<body>
+    <?php 
+		include_once("seotiengviet.php");
+    ?>
+    <div class="wrapper">
+	<div id="blueBar" class="fixed_elem"><div style="margin:auto">
+		<table height="31"
+			background="<?php echo site_url();?>images/nen-header.jpg"
+			width="1020" border="0" cellpadding="0" cellspacing="0">
+			<!--DWLayoutTable-->
+			<tr>
+				<td width="125" height="31" align="center" valign="middle"><a
+					href="<?php echo $this->config->site_url();?>"><div
+							style="width: 101px; height: 23px;">
+							<img src="<?php echo site_url();?>image/icon/muaban12.net.png" />
+						</div> </a>
+				</td>
+				<td width="145" valign="middle" class="list-menu1 ">
+					<ul>
+						<li id="login">
+						<a href="<?php echo site_url('myaccount');?>">
+					    <?php echo $account;?>
+					    </a>
+						</li>
+						<li id="logout"><a href="<?php echo site_url('logout');?>">Thoát</a>
+						</li>
+					</ul>
+				</td>
+				<td width="42" align="center" valign="middle" class="list-menu1"><a
+					href="<?php echo site_url('cart');?>"><img class="size"
+						src="<?php echo site_url();?>image/icon/giohang.png">
+				</a>
+				</td>
+				<td width="42" align="center" valign="middle" class="list-menu1"><a
+					href="#" id="support"><img class="size"
+						src="<?php echo site_url();?>image/icon/phone.png">
+				</a>
+				</td>
+				<td width="288" align="center" valign="middle">
+         <form name="searchForm" action="http://www.google.com.vn/cse" id="cse-search-box" target="_search">
+            <label> 
+            <input type="text" name="q" value="Tìm kiếm" onfocus="if (this.value == 'Tìm kiếm') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Tìm kiếm';}" 0="this.value = &quot;Tìm kiếm&quot;"/>
+            </label> 
+            <label> <input type="button" title="Tìm kiếm" class="icon-search" onclick="submitsearch(0);" />
+            </label>
+            <input type="hidden" name="ie" value="utf-8">
+            <input type="hidden" name="cx" value="011703902658030160007:9zbu0shnqfs">
+          </form>				
+				</td>
+				<td width="318" align="right" valign="middle" class="list-menu1">
+					<ul id="nav">
+						<li><a href="<?php echo site_url();?>">S&#7843;n ph&#7849;m &darr;</a>
+								<ul>
+											<li>
+										    	<a href="<?php echo site_url('sanpham/dangsanpham');?>"><span>&raquo; Đăng sản phẩm</span></a>
+										    </li>
+											<?php foreach ($category as $value) : ?>
+											<li>
+											<a href="<?php echo site_url('catalog').'/'.$value->getId().'-'.khongdau($value->getName());?>">
+												<span>
+														<?php echo $value->getName();?> 
+												</span> <div style="float:right;padding:2px;">&raquo;</div>
+											</a>
+											<ul>											 			
+											<?php foreach ($subcat[$value->getId()] as $val):?>
+								         	<li> 
+									          	<a href="<?php echo site_url('catalog').'/'.$val->getId().'-'.khongdau($val->getName());?>" title="<?php echo $val->getName();?> (2191380)"><span><?php echo $val->getName();?></span> </a> 
+									        </li>	        
+								      		<?php endforeach;?>	
+											</ul>
+											</li>
+											<?php endforeach;?>																						
+								</ul>
+						</li>
+						<li><a href="<?php echo site_url('raovat');?>">Rao
+								v&#7863;t &darr;</a>
+								<ul>
+											<li>
+										    	<a href="<?php echo site_url('raovat/dangraovat');?>"><span>Đăng rao vặt</span></a>
+										    </li>
+											<?php foreach ($category2 as $value) : ?>
+											<li>
+											<a href="<?php echo site_url('raovat/xemraovat').'/'.$value->getId().'-'.khongdau($value->getName());?>">
+												<span>
+														<?php echo $value->getName();?>
+												</span>
+											</a>
+											</li>
+											<?php endforeach;?>
+								</ul>
+						</li>
+						<li><a href="<?php echo site_url('hoidap');?>">H&#7887;i
+								&#273;&aacute;p &darr;</a>
+								<ul>
+											<li>
+										    	<a href="<?php echo site_url('hoidap/danghoidap');?>"><span>Đăng hỏi đáp</span></a>
+										    </li>
+											<?php foreach ($category as $value) : ?>
+											<li>
+											<a href="#">
+												<span>
+														<?php echo $value->getName();?>
+												</span>
+											</a>
+											</li>
+											<?php endforeach;?>
+								</ul>								
+						</li>
+						<li><a href="<?php echo site_url('store');?>">C&#7917;a h&agrave;ng</a>
+						</li>
+						<li><a href="http://muarenhat.net/cms/7-Cac-cau-hoi-thuong-gap.html">FAQs</a>
+						</li>
+					</ul></td>
+			</tr>
+		</table>
+	</div>
+	</div>
+		<div class="hidden hid_login" style="display: none; left: 130px;">
+			<ul class="content list">
+			<li>
+			&raquo; <a class="text_link" href="/sanpham/dangsanpham" rel="nofollow">Đăng <b>Sản phẩm</b></a>
+			</li>
+			<li>&raquo; <a class="text_link" rel="nofollow" href="/raovat/dangraovat">Đăng <b>Rao vặt</b></a></li>			
+		    <li>&raquo; <a rel="nofollow" href="/myaccount">
+			Sửa thông tin cá nhân
+			</a>
+			</li>
+			<li>&raquo; <a rel="nofollow" href="/myitem">
+			Tin đăng của bạn
+			</a>
+			<li>&raquo; <a rel="nofollow" href="/myproduct">
+			Quản lý sản phẩm
+			</a>
+			</li>
+			<li>&raquo; <a rel="nofollow" href="/setupshop/config">
+			Cài đặt gian hàng
+			</a>
+			</li>			
+			</ul>
+		</div>	
+		<div style="display: none; left: 323px;" class="hidden hid_support">
+		<div class="content support"><h3>Hỗ trợ trực tuyến</h3><div class="phone_note">Đừng ngần ngại hãy liên hệ ngay với chúng tôi khi bạn có yêu cầu cần trợ giúp.<br>Muarenhat.net không bán hàng trực tiếp, quý khách muốn mua hàng xin vui lòng click vào sản phẩm <br>và liên lạc với người bán. Xin trân trọng cảm ơn !</div>
+		<div class="support_list"><ul class="phone_list"><li class="title"><b>Mr Trường: 0936.255.082</b></li></ul>
+		<ul class="yahoo_list" style="width:250px;float:left;"><li>	
+		<a href="ymsgr:sendIM?vietsmart247"><img src="http://opi.yahoo.com/online?u=vietsmart247&amp;m=g&amp;t=1"></a>
+        Hỗ trợ đăng tin 1        
+        </li>
+        <li>	
+		<a href="ymsgr:sendIM?truongvnu"><img src="http://opi.yahoo.com/online?u=truongvnu&amp;m=g&amp;t=1"></a>
+        Hỗ trợ đăng tin 2        	
+		</li>
+		</ul>
+		<ul class="skype_list" style="left:250px;position:absolute;"><li><a href="skype:vietsmart?chat">Hỗ trợ đăng tin 1</a></li><li><a href="skype:truongnm82?chat">Hỗ trợ đăng tin 2</a></li></ul><div class="clear"></div></div><div class="clear"></div></div>
+		</div>
+
+	<div class="header">
+		<div class="banner" style="margin:1px">
+			<center><a href="http://sms.mrbuzz.vn/" target="_blank">
+			<img src="<?php echo site_url();?>image/banner.jpg"/></a>
+			<a href="http://openkosvn.com" target="_blank"><img src="http://media.openkosvn.com/ads/e8b0642c85ee831f6d70c270556b63c94e8af78b.jpg"></a>
+			</center>
+		</div>
+		<div class="navigation">
+			<table background="<?php echo site_url('image');?>/nen-tren.jpg"
+				width="1020" height="23" border="0" cellpadding="0" cellspacing="0">
+				<!--DWLayoutTable-->
+				<tr>
+					<td width="370" height="23" valign="middle" class="list-menu2">
+						<ul>
+							<li><a href="<?php echo site_url();?>">Trang chủ</a>
+							</li>
+							<li><a href="<?php echo site_url('/tintuc');?>">Tin tức</a>
+							</li>
+							<li><a href="<?php echo site_url('/video');?>">Video</a>
+							</li>							
+						</ul></td>
+					<td width="498" align="right" valign="middle" class="list-menu3">
+						<ul>
+							<li><a href="#" id="click_dangtin">Đăng tin</a>
+							<img src='<?php echo site_url();?>css/images/icon_arrow_down.gif'></img>
+							</li>
+							<li><a href="#" id="support_nav">H&#7895; tr&#7907;</a>
+							</li>
+						</ul></td>
+					<td width="112" align="center" valign="middle"><a
+						href="<?php echo site_url('gianhang');?>"><img
+							src="<?php echo site_url();?>image/dangkygianhang.jpg"
+							width="101" height="19" border="0" />
+					</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+							<div class="simple_tip_content post_link" style="display: none; top: 137.5px; left: 730px;z-index:3;">
+							<div class="list_dangtin">
+							<ul >
+							<li>
+							<img src='<?php echo site_url();?>/css/icon_add_small.gif'></img> <a rel="nofollow" href="<?php echo site_url('raovat/tinkhuyenmai');?>" class="text_link">Đăng <b>Khuyến mại</b></a>
+							</li>							
+							<li>
+							<img src='<?php echo site_url();?>/css/icon_add_small.gif'></img> <a rel="nofollow" href="<?php echo site_url('sanpham/dangsanpham');?>" class="text_link">Đăng <b>Sản phẩm</b></a>
+							</li>
+							<li>
+							<img src='<?php echo site_url();?>/css/icon_add_small.gif'></img> <a rel="nofollow" href="<?php echo site_url('raovat/dangraovat');?>" class="text_link">Đăng <b>Rao vặt</b></a>
+							</li>
+							<li>
+							<img src='<?php echo site_url();?>/css/icon_add_small.gif'></img> <a rel="nofollow" href="<?php echo site_url('hoidap/danghoidap');?>" class="text_link">Đăng <b>Hỏi đáp</b></a>
+							</li>
+							</ul>
+							</div>
+							</div>	
+	<script type="text/javascript">
+	$(document).ready(function(){
+		var docW=$(document).width();
+		var ua = $.browser;
+		if ( $.browser.msie ) {
+			$(".header").css("margin-top","0px");
+		}
+		else
+		if (ua.mozilla) {
+			$(".header").css("margin-top","30px");
+		}
+		else { 
+			$(".header").css("margin-top","30px");
+		}
+		$("#click_dangtin").hover(function() { 
+			$('.simple_tip_content').css("left",(docW-1020)/2+730);
+			$('.simple_tip_content').show();
+		});
+		$(".simple_tip_content").mouseleave(function() { 
+			$(this).hide();
+		});
+		$("#login").hover(function(){ 
+			$(".hid_login").css("z-index","5");
+			$(".hid_login").css("margin-top","30px;");
+			$(".hid_login").css("visibility","visible");
+			$(".hid_login").css("position","absolute");
+			$(".hid_login").css("left",(docW-1020)/2+130);
+			$(".hid_login").show(500);
+			//$(".hid_register").hide();
+		});
+		$(".hid_login").mouseleave(function(){
+			$(this).hide();
+		});
+	
+		$("#support, #support_nav").click(function(){
+			$(".hid_support").css("z-index","3");
+			$(".hid_support").css("top","10px;");
+			$(".hid_support").css("visibility","visible");
+			$(".hid_support").css("position","absolute");
+			$(".hid_support").css("left",(docW-1020)/2+323);
+			$(".hid_support").show(500);
+			//$(".hid_register").hide();			
+		});
+		$("#support, #support_nav").hover(function(){
+			// $(".hid_register").hide();	
+		});
+		$(".hid_support").mouseleave(function(){
+			$(this).hide();
+		});		
+	});
+</script>
+<script language=javascript>  
+  function submitsearch(num)
+  { 
+    frm = document.searchForm;
+    if (frm.q.value.length>0)
+    {
+      if(num==0)
+      {       
+        frm.cx.value="011703902658030160007:9zbu0shnqfs";       
+      }
+      else
+      {
+        frm.cx.value="011703902658030160007:9zbu0shnqfs";
+      }
+      frm.action="http://www.google.com.vn/cse";  
+      frm.submit();                   
+    } 
+    else 
+    {
+      alert("Ban phai nhap gia tri can tim kiem");
+    }
+    return true;
+  }
+  </script> 	

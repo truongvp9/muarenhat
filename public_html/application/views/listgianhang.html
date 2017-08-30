@@ -1,0 +1,63 @@
+<div id="container_content">
+<!-- shop=1 | widget 1 -->
+<div class="break_module"></div>
+<div class="temp_6">
+<div class="title"><div class="fl"></div><div class="fr"></div></div>
+<div class="page_div_top">
+<font class="page">
+<span>Trang:</span> 
+</font>
+<?php echo $paging;?> 
+</div>
+<div class="clear"></div>
+<div class="content_store">
+<table width="100%" cellspacing="0" cellpadding="0" class="shop_table">
+<tbody>
+<tr class="tr text_title">
+<td class="col_1" algin="center">Stt.</td>
+<td class="col_2" width="5%">Logo</td>
+<td class="col_3"><strong>Thông tin gian hàng</strong></td>
+<td class="col_4"><strong>Liên hệ, hỗ trợ</strong></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="break_module_line"></div>
+</td>
+</tr>
+<?php $i=1; foreach ($gianhang as $user):?>
+<tr class="tr">
+<td class="col_1"><div class="No"><?php echo $i++;?></div></td>
+<td class="col_2"><a rel="nofollow" target="_blank" href="/shop/<?php echo $user->getStoreId(); ?>/<?php echo $user->getSkin(); ?>" class="picture_x_small"><img width="68.81720430107526" height="80" src="/images/no_picture.gif" maxheight="80" maxwidth="80"></a></td>
+<td class="col_3">
+<div class="verified" title="Gian hàng được đảm bảo"></div>
+<div class="company_name" style="padding-bottom:5px;"><a rel="nofollow" target="_blank" href="/shop/<?php echo $user->getAccount(); ?>" class="text_link"><strong><?php echo $user->getName();?></strong></a></div>
+<div class="address"><?php echo $user->getAddress();?></div>
+<div class="count_product" style="padding:5px 5px 5px 0px;">Có <b class="count">~<?php echo $count[$user->getId()];?></b> sản phẩm trong <b><?php echo $category->getName();?></b></div><div class="fl rating"><span class="star_vote">
+<?php for ($j=0;$j<5;$j++) {?>
+<img src="http://static.vatgia.com/css/multi_css_v2/standard/star_1.gif">
+<?php } ?>
+</span><b class="star">5</b>
+</div>
+<div class="fl policy" style="margin-left:5px;"><a rel="nofollow" target="_blank" href="#" class="text_link">Xem các chính sách của cửa hàng</a></div>
+<div class="clear"></div>
+</td>
+<td class="col_4">
+<div class="phone">Điện thoại : <?php echo $user->getPhone();?></div><div class="website" style="padding:5px;"><a rel="nofollow" target="_blank" href="http://<?php echo str_replace('www.','',str_replace('http://','',$user->getWebsite()));?>" class="text_link_2"><?php echo $user->getWebsite();?></a></div><div class="yahoo"><a rel="nofollow" href="ymsgr:sendim?<?php echo $user->getYm();?>" title="Hỗ trợ trực tuyến"><img src="http://opi.yahoo.com/online?u=<?php echo $user->getYm();?>&amp;m=g&amp;t=1&amp;l=us"></a></div></td>
+</tr>
+<tr>
+<td colspan="4">
+<div class="break_module_line"></div>
+</td>
+</tr>
+<?php endforeach;?>
+</tbody>
+</table>
+</div>
+<div class="clear"></div>
+<div class="page_div">
+<font class="page"><span>Trang:</span> </font> &nbsp;
+<?php echo $paging;?> 
+</div>
+</div>
+<div class="bottom"><div class="fl"></div><div class="fr"></div>
+<div class="break_module"></div>

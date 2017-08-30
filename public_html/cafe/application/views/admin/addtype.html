@@ -1,0 +1,70 @@
+<div class="content-header">
+    <h3 class="icon-head head-system-account">Rao vặt - Thêm chủng loại rao vặt mới</h3> 
+    <div class="form-buttons">
+	<button onclick="return check(form1);" class="scalable save" type="button" id="id_389b82e4dc5822b9be1927c3f93b1215"><span>Thêm mới</span></button>    
+    </div>
+</div>
+<div class="entry-edit">
+<div class="entry-edit-head">
+<h4 class="icon-head head-edit-form fieldset-legend">Thêm chủng loại rao vặt mới</h4>
+</div>
+<div class="fieldset " id="base_fieldset">
+<div class="hor-scroll">
+ <form onsubmit="return check(this.form);" id="form1" name="form1" method="post" action="<?php echo $this->config->site_url('admin');?>/do_add_type">
+  <table width=100% class="form-list">
+  <tr>
+  <td>  
+  Chuyên mục:
+  </td>
+  <td>
+  <select name="cate_id">
+  <option value="0" selected>= Chuyên mục =</option>
+  <?php foreach ($category as $value): ?>
+  <option value="<?php echo $value->getId();?>"><?php echo $value->getName();?></option>
+  <?php endforeach;?>
+  </select>
+  </td>
+  </tr>
+  <tr>
+  <td>
+  Chủng loại rao vặt:
+  </td>
+  <td> 
+  <label>
+  <input type="text" name="type" size="70" value="" class="input-text"/> *
+  </label>
+  </td>
+  </tr>
+</table>
+</form>
+<div>
+</div>
+</div>
+</div>
+
+<ul>
+<?php foreach ($category as $value): ?>
+<li><img src='/css/images/tree_icons/nolines_plus.gif'> <?php echo $value->getName();?></li>
+<ul style="margin-left:40px;">
+<?php foreach ($type[$value->getId()] as $val): ?>
+<li>
+<img src='/css/images/tree_icons/minus.gif'> <a href="#"><?php echo $val->getType();?></a>
+&raquo; <a href="<?php echo site_url('admin/edittype').'/'.$val->getId();?>">Sửa</a> &raquo; <a onclick="return confirm('Bạn có thực sự muốn xóa không?');" href="<?php echo site_url('admin/deletetype').'/'.$val->getId();?>">Xóa</a>
+</li>
+<?php endforeach;?>
+</ul>
+<?php endforeach;?>
+</ul>
+
+
+<script language=javascript>
+function check(frm) {
+	if (frm.type.value=="") {
+		alert("Bạn chưa nhập chủng loại rao vặt!");
+		frm.type.focus();
+		return false;
+	}
+	frm.submit();
+	return true;
+}
+</script>

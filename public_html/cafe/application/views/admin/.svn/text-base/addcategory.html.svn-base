@@ -1,0 +1,14 @@
+<form id="form1" name="form1" method="post" action="<?php echo $this->config->site_url('admin');?>/do_add_new_cat">
+  Danh mục gốc:
+  <select name="cate_id">
+  <option value="0" selected>= Danh mục gốc =</option>
+  <?php foreach ($category as $value): ?>
+  <option value="<?php echo $value->getId();?>"><?php echo $value->getName();?></option>
+  <?php endforeach;?>
+  </select>
+  Danh mục sản phẩm: 
+  <label>
+  <input type="text" name="cat_name" size="40" value="" />
+  <input type="submit" name="Submit" value="Thêm mới" />
+  </label>
+</form>

@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+      	<title>Find latitude and longitude with Google Maps</title>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyAqGUlPP6D_jcOcuyqnMP0gv4yOiZw-WRg"
+      type="text/javascript"></script>
+    <script type="text/javascript">
+
+ function load() {
+      if (GBrowserIsCompatible()) {
+        var map = new GMap2(document.getElementById("map"));
+        map.addControl(new GSmallMapControl());
+        map.addControl(new GMapTypeControl());
+        var center = new GLatLng(21.00847,  	105.82631);
+        map.setCenter(center, 15);
+        geocoder = new GClientGeocoder();
+        var marker = new GMarker(center, {draggable: true});  
+        map.addOverlay(marker);
+        document.getElementById("lat").innerHTML = center.lat().toFixed(5);
+        document.getElementById("lng").innerHTML = center.lng().toFixed(5);
+
+	  GEvent.addListener(marker, "dragend", function() {
+       var point = marker.getPoint();
+	      map.panTo(point);
+       document.getElementById("lat").innerHTML = point.lat().toFixed(5);
+       document.getElementById("lng").innerHTML = point.lng().toFixed(5);
+
+        });
+
+
+	 GEvent.addListener(map, "moveend", function() {
+		  map.clearOverlays();
+    var center = map.getCenter();
+		  var marker = new GMarker(center, {draggable: true});
+		  map.addOverlay(marker);
+		  document.getElementById("lat").innerHTML = center.lat().toFixed(5);
+	   document.getElementById("lng").innerHTML = center.lng().toFixed(5);
+
+
+	 GEvent.addListener(marker, "dragend", function() {
+      var point =marker.getPoint();
+	     map.panTo(point);
+      document.getElementById("lat").innerHTML = point.lat().toFixed(5);
+	     document.getElementById("lng").innerHTML = point.lng().toFixed(5);
+
+        });
+ 
+        });
+
+      }
+    }
+
+	   function showAddress(address) {
+	   var map = new GMap2(document.getElementById("map"));
+       map.addControl(new GSmallMapControl());
+       map.addControl(new GMapTypeControl());
+       if (geocoder) {
+        geocoder.getLatLng(
+          address,
+          function(point) {
+            if (!point) {
+              alert(address + " not found");
+            } else {
+		  document.getElementById("lat").innerHTML = point.lat().toFixed(5);
+	   document.getElementById("lng").innerHTML = point.lng().toFixed(5);
+		 map.clearOverlays()
+			map.setCenter(point, 14);
+   var marker = new GMarker(point, {draggable: true});  
+		 map.addOverlay(marker);
+
+		GEvent.addListener(marker, "dragend", function() {
+      var pt = marker.getPoint();
+	     map.panTo(pt);
+      document.getElementById("lat").innerHTML = pt.lat().toFixed(5);
+	     document.getElementById("lng").innerHTML = pt.lng().toFixed(5);
+        });
+
+
+	 GEvent.addListener(map, "moveend", function() {
+		  map.clearOverlays();
+    var center = map.getCenter();
+		  var marker = new GMarker(center, {draggable: true});
+		  map.addOverlay(marker);
+		  document.getElementById("lat").innerHTML = center.lat().toFixed(5);
+	   document.getElementById("lng").innerHTML = center.lng().toFixed(5);
+
+	 GEvent.addListener(marker, "dragend", function() {
+     var pt = marker.getPoint();
+	    map.panTo(pt);
+    document.getElementById("lat").innerHTML = pt.lat().toFixed(5);
+	   document.getElementById("lng").innerHTML = pt.lng().toFixed(5);
+        });
+ 
+        });
+
+            }
+          }
+        );
+      }
+    }
+    </script>
+  
+</head>
+
+  
+<body onload="load()" onunload="GUnload()" >
+<!-- 
+<p>This page uses the Google Maps API to find out accurate geographical coordinates (latitude and longitude) for any place on Earth. <br/>It provides two ways to search, either by moving around the map and zooming in, or by typing an address if the place is unknown.<br/>
+<i><a href="nievre.htm">Version Française</a></i></p>
+    <p> The default location and address are those of <a href="http://www.mondeca.com">Mondeca</a> office in Paris.<br/>
+      Comments and questions to <i>bernard.vatant at mondeca dot com</i></p>
+   <p><b> Find coordinates by moving around the map</b></p> <p>1. Drag and drop the map to broad location. <br/>
+	2. Zoom in for greater accuracy. <br/>
+	3. Drag and drop the marker to pinpoint the place. The coordinates are refreshed at the end of each move.  </p>
+  <p><b>Find coordinates using the name and/or address of the place</b></p>
+  <p>Submit the full location : number, street, city, country. For big cities and famous places, the country is optional. "Bastille Paris" or "Opera Sydney" will do. <br/>
+ </p>
+ -->
+ <center>
+  <form action="#" onsubmit="showAddress(this.address.value); return false">
+     <p>        
+      <input type="text" size="60" name="address" value="<?php echo $user->getAddress();?>" />
+      <input type="submit" value="Tìm bản đồ" /> <input type="button" value="Lưu bản đồ" id="save" />
+      </p>
+    </form>
+ </center>
+ <div style = "display:none">
+ <p align="left">
+ <table  bgcolor="#FFFFCC" width="300">
+  <tr>
+    <td><b>Latitude</b></td>
+    <td><b>Longitude</b></td>
+  </tr>
+  <tr>
+  <td>
+    <div id="lat"></div> 
+</td>
+<td>
+    <div id="lng"></div>
+</td>
+  </tr>
+</table>
+ </p>
+ </div>
+  <p>
+  <div align="center" id="map" style="width: 800px; height: 600px;margin:10px;"><br/></div>
+   </p>
+  <input type="hidden" id="userid" value="<?php echo $user->getId();?>"></input>
+  <script type="text/javascript">
+  $(document).ready(function(){
+	 $("#save").click(function(){
+		 var lng = $('#lng').html();
+		 var lat = $('#lat').html();
+		 var id = $('#userid').val();
+		 //lat = parseInt(lat);
+		 $.ajax({ 
+					type : 'POST',			
+					url : '/usercp/savemap',			
+					dataType : 'html',
+					data: {
+						id : id,lat: lat,lng: lng,key: "<?php echo sha1('muaban!2');?>" 
+					},
+					success: function(data){
+						if (parseInt(data)==200) {
+							alert('Lưu bản đồ thành công!');
+						}
+						else {
+							alert(data);
+						}
+					}
+				});		 
+		 
+		 // alert(lat);
+	 });
+	 
+  });
+  </script>
+  

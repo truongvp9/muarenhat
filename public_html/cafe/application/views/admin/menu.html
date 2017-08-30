@@ -1,0 +1,50 @@
+Trang: <?php echo $paging;?>
+<div class="menu-left">
+	<ul>
+		<?php foreach ($category as $value) : ?>
+		<li>
+			<img src='/css/images/tree_icons/nolines_plus.gif'> <a href="<?php echo site_url('admin/sanpham').'/'.$value->getId();?>"><?php echo $value->getName();?></a> 
+			<div style="float:right;">
+			<?php if ($value->getVisible()==1) {?>
+			<img src="/images/checked.gif">
+	        		<?}
+	        		if ($value->getVisible()==0) {
+					?>
+					<img src="/images/unchecked.gif">
+	        		<?php }?>
+	        &raquo;<a href="<?php echo site_url('admin/setcategory').'/'.$value->getId().'/0';?>" onclick="return confirm('Bạn có muốn Ẩn mục này ở trang chủ không?');">Ẩn đi</a>
+			&raquo;<a href="<?php echo site_url('admin/setcategory').'/'.$value->getId().'/1';?>" onclick="return confirm('Bạn có muốn Hiện mục này ra ở trang chủ không?');">Hiện lên</a>
+			&raquo;<img src="/images/b_edit.png"> <a href="<?php echo site_url('admin/editcategory').'/'.$value->getId();?>">Sửa</a> 
+			&raquo;<img src="/images/b_drop.png"> <a href="<?php echo site_url('admin/deletecategory').'/'.$value->getId();?>" onclick="return confirm('Bạn có thực sự muốn xóa không?');">Xóa</a>
+			</div>
+			<ul style="margin-left:20px;">
+			<?php foreach ($subcat[$value->getId()] as $val):?>
+         	<li> 
+	          	<img src='/css/images/tree_icons/minus.gif'> <a href="<?php echo site_url();?>" title="<?php echo $val->getName();?>"><?php echo $val->getName();?></a>
+	        		<div style="float:right;">
+	        		&raquo;<a href="<?php echo site_url('admin/setcategory').'/'.$val->getId().'/0';?>" onclick="return confirm('Bạn có muốn Ẩn mục này ở trang chủ không?');">Ẩn đi</a>
+					&raquo;<a href="<?php echo site_url('admin/setcategory').'/'.$val->getId().'/1';?>" onclick="return confirm('Bạn có muốn Hiện mục này ra ở trang chủ không?');">Hiện lên</a>	        		
+					&raquo;<img src="/images/b_edit.png"> <a href="<?php echo site_url('admin/editcategory').'/'.$val->getId();?>">Sửa</a> 
+					&raquo;<img src="/images/b_drop.png"> <a href="<?php echo site_url('admin/deletecategory').'/'.$val->getId();?>" onclick="return confirm('Bạn có thực sự muốn xóa không?');">Xóa</a>
+					</div>
+					<ul style="margin-left:20px;">
+		     	    <?php foreach ($subcat_level2[$val->getId()] as $subval):?>
+		     	    <li>
+		     	    <img src='/css/images/tree_icons/join.gif'> <a href="#" class="sub_link"><?php echo $subval->getName();?></a>
+		     	    <div style="float:right;">		    
+					&raquo;<a href="<?php echo site_url('admin/setcategory').'/'.$subval->getId().'/0';?>" onclick="return confirm('Bạn có muốn Ẩn mục này ở trang chủ không?');">Ẩn đi</a>
+					&raquo;<a href="<?php echo site_url('admin/setcategory').'/'.$subval->getId().'/1';?>" onclick="return confirm('Bạn có muốn Hiện mục này ra ở trang chủ không?');">Hiện lên</a>		     	     	    
+					&raquo;<img src="/images/b_edit.png"> <a href="<?php echo site_url('admin/editcategory').'/'.$subval->getId();?>">Sửa</a> 
+					&raquo;<img src="/images/b_drop.png"> <a href="<?php echo site_url('admin/deletecategory').'/'.$subval->getId();?>" onclick="return confirm('Bạn có thực sự muốn xóa không?');">Xóa</a>
+					</div>
+		     	    </li>
+		     	    <?php endforeach;?>
+		     	    </ul>					
+	        </li>			
+			<?php endforeach;?>
+			</ul>
+		</li>
+		<?php endforeach;?>
+	</ul>
+</div>
+Trang: <?php echo $paging;?>

@@ -1,0 +1,176 @@
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#changepassword').click(function(){
+		$('.changeprofile').hide();
+		$('.changepass').show();
+	});
+	$('#changeprofile').click(function(){
+		$('.changeprofile').show();
+		$('.changepass').hide();
+	});
+});
+</script>
+<div class="edit_profile">
+<div style="padding-top:10px;">
+<center><h3>Thông tin cá nhân</h3>
+<img src="http://rongbay.com/style/images/usercp/profile.png">
+<a href="#" id="changeprofile">Sửa thông tin</a>
+<img src="http://rongbay.com/style/images/usercp/password.png">
+<a href="#" id="changepassword">Đổi mật khẩu</a>
+</center>
+</div>
+<div class="temp_box_0 changeprofile">
+<form onsubmit="checkForm(this.name, arrCtrlEditProfile); return false;" enctype="multipart/form-data" method="post" action="/myaccount/updateprofile" name="edit_profile" class="form">
+<table cellspacing="0" cellpadding="0" align="center" class="form_table">
+<tbody>
+<tr>
+<input type="hidden" value="<?php echo $user->getAccount();?>" name="username" id="username">
+<td class="form_name"></td><td class="form_text"><font class="form_text_note">Những ô có dấu sao (<font class="form_asterisk">*</font>) là bắt buộc phải nhập.</font></td>
+</tr>
+<tr>
+<td class="form_name">Hình đại diện :</td>
+<td class="form_text">
+<input type="file" size="34" name="use_image" id="use_image" title="Hình đại diện" class="form_control">
+<div class="form_text_warning">(Dung lượng tối đa <span style="color:#FF0000">50 Kb</span> và có phần mở rộng là: <span style="color:#FF0000">.gif, .jpg, .png</span>)</div></td></tr>
+<tr><td class="form_name">Họ và tên :</td><td class="form_text">
+<input type="text" maxlength="255" style="width:300px; height:px" value="<?php echo $user->getName();?>" name="use_name" id="use_name" title="Họ và tên" autocomplete="off" class="form_control"></td></tr>
+<!-- 
+<tr><td class="form_name">Giới tính :</td><td class="form_text">
+<select size="1" style="width:px" name="use_gender" id="use_gender" title="Giới tính" class="form_control"><option selected="selected" value="1" title="Nam">Nam</option><option value="0" title="Nữ">Nữ</option></select></td></tr><tr>
+<td class="form_name">Ngày sinh :</td>
+<td class="form_text">
+<select style="width:45px" class="form_control" name="birth_day">
+<option selected="selected" value="1">01</option>
+<option value="2">02</option>
+<option value="3">03</option>
+<option value="4">04</option>
+<option value="5">05</option>
+<option value="6">06</option>
+<option value="7">07</option>
+<option value="8">08</option>
+<option value="9">09</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+</select>
+ - 
+<select style="width:45px" class="form_control" name="birth_month">
+<option selected="selected" value="1">01</option>
+<option value="2">02</option>
+<option value="3">03</option>
+<option value="4">04</option>
+<option value="5">05</option>
+<option value="6">06</option>
+<option value="7">07</option>
+<option value="8">08</option>
+<option value="9">09</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+</select>
+ - 
+<select style="width:55px" class="form_control" name="birth_year">
+<option value="1950">1950</option>
+<option value="1951">1951</option>
+<option value="1952">1952</option>
+<option value="1953">1953</option>
+<option value="1954">1954</option>
+<option value="1955">1955</option>
+<option value="1956">1956</option>
+<option value="1957">1957</option>
+<option value="1958">1958</option>
+<option value="1959">1959</option>
+<option value="1960">1960</option>
+<option value="1961">1961</option>
+<option value="1962">1962</option>
+<option value="1963">1963</option>
+<option value="1964">1964</option>
+<option value="1965">1965</option>
+<option value="1966">1966</option>
+<option value="1967">1967</option>
+<option value="1968">1968</option>
+<option value="1969">1969</option>
+<option value="1970">1970</option>
+<option value="1971">1971</option>
+<option value="1972">1972</option>
+<option value="1973">1973</option>
+<option value="1974">1974</option>
+<option value="1975">1975</option>
+<option value="1976">1976</option>
+<option value="1977">1977</option>
+<option value="1978">1978</option>
+<option value="1979">1979</option>
+<option value="1980">1980</option>
+<option value="1981">1981</option>
+<option selected="selected" value="1982">1982</option>
+<option value="1983">1983</option>
+<option value="1984">1984</option>
+<option value="1985">1985</option>
+<option value="1986">1986</option>
+<option value="1987">1987</option>
+<option value="1988">1988</option>
+<option value="1989">1989</option>
+<option value="1990">1990</option>
+<option value="1991">1991</option>
+<option value="1992">1992</option>
+<option value="1993">1993</option>
+<option value="1994">1994</option>
+<option value="1995">1995</option>
+<option value="1996">1996</option>
+<option value="1997">1997</option>
+<option value="1998">1998</option>
+<option value="1999">1999</option>
+<option value="2000">2000</option>
+<option value="2001">2001</option>
+<option value="2002">2002</option>
+<option value="2003">2003</option>
+<option value="2004">2004</option>
+<option value="2005">2005</option>
+<option value="2006">2006</option>
+<option value="2007">2007</option>
+<option value="2008">2008</option>
+<option value="2009">2009</option>
+</select>
+&nbsp; <i>(ngày - tháng - năm)</i>
+</td>
+</tr>
+ -->
+<tr><td class="form_name"><font class="form_asterisk">* </font>Email :</td><td class="form_text"><input type="text" onblur="changeEmail()" onkeyup="changeEmail()" maxlength="255" style="width:300px; height:px" value="<?php echo $user->getEmail();?>" name="use_email" id="use_email" title="Email" autocomplete="off" class="form_control"></td></tr><tr>
+<td class="form_name"><div style="display:none" id="password_title"><font class="form_asterisk">* </font>Nhập mật khẩu tài khoản tại muaban12.net :</div></td>
+<td class="form_text"><div style="display:none" id="password_control"><input type="password" style="width:200px" name="use_password" id="use_password" class="form_control" title="Mật khẩu"></div></td>
+</tr>
+<tr><td class="form_name">Website/facebook :</td><td class="form_text"><input type="text" maxlength="255" style="width:300px; height:px" value="<?php echo $user->getWebsite(); ?>" name="use_website" id="use_website" title="Website" autocomplete="off" class="form_control"></td></tr><tr><td class="form_name"><font class="form_asterisk">* </font>Địa chỉ :</td><td class="form_text"><input type="text" maxlength="255" style="width:300px; height:px" value="<?php echo $user->getAddress();?>" name="use_address" id="use_address" title="Địa chỉ" autocomplete="off" class="form_control"></td></tr><tr><td class="form_name"><font class="form_asterisk">* </font>Tỉnh/ Thành phố :</td><td class="form_text"><select size="1" style="width:px" name="use_province" id="use_province" title="Tỉnh/ Thành phố" class="form_control"><option value="">--[Tỉnh/ Thành phố]--</option><option selected="selected" value="2" title="Hà Nội">Hà Nội</option><option value="3" title="Hồ Chí Minh">Hồ Chí Minh</option><option value="32" title="Hải Phòng">Hải Phòng</option><option value="65" title="Đà Nẵng">Đà Nẵng</option><option value="4" title="An Giang">An Giang</option><option value="5" title="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu</option><option value="14" title="Bắc Cạn">Bắc Cạn</option><option value="7" title="Bắc Giang">Bắc Giang</option><option value="12" title="Bạc Liêu">Bạc Liêu</option><option value="6" title="Bắc Ninh">Bắc Ninh</option><option value="13" title="Bến Tre">Bến Tre</option><option value="8" title="Bình Dương">Bình Dương</option><option value="10" title="Bình Phước">Bình Phước</option><option value="11" title="Bình Thuận">Bình Thuận</option><option value="9" title="Bình Định">Bình Định</option><option value="66" title="Buôn Mê Thuột">Buôn Mê Thuột</option><option value="24" title="Cà Mau">Cà Mau</option><option value="15" title="Cần Thơ">Cần Thơ</option><option value="25" title="Cao Bằng">Cao Bằng</option><option value="26" title="Gia Lai">Gia Lai</option><option value="27" title="Hà Giang">Hà Giang</option><option value="28" title="Hà Nam">Hà Nam</option><option value="29" title="Hà Nội 2">Hà Nội 2</option><option value="30" title="Hà Tĩnh">Hà Tĩnh</option><option value="31" title="Hải Dương">Hải Dương</option><option value="68" title="Hậu Giang">Hậu Giang</option><option value="33" title="Hoà Bình">Hoà Bình</option><option value="34" title="Hưng Yên">Hưng Yên</option><option value="17" title="Khánh Hòa">Khánh Hòa</option><option value="35" title="Kiên Giang">Kiên Giang</option><option value="36" title="Kon Tum">Kon Tum</option><option value="37" title="Lai Châu">Lai Châu</option><option value="38" title="Lâm Đồng">Lâm Đồng</option><option value="39" title="Lạng Sơn">Lạng Sơn</option><option value="20" title="Lào Cai">Lào Cai</option><option value="40" title="Long An">Long An</option><option value="23" title="Nam Định">Nam Định</option><option value="41" title="Nghệ An">Nghệ An</option><option value="42" title="Ninh Bình">Ninh Bình</option><option value="43" title="Ninh Thuận">Ninh Thuận</option><option value="44" title="Phú Thọ">Phú Thọ</option><option value="45" title="Phú Yên">Phú Yên</option><option value="46" title="Quảng Bình">Quảng Bình</option><option value="47" title="Quảng Nam">Quảng Nam</option><option value="48" title="Quảng Ngãi">Quảng Ngãi</option><option value="21" title="Quảng Ninh">Quảng Ninh</option><option value="49" title="Quảng Trị">Quảng Trị</option><option value="50" title="Sóc Trăng">Sóc Trăng</option><option value="51" title="Sơn La">Sơn La</option><option value="52" title="Tây Ninh">Tây Ninh</option><option value="53" title="Thái Bình">Thái Bình</option><option value="54" title="Thái Nguyên">Thái Nguyên</option><option value="55" title="Thanh Hoá">Thanh Hoá</option><option value="19" title="Thừa Thiên Huế">Thừa Thiên Huế</option><option value="56" title="Tiền Giang">Tiền Giang</option><option value="57" title="Trà Vinh">Trà Vinh</option><option value="58" title="Tuyên Quang">Tuyên Quang</option><option value="59" title="Vĩnh Long">Vĩnh Long</option><option value="60" title="Vĩnh Phúc">Vĩnh Phúc</option><option value="61" title="Yên Bái">Yên Bái</option><option value="69" title="Đà Lạt">Đà Lạt</option><option value="62" title="Đắc Lắc">Đắc Lắc</option><option value="67" title="Đắc Nông">Đắc Nông</option><option value="22" title="Đồng Nai">Đồng Nai</option><option value="64" title="Đồng Tháp">Đồng Tháp</option></select></td></tr>
+<!--  
+<tr><td class="form_name">Tên Công ty :</td><td class="form_text"><input type="text" maxlength="255" style="width:300px; height:px" value="VIET SMART" name="use_company" id="use_company" title="Tên Công ty" autocomplete="off" class="form_control"></td></tr><tr><td class="form_name">Bộ phận Công ty :</td><td class="form_text"><input type="text" maxlength="255" style="width:300px; height:px" value="" name="use_component" id="use_component" title="Bộ phận Công ty" autocomplete="off" class="form_control"></td></tr><tr><td class="form_name">Lĩnh vực bạn muốn kinh doanh :</td><td class="form_text"><textarea style="width:300px; height:50px" name="use_company_info" id="use_company_info" title="Lĩnh vực bạn muốn kinh doanh" class="form_control">Thiết kế web, thương mại điện tử, CNTT phần mềm</textarea></td></tr>
+-->
+<tr><td class="form_name">Điện thoại cố định :</td><td class="form_text"><input type="text" maxlength="255" style="width:300px; height:px" value="<?php echo $user->getPhone();?>" name="use_phone" id="use_phone" title="Điện thoại cố định" autocomplete="off" class="form_control"></td></tr><tr><td class="form_name">Điện thoại di động :</td><td class="form_text"><input type="text" maxlength="255" style="width:300px; height:px" value="<?php echo $user->getMobile();?>" name="use_mobile" id="use_mobile" title="Điện thoại di động" autocomplete="off" class="form_control"></td></tr>
+<tr><td class="form_name">Số Fax :</td><td class="form_text"><input type="text" maxlength="255" style="width:300px; height:px" value="<?php echo $user->getFax();?>" name="use_fax" id="use_fax" title="Số Fax" autocomplete="off" class="form_control"></td></tr><tr><td class="form_name">Nick Yahoo :</td><td class="form_text"><input type="text" maxlength="255" style="width:200px; height:px" value="<?php echo $user->getYM();?>" name="use_yahoo" id="use_yahoo" title="Nick Yahoo" autocomplete="off" class="form_control"></td></tr><tr><td class="form_name">Nick Skype :</td><td class="form_text"><input type="text" maxlength="255" style="width:200px; height:px" value="<?php echo $user->getSkype();?>" name="use_skype" id="use_skype" title="Nick Skype" autocomplete="off" class="form_control"></td></tr>
+<!-- 
+<tr><td class="form_name"><font class="form_asterisk">* </font>Mã số an toàn :</td><td class="form_text"><input type="text" maxlength="4" style="width:70px; height:px" value="" name="security_code" id="security_code" title="Mã số an toàn" autocomplete="off" class="form_control"><img hspace="5" align="absmiddle" src="/home/security_code.php?4276V1537u1933b3012"></td></tr>
+ -->
+<tr><td class="form_name"></td><td class="form_text"><input type="submit" onclick="MM_validateForm('use_email','','RisEmail','use_address','','R','use_province','','R','security_code','','RisNum'); return document.MM_returnValue" value="&nbsp; Cập nhật &nbsp;" name="submit" id="submit" title="Cập nhật" class="button"> <input type="reset" value="&nbsp; Làm lại &nbsp;" name="reset" id="reset" title="Làm lại" class="button"></td></tr><input type="hidden" value="update" name="action" id="action">
+</tbody>
+</table>
+</form>
+</div>
+</div>
+<?php $this->load->view("changepass.html");?>

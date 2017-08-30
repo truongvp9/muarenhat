@@ -1,0 +1,101 @@
+<style type="text/css">
+.catalog-lists {
+    border-collapse: collapse;
+    font-family: Arial;
+    font-size: 14px;
+    width: 100%;
+	border: 1px solid #C9E1F4;
+	width:800px;
+}
+.catalog-lists th, .catalog-lists td {
+    border: 1px solid #A4A4A4;
+    height: 40px;
+    padding: 3px 7px 2px 10px;
+}
+.catalog-lists th {
+    background-color: #777777;
+    color: #FFFFFF;
+    height: 40px;
+    padding-bottom: 4px;
+    padding-top: 5px;
+    text-align: left;
+}
+</style>
+<?php
+ include_once('seotiengviet.php');
+?>
+<script type="text/javascript" src="<?php echo site_url()?>tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript" src="<?php echo site_url()?>tinymce/jscripts/tiny_mce/tinyMce.conf.js"></script>
+<div class="content-header">
+    <h3 class="icon-head head-system-account">Quản trị - Tạo menu mới</h3> 
+    <div class="form-buttons">
+	<button onclick="return form1.submit();" class="scalable save" type="button" id="id_389b82e4dc5822b9be1927c3f93b1215"><span>Cập nhật</span></button>    
+    </div>
+</div>
+<div class="entry-edit">
+<div class="entry-edit-head">
+<h4 class="icon-head head-edit-form fieldset-legend">Tạo menu mới</h4>
+</div>
+<div class="fieldset " id="base_fieldset">
+<div class="hor-scroll">
+<form name="form1" enctype="multipart/form-data" method="post" action="<?php echo site_url('admin/newmenu');?>">
+<div class="main-div">
+<table width="100%" cellspacing="3" cellpadding="3">
+  <tbody>
+    <tr>
+    <td class="label" align=right>Tiêu đề: </td>
+    <td><input type="text" size="100" name="title" value="<?php echo $content[0]->getName();?>"></td>
+  </tr>
+  <tr>
+    <td class="label" align=right>Ảnh: </td>
+    <td><input type="file" size="40" id="anh" value="" name="img_file_src"></td>
+  </tr> 
+  <tr>
+    <td class="label" align=right>Nội dung: </td>
+    <td>
+    <textarea name="content" rows="3" cols="150"><?php echo trim($content[0]->getDetail());?></textarea>
+    </td>
+  </tr>
+</tbody>
+</table>
+<input type="hidden" name="id" value="<?php echo $content[0]->getId();?>">
+</div>
+</form>
+</div>
+</div>
+</div>
+<div class="quangcao" style="padding:10px;">
+    <ul style="list-style: none outside none;">
+    <table class="catalog-lists">
+   <tr>
+    <th>
+    Tiêu đề
+    </th>
+    <th width=5%>
+    Sửa
+    </th>
+    <th width=5%>
+    Xóa
+    </th>
+    </tr>    
+	<?php foreach ($tin as $item):?>
+		<tr>
+		<td>
+		<li>
+		<div style="float:left;width:1000px;">
+		<strong><a href="<?php echo site_url('menu').'/'.$item->getId().'-'.khongdau($item->getName());?>"><?php echo $item->getName();?></a></strong>
+		<div class="clear"></div>  				   
+		</div>
+		</li>
+		</td>
+		<td>
+		<a href="<?php echo site_url('admin/menu').'/'.$item->getId();?>"><img src='/images/b_edit.png'></a>		
+		</td>
+		<td>
+		<a href="<?php echo site_url('admin/removemenu').'/'.$item->getId();?>" onclick="return confirm('Bạn có thực sự muốn xóa nội dung này không?');"><img src='/images/b_drop.png'></a>						
+		</td>
+		</tr>
+	<?php endforeach;?>
+	</table>
+	</ul>
+</div>

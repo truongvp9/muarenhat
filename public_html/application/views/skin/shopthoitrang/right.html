@@ -1,0 +1,57 @@
+<div id="right">
+					<h4 class="title2"><img src="<?php echo site_url();?>skin/shopthoitrang/images/cart.gif" alt="" width="18" height="19" class="cart" />Giỏ hàng</h4>
+					<div class="bag">
+						Chưa có sản phẩm<br />
+						<a href="<?php echo site_url('cart');?>">Giỏ hàng</a>
+					</div>
+					<?php if (!$login): ?>
+					<h4 class="title3">Đăng nhập</h4>
+					<div class="entry">
+						<form method="post" action="<?php echo site_url('login');?>" id="frm_login">
+							Tên đăng nhập<br />
+							<input type="text" id="login" name="login" /><br />
+							Mật khẩu<br />
+							<input type="password" id="pwd" name="pass" /><br />
+							<a href="/login" class="forgot">Quên mật khẩu</a>
+						</form>
+					</div>
+					<p class="below"><a href="<?php echo site_url('register');?>">Đăng ký</a> <a href="#"><img id="login_button" src="<?php echo site_url();?>/skin/shopthoitrang/images/enter.jpg" alt="Đăng nhập" width="52" height="23" /></a></p>
+					<?php endif;?>
+					<div class="users">
+						<p>Số người online:</p>
+						<p><font>257</font></p>
+					</div>
+					<h4 class="title3">Theo nhãn hiệu</h4>
+					<ul class="brands">
+						<li class="color"><a href="#">Aeffe S.P.A</a></li>
+						<li><a href="#">Agatha</a></li>
+						<li class="color"><a href="#">Anna Sui</a></li>
+						<li><a href="#">Adeana Couture</a></li>
+						<li class="color"><a href="#">Armani Exchange</a></li>
+						<li><a href="#">Austin Reed</a></li>
+						<li class="color"><a href="#">Babette Waserman</a></li>
+						<li><a href="#">BCBG</a></li>
+						<li class="color"><a href="#">Bisou-Bisou</a></li>
+						<li><a href="#">Body Glove</a></li>
+						<li class="color"><a href="#">Calvin Klein</a></li>
+						<li><a href="#">Chanel</a></li>
+						<li class="color"><a href="#">Christian Dior</a></li>
+						<li><a href="#">Christian Lacoix</a></li>
+						<li class="color"><a href="#">Club Monaco</a></li>
+						<li><a href="#">Diesel</a></li>
+						<li class="color"><a href="#">Eliott &amp; Lucca</a></li>
+						<li><a href="#">Et Vous</a></li>
+						<li class="color"><a href="#">Fratelli Corneliani</a></li>
+						<li><a href="#">Gianni Versace</a></li>
+						<li class="color"><a href="#">Giorgio Armani</a></li>
+						<li><a href="#">Hesco Fashion</a></li>
+						<li class="color"><a href="#">Hugo Boss</a></li>
+						<li><a href="#">Izod</a></li>
+						<li class="color"><a href="#">Laura Ashley</a></li>
+						<li><a href="#">Mango</a></li>
+						<li class="color"><a href="#">Nicole Miller</a></li>
+						<li><a href="#">Olivier Strelli</a></li>
+						<li class="color"><a href="#">Oxygen</a></li>
+						<li><a href="#">Timberland</a></li>
+					</ul>
+				</div>

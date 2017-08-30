@@ -1,0 +1,68 @@
+<style type="text/css">
+.catalog-lists {
+    border-collapse: collapse;
+    font-family: Arial;
+    font-size: 14px;
+    width: 100%;
+	border: 1px solid #C9E1F4;
+	width:800px;
+}
+.catalog-lists th, td {
+    border: 1px solid #A4A4A4;
+    height: 40px;
+    padding: 3px 7px 2px 10px;
+}
+.catalog-lists th {
+    background-color: #777777;
+    color: #FFFFFF;
+    height: 40px;
+    padding-bottom: 4px;
+    padding-top: 5px;
+    text-align: left;
+}
+</style>
+<table class="catalog-lists" cellspacing=1 cellpadding=5 bgcolor="#EFEFEF">
+<tr>
+<th>
+Vị trí
+</th>
+<th>
+Chuyên mục
+</th>
+<th align="center" style="text-align:center">
+Tình trạng
+</th>
+<th align="center" style="text-align:center">
+Hiện
+</th>
+<th align="center" style="text-align:center">
+Ẩn
+</th>
+</tr>
+<?php foreach ($category as $value): ?>
+<tr>
+<td>
+	<?php echo $value->getOrder();?>
+</td>
+<td>
+	<?php echo $value->getName();?>
+</td>
+<td align="center">
+			<?php if ($value->getHome()==1) {?>
+					<img src="/images/checked.gif">
+	        	    <?}
+	        		else {
+					?> 
+					<img src="/images/unchecked.gif">
+	        <?php }?>
+</td>
+	    <td align="center">
+	    <a href="<?php echo site_url('admin/activehome').'/'.$value->getId();?>" onclick="return confirm('Bạn có thực sự muốn hiện mục này ở trang chủ không?');"><img src='/images/checked.gif'></a>
+	    </td>
+	    <td align="center">
+	    <a href="<?php echo site_url('admin/inactivehome').'/'.$value->getId();?>" onclick="return confirm('Bạn có thực sự muốn ẩn mục này ở trang chủ không?');"><img src='/images/unchecked.gif'></a>
+	    </td>
+</tr>
+<?php endforeach;?>
+</table>
+<br>

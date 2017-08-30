@@ -1,0 +1,44 @@
+<div class="content-header">
+    <h3 class="icon-head head-system-account">Hệ thống - Thông tin tài khoản</h3> 
+    <div class="form-buttons">
+	<button style="" onclick="editForm.submit();" class="scalable save" type="button" id="id_123"><span>Save</span></button>    
+    </div>
+</div>
+<div class="entry-edit">
+    <form id="edit_form" name="editForm" method="post" action=""><div><input type="hidden" value="iQVRE5PQdbOBd1dm" name="form_key"></div><div class="entry-edit-head">
+    <h4 class="icon-head head-edit-form fieldset-legend">Thôn tin tài khoản</h4> 
+</div>
+    <div id="base_fieldset" class="fieldset ">
+    <div class="hor-scroll">
+                        <table cellspacing="0" class="form-list">
+            <tbody>
+                <tr>
+        <td class="label"><label for="username">Tên truy cập <span class="required">*</span></label></td>
+    <td class="value">
+        <input type="text" class=" input-text required-entry" title="User Name" value="<?php echo $user->getAccount();?>" name="username" id="username" disabled>            </td>
+    </tr>
+<tr>
+        <td class="label"><label for="firstname">Họ và tên <span class="required">*</span></label></td>
+    <td class="value">
+        <input type="text" class=" input-text required-entry" title="Full Name" value="<?php echo $user->getName();?>" name="fullname" id="fullname">            </td>
+</tr>
+<tr>
+        <td class="label"><label for="email">Email <span class="required">*</span></label></td>
+    <td class="value">
+        <input type="text" class=" input-text required-entry" title="User Email" value="<?php echo $user->getEmail();?>" name="email" id="email">            </td>
+    </tr>
+<tr>
+        <td class="label"><label for="password">Mật khẩu mới</label></td>
+    <td class="value">
+        <input type="password" class="input-text validate-admin-password input-text" title="New Password" value="" name="new_password" id="password">            </td>
+    </tr>
+<tr>
+        <td class="label"><label for="confirmation">Xác nhận mật khẩu</label></td>
+    <td class="value">
+        <input type="password" class="input-text validate-cpassword input-text" value="" name="password_confirmation" id="confirmation">            </td>
+    </tr>
+            </tbody>
+        </table>
+            </div>
+        </div>
+</form></div>

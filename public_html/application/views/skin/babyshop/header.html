@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Baby Shop</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="<?php echo site_url();?>/skin/babyshop/style.css" />
+</head>
+
+<body>
+	<div>
+		<a href="#"><img src="<?php echo site_url();?>/skin/babyshop/images/logo.gif" width="237" height="123" class="float" alt="setalpm" /></a>
+      <div class="topnav">
+			<?php if (!$login):?>
+			<span><strong>Welcome</strong> &nbsp;<a href="<?php echo site_url('login');?>">Đăng nhập</a> &nbsp; | &nbsp; <a href="<?php echo site_url('register');?>">Đăng ký</a></span> 
+			<?php endif;?>
+			<select>
+			<?php foreach ($cat_list as $item):?>
+				<option><?php echo $item->getName();?></option>
+			<?php endforeach;?>
+			</select>
+		</div>
+		<ul id="menu">
+			<li><a href="<?php echo site_url();?>"><img src="<?php echo site_url();?>/skin/babyshop/images/but1.gif" alt="" width="110" height="32" /></a></li>
+			<?php if (!$login):?>
+			<li><a href="<?php echo site_url('login');?>"><img src="<?php echo site_url();?>/skin/babyshop/images/but2.gif" alt="" width="110" height="32" /></a></li>
+			<li><a href="<?php echo site_url('register');?>"><img src="<?php echo site_url();?>/skin/babyshop/images/but3.gif" alt="" width="110" height="32" /></a></li>
+			<?php endif;?>
+			<li><a href="<?php echo site_url('myaccount');?>"><img src="<?php echo site_url();?>/skin/babyshop/images/but4.gif" alt="" width="110" height="32" /></a></li>
+			<li><a href="<?php echo site_url('cart');?>"><img src="<?php echo site_url();?>/skin/babyshop/images/but5.gif" alt="" width="110" height="32" /></a></li>
+			<li><a href="<?php echo site_url('checkout');?>"><img src="<?php echo site_url();?>/skin/babyshop/images/but6.gif" alt="" width="110" height="32" /></a></li>
+		</ul>
+	</div>
+	<div id="content">
+		<div id="sidebar">
+			<div id="navigation">
+				<ul>
+					<li><a href="<?php echo site_url('shop').'/'.$account;?>">Trang chủ</a></li>
+					<li><a href="<?php echo site_url('shop/cms').'/'.$account.'/gioithieu';?>">Giới thiệu</a></li>
+					<li><a href="<?php echo site_url('shop/cms').'/'.$account.'/chinhsach';?>">Chính sách</a></li>
+					<li><a href="<?php echo site_url('shop').'/map/'.$account;?>">Bản đồ</a></li>
+					<li><a href="#">F.A.Q.</a></li>
+					<li><a href="<?php echo site_url('shop/cms').'/'.$account.'/lienhe';?>">Liên hệ</a></li>
+				</ul>
+				<div id="cart">
+					<strong>Giỏ hàng:</strong> <br /> 0 sản phẩm
+				</div>
+			</div>
+			
+			<div>
+				<img src="<?php echo site_url();?>/skin/babyshop/images/title1.gif" alt="" width="233" height="41" /><br />
+				<ul class="categories">
+				<?php foreach ($cat_list as $item):?>
+					<li><a href="#"><?php echo $item->getName();?></a></li>
+				<?php endforeach;?>
+					<!--<li><a href="#">Arts &amp; Crafts</a></li>
+					<li><a href="#">Discovery &amp; Learning</a></li>
+					<li><a href="#">Dolls &amp; Soft Toys</a></li>
+					<li><a href="#">Games &amp; Puzzles</a></li>
+					<li><a href="#">Collectibles</a></li>
+					<li><a href="#">Infant &amp; Preschool</a></li>
+					<li><a href="#">Novelty &amp; Virtual</a></li>
+					<li><a href="#">Outdoors</a></li>
+					<li><a href="#">TV &amp; Films</a></li>-->
+				</ul>
+				<img src="<?php echo site_url();?>/skin/babyshop/images/title2.gif" alt="" width="233" height="41" /><br />
+				<div class="review">
+					<a href="#"><img src="<?php echo site_url();?>/skin/babyshop/images/pic1.jpg" alt="" width="181" height="161" /></a><br />
+					<a href="#">Product 07</a><br />
+					<p>Dolor sit amet, consetetur sadipscing elitr, seddiam nonumy eirmod tempor. invidunt ut labore et dolore magna </p>
+					<img src="<?php echo site_url();?>/skin/babyshop/images/stars.jpg" alt="" width="118" height="20" class="stars" />
+				</div>
+			</div>
+		</div>

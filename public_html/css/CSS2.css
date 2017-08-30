@@ -1,0 +1,613 @@
+body {
+	margin:0px;
+	padding: 0px;
+}
+#wrapper{
+	position:relative;
+	margin:0;
+	width:960px;
+}
+.boxheader-top{
+	position:relative;
+	width:960px;
+	height:31px;
+	background:url(../image/nen-kengang2.jpg); 
+}
+.muaban12-top{
+	position:relative;
+	width:101px;
+	height:23px;
+	margin:4px 8px;
+	float:left;
+}
+.login{
+	position:relative;
+	width:150px;
+	height:23px;
+	padding:4px 8px;
+	float:left;
+}
+.login ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.login ul li{
+	margin:0;
+	padding:0px;
+	display:inline;
+}
+.login a{
+	padding:5px;
+	color:#FFFFFF;
+	font:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size:12px;
+	text-decoration:none;
+}
+.login a:hover{
+	background:#FFFFFF;
+	color:#0099FF;
+}
+.icon{
+	position:relative;
+	padding-top:3px;
+	width:34px;
+	float:left;
+	text-align:center;
+}
+.icon .size{
+	width:26px;
+	height:26px;
+}
+.search{
+	position:relative;
+	padding-top:3px;
+	float:left;
+	width:280px;
+}	
+.menu1{
+	position:relative;
+	height:23px;
+	width:320px;
+	padding:0px 0px;
+	float:right;
+}
+.menu1 ul{
+	text-align:right;
+	margin:0;
+	padding:5px 7px;
+	list-style:none;
+}
+.menu1 ul li{
+	margin:0;
+	padding:0px 5px;
+	display:inline;
+}
+.menu1 a{
+	padding:5px 0px;
+	color:#FFFFFF;
+	font:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size:12px;
+	text-decoration:none;
+}
+.menu1 a:hover{
+	color:#0099FF;
+	background-color:#FFFFFF;
+}
+.banner1{
+	position:relative;
+	width:960px;
+	height:85px;
+	margin:1px 0px;
+	background:url(../image/banner.jpg) no-repeat;
+}
+.boxheader-bottom{
+	position:relative;
+	margin:1px 0px;
+	width:960px;
+	height:23px;
+	background:url(../image/nen-tren.jpg) repeat;
+}
+.menu2{
+	position:relative;
+	width:300px;
+	height:23px;
+	float:left;
+}
+.menu2 ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.menu2 ul li{
+	border-right:1px solid #000000;
+	margin:0;
+	padding:0px 30px;
+	display:inline;
+}
+.menu2 a{
+	font:bold 12px Arial, Helvetica, sans-serif;
+	color:#0099FF;
+	text-decoration:none;
+}
+.menu2 a:hover{
+	font:bold 12px Arial, Helvetica, sans-serif;
+	color:#0099FF;
+	background:#FFFFFF;
+	padding:4px 10px 2px;
+	text-decoration:none;
+}
+.menu3{
+	position:relative;
+	vertical-align:middle;
+	text-align:right;
+	padding-right:8px;
+	width:390px;
+	float:right;
+	height:23px;
+}
+.menu3 ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.menu3 ul li{
+	border-right:1px solid #000000;
+	margin:0;
+	padding:0px 10px;
+	display:inline;
+}
+.menu3 a{
+	font: 11px Arial, Helvetica, sans-serif;
+	color:#0099FF;
+	text-decoration:none;
+}
+.menu3 a:hover{
+	font:bold 11px Arial, Helvetica, sans-serif;
+	color:#0099FF;
+	background:#FFFFFF;
+	padding:4px 10px 2px;
+	text-decoration:none;
+}
+.dk-gianhang{
+	position:relative;
+	margin-right:3px;
+	width:101px;
+	height:19px;
+	float:right;
+	margin-top:1px;
+}
+.wrapper-middle{
+	position:relative;
+	margin:0;
+	width:960px;
+}
+/*---------box-left-------------*/
+.box-left{
+	position:relative;
+	float:left;
+	width:177px;
+}
+.menu-left{
+	position:relative;
+	width:177px;
+}
+.menu-left ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.menu-left ul li{
+	text-align:left;
+	height:27px;
+	margin:2px 0px;
+	border:#CCCCCC solid 1px;
+	padding:2px 0px 0px 8px;;
+}
+.menu-left a{
+	font: bold 12px Arial, Helvetica, sans-serif;
+	color:#000000;
+	text-decoration:none;
+}
+.raovat-header{
+	position:relative;
+	margin-top:6px;
+}
+.bg-left{
+	position:relative;
+	float:left;
+	width:11px;
+	height:25px;
+	background:url(../image/raovat-left.jpg) no-repeat;
+}
+.bg-center{
+	position:relative;
+	text-align:left;
+	margin:0;
+	padding-top:2px;
+	font:"Times New Roman", Times, serif;
+	font-size:14px;
+	font-weight:bold;
+	color:#FFFFFF;
+	float:left;
+	width:155px;
+	height:25px;
+	background:url(../image/raovat-center.jpg) repeat;
+}
+.bg-right{
+	position:relative;
+	float:left;
+	width:11px;
+	height:25px;
+	background:url(../image/raovat-right.jpg) no-repeat;
+}
+.raovat-detail{
+	position:relative;
+	border:solid 1px #888888;
+}
+.raovat-detail ul{
+	margin:0;
+	padding:0;
+	list-style:inside;
+}
+.raovat-detail ul li{
+	text-align:left;
+	margin:0;
+	padding:5px 5px;
+	list-style-image:url(../image/icon/icon-raovat.png);
+}
+.raovat-detail li a{
+	margin:0;
+	padding-left:5px;
+	text-decoration:none;
+	color:#000000;
+}
+.raovat-detail li a:hover{
+	color:#0099FF;
+}
+.banhangonli-header{
+	position:relative;
+	width:177px;
+	margin-top:10px
+}
+.bg-center .size{
+	width:25px;
+	height:22px;
+	vertical-align:middle;
+}
+.banhangonli-detail{
+	position:relative;
+	width:177px;
+	border:1px solid #999999;
+}
+.style-kinhdoanh{
+	position:relative;
+	margin:45px 0px 15px 15px;
+	font:Arial, Helvetica, sans-serif 12px;
+}
+.style-kythuat{
+	position:relative;
+	margin:10px 0px 10px 15px;
+	padding-bottom:7px;
+	font:Arial, Helvetica, sans-serif 12px;
+	border-bottom:solid 1px #999999;
+}
+.telecom .size{
+	width:50px;
+	height:35px;
+	margin-left:15px;
+}
+.style-phonenumber{
+	position:relative;
+	color:#FF0000;
+	text-align:center;
+	font-weight:bold;
+	font-size:18px;
+	margin-bottom:5px;
+}
+.find-us{
+	position:relative;
+	margin-bottom:12px;
+	border:#CCCCCC 1px solid;
+}
+.find-header{
+	position:relative;
+	margin-top:12px;
+	font-size:16px;
+	font-weight:bold;
+	background:#CCCCCC;
+	padding:5px 0px 0px 13px;
+	height:30px;
+}
+.find-detail{
+	position:relative;
+	margin:0px 7px;
+	border-bottom:#CCCCCC;
+}
+.like{
+	position:relative;
+	width:45px;
+	height:20px;
+	background:url(../image/icon/like-icon.png) no-repeat;
+	float:left;
+	margin:30px 6px 30px 0px;
+}
+.muaban12{
+	position:relative;
+	width:101px;
+	height:23px;
+	background:url(../image/icon/muaban12.net.png) no-repeat;
+	float:left;
+	margin:30px 0px 30px 6px;
+}
+.people-like{
+	position:relative;
+	border-top:#CCCCCC 1px solid;
+	padding:0px 8px;
+	font-size:12px;
+}
+.img-people{
+	position:relative;
+	margin:7px 5px;
+	height:55px;
+	border-bottom:#CCCCCC;
+}
+.img-people .size{
+	width:160px;
+	height:50px;
+	margin:3px;
+}
+.face-plugin{
+	position:relative;
+	font-size:10px;
+	margin:5px 5px;
+	vertical-align:middle;
+}
+.face-plugin .size{
+	width:16px;
+	height:16px;
+}
+.quangcao-left .size{
+	width:177px;
+	height:904px;
+}
+/*-------box-right--------*/
+.box-right{
+	position:relative;
+	float:left;
+	width:777px;
+	margin-left:6px;
+}
+.box-spluachon{
+	position:relative;
+}
+.duongdan{
+	position:relative;
+	padding-top:5px;
+	margin-left:10px;
+	font-weight:bold;
+	font-size:14px;
+	color:#0099FF;
+}
+.box-anhsp{
+	position:relative;
+	width:260px;
+	float:left;
+}
+.anh-sp1{
+
+}
+.anh-sp1 .size{
+	margin:15px 0px 15px 20px;
+	width:220px;
+}
+.anh-sp2{
+
+}
+.anh-sp2 .size{
+	margin:10px 0px 15px 32px;
+	width:196px;
+	height:46px;
+}
+.chitiet-sp{
+	position:relative;
+	width:490px;
+	float:left;
+	margin-left:10px;
+}
+.tensp{
+	position:relative;
+	font-size:18px;
+	font-weight:bold;
+	margin:10px 0px;
+}
+.box-gia{
+	position:relative;
+	float:none;
+}	
+.giasp{
+	position:relative;
+	margin:5px 0px;
+	width:40px;
+	float:left;
+	font-size:18px;
+	font-weight:bold;
+}
+.style-gia{
+	position:relative;
+	margin:5px 0px;
+	float:left;
+	width:450px;
+	font-size:18px;
+	font-weight:bold;
+	color:#FF0000;
+}
+.box-status{
+	position:relative;
+	float:none;
+}
+.box-status-left{
+	position:relative;
+	float:left;
+	width:68px;
+	margin:2px 0px;
+}
+.box-status-right{
+	position:relative;
+	float:left;
+	width:400px;
+	margin:2px 0px;
+	color:#00CCCC;
+	font-weight:bold; 
+}
+.box-khuyenmai{
+	position:relative;
+}
+.km{
+	position:relative;
+	width:85px;
+	float:left;
+	font-weight:bold;
+	font-size:14px;
+	color:#FF0000;
+	margin:5px 0px;
+}
+.style-km{
+	position:relative;
+	float:left;
+	width:400px;
+	color:#FF0000;
+	font-size:14px;
+	margin:5px 0px 10px 0px;
+	padding-top:1px;
+}
+.giohang{
+	position:relative;
+	width:450px;
+	float:left;
+}
+.giohang .size{
+	width:160px;
+	height:24px;
+}
+.chiase{
+	margin-top:10px;
+}
+.chiase .font{
+	float:left;
+}
+.chiase .icon{
+	float:left;
+	width:16px;
+	height:16px;
+	margin:0px 6px;
+}
+.chiase .size{
+	width:16px;
+	height:16px;
+}
+/*------wrapper-bottom------*/
+.box-pt{
+	position:relative;
+	margin-top:10px;
+	height:23px;
+}
+.box-pt .duongdan{
+	position:relative;
+	padding-top:5px;
+	margin-left:10px;
+	font-weight:bold;
+	font-size:14px;
+	color:#0099FF;
+	width:300px;
+	float:left;
+}
+.phantrang{
+	position:relative;
+	float:right;
+	text-align:left;
+	margin-right:10px;
+}
+.phantrang ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+.phantrang ul li{
+	margin:0px 1px;
+	display:inline;
+}
+.phantrang a{
+	color:#000000;
+	font:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	text-decoration:none;
+	padding:1px 10px;
+	border:solid 1px #CCCCCC;
+}
+.phantrang li a:hover{
+	background:#0099FF;
+}
+.wrapper-bottom{	
+	width:960px;
+	height:57px;
+	padding-top:3px;
+	position:relative;
+	text-align:center;
+	font-weight:bold;
+	font-size:13px;
+	text-decoration:none;
+	background:url(../image/nen-duoi.jpg) repeat;
+}
+.box-lietke{
+	position:relative;
+	padding-top:10px;
+}
+.box-sp{
+	position:relative;
+	margin:4px 5px;
+	height:140px;
+	border:solid 1px #CCCCCC;
+}
+.box-sp .left{
+	position:relative;
+	float:left;
+	width:150px;
+	height:140px;
+}
+.box-sp .left .size{
+	margin:20px 25px;
+	width:100px;
+	height:100px;
+}
+.box-sp .center{
+	position:relative;
+	font-size:14px;
+	float:left;
+	width:465px;
+	height:140px;
+}
+.box-sp .center h3{
+	padding:-5px 0px;
+}
+.box-sp .right{
+	position:relative;
+	float:left;
+	width:147px;
+	height:140px;
+	text-align:center;
+	vertical-align:middle;
+}
+.box-sp .right .gia{
+	font-weight:bold;
+	color:#FF0000;
+	margin:40px 0px 7px 0px;
+}
+.box-sp .center .font{
+	font-weight:bold;
+}
+.clear{
+	clear:both;
+}

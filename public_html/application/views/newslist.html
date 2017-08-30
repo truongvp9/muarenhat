@@ -1,0 +1,183 @@
+<style>
+.othernews-title {
+    background-color: #FFF;
+    color: #8A0000;
+    font: bold 14px arial;
+    padding-right: 5px;
+    margin-top:10px;
+    margin-bottom: 10px;
+    margin-left:200px;
+}
+.news {
+	margin:10px;
+}
+.link-othernews {
+    font: 12px arial;
+}
+.othernews {
+	margin-left:268px;
+	margin-bottom:10px;
+}
+.paging li {
+    background-image: url("http://vnexpress.net/Images/Background/blue-square.gif");    
+    background-position: 0 7px;
+    background-repeat: no-repeat;
+    padding-left: 6px;
+    position: relative;
+}
+.othernews ul {
+    list-style: none outside none;
+}
+.clear {
+	clear:both;
+}
+.tin {
+	padding: 10px;
+	
+}
+.tin-img {
+    float: left;
+    width: 131px;
+}
+.imgBorder {
+    border: 1px solid #CCCCCC;
+    padding: 1px;
+    width: 130px;
+}
+.tin-summary {
+    float: left;
+    width: 405px;
+    margin-left: 10px;
+    display: block;
+}
+.tin a {
+    color: #004370;
+    outline: medium none;
+    text-decoration: none;
+}
+.item {
+    border-bottom: 1px solid #EEEEEE;
+    padding: 11px 0;
+    width:550px;
+    /*height: 130px;*/
+    float:left;
+}
+.news-menu ul {
+    background: url("http://muaban12.net/img/mainnav.gif") repeat-x scroll left top #434747;
+    /*background-color: #3883CC;*/
+    border-bottom: 2px solid #DA0101;
+    clear: both;
+    float: left;
+    font-weight: bold;
+    height: 37px;
+    list-style: none outside none;
+    width: 1000px;
+    list-style: none outside none;
+}
+.news-menu li a:hover {
+	background: url("http://muaban12.net/img/menurep.gif") repeat-x scroll 0 0 transparent;
+}
+.news-menu li a {
+    border-right: 1px solid #4B80A5;
+    color: #FFFFFF;
+    display: block;
+    float: left;
+    height: 37px;
+    line-height: 37px;
+    padding: 0 4px;
+}
+.left-news {
+	width:740px;
+	float:left;
+}
+
+.right-news {
+	width:250px;
+	float:right;	
+}
+
+ul {	
+	clear: both;
+}
+
+ul.simplePagerNav li{
+    display:block;
+    floaT: left;
+    padding: 3px;
+    margin-bottom: 10px;
+    font-family: georgia;
+}
+
+ul.simplePagerNav li a{
+    color: #333;
+    text-decoration: none;
+}
+
+li.currentPage {
+	background: red;
+        background: #83bd63;	
+}
+
+ul.simplePagerNav li.currentPage a {
+	color: #fff;	
+}
+</style>
+<script type="text/javascript" src="<?php echo site_url();?>js/quickpager.jquery.js"></script>
+<?php
+ include_once("seotiengviet.php");
+?>
+<div class="tin">
+<div class="news-menu">
+	<ul>
+		<?php foreach ($category as $item) : ?>
+		<li>
+		<a href="<?php echo site_url('newslist').'/'.$item->getId().'-'.khongdau($item->getName());?>"><span><?php echo $item->getName();?></span></a>
+		</li>
+		<?php endforeach;?>
+	</ul>
+</div>
+<div class="clear"></div>
+<div class="left-news">
+<div style="margin-top:0px;float:left;">
+<?php $this->load->view("widget/widgetraovat.html");?>
+</div>
+<div style="width:550px;float:right;">
+<?php foreach ($tin as $item):?>
+<div class="item">
+<div class="tin-img">
+<a href="<?php echo site_url().'news/'.$item->getId().'-'.khongdau($item->getTitle());?>">
+<img class="imgBorder" src='<?php echo site_url();?><?php if ($item->getImg()=='images/' || $item->getImg()=='') { echo 'images/no_picture.gif'; } else  echo $item->getImg();?>'>
+</a>
+</div>
+<div class="tin-summary">
+<h4>
+<a href="<?php echo site_url().'news/'.$item->getId().'-'.khongdau($item->getTitle());?>"><?php echo $item->getTitle();?></a>
+</h4>
+<?php echo $item->getSummary();?>
+</div>
+</div>
+<?php endforeach;?>
+</div>
+</div>
+<div class="right-news">
+<?php $this->load->view("rvquangcao.html"); ?>
+</div>
+
+</div>
+<div class="clear"></div>
+<div class="othernews-title fl">
+&nbsp;Các tin đã đưa:
+</div>
+<div class="clear"></div>
+<div class="othernews">
+<ul class="paging">
+<?php foreach ($tinkhac as $item):?>
+<li><a class="link-othernews" href="<?php echo site_url();?>news/<?php echo $item->getId();?>-<?php echo khongdau($item->getTitle()); ?>"><?php echo $item->getTitle();?></a></li>
+<?php endforeach;?>
+</ul>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+	$("ul.paging").quickPager();
+});
+</script>

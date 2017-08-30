@@ -1,0 +1,67 @@
+				<div id="left">
+					<h4 class="title1">DANH MỤC SẢN PHẨM</h4>
+					<ul id="list">
+					    <?php foreach ($cat_list as $item): ?>
+					    <li><a href="<?php echo site_url('shop/catalog').'/'.$account.'/'.$item->getId();?>" class="type1"><?php echo $item->getName();?></a></li>
+					    <?php foreach ($sub_cat[$item->getId()] as $subitem): ?>
+					    <li><a href="<?php echo site_url('shop/catalog').'/'.$account.'/'.$subitem->getId();?>" class="type2"><?php echo $subitem->getName();?></a></li>
+					    <?php endforeach;?>
+					    <?php endforeach;?>
+						<!-- <li><a href="#" class="type1">Accessories</a></li>
+						<li><a href="#" class="type2">Bottoms</a></li>
+						<li><a href="#" class="type2">Denim</a></li>
+						<li><a href="#" class="type2">Dresses</a></li>
+						<li><a href="#" class="type1">Eyewear</a></li>
+						<li><a href="#" class="type2">Footwear</a></li>
+						<li><a href="#" class="type1">Handwear</a></li>
+						<li><a href="#" class="type2">Knitwear</a></li>
+						<li>
+							<a href="#" class="type3">Jewellery</a>
+							<ul id="inside">
+								<li><a href="#">Bracelets</a></li>
+								<li><a href="#">Earrings</a></li>
+								<li><a href="#">Necklaces</a></li>
+								<li><a href="#">Rings</a></li>
+							</ul>
+						</li>
+						<li><a href="#" class="type2">Outerwear</a></li>
+						<li><a href="#" class="type2">Playsuits</a></li>
+						<li><a href="#" class="type1">Swimwear</a></li>
+						<li><a href="#" class="type2">Tops</a></li>-->
+					</ul>
+					<h4 class="title2">Thông tin liên hệ</h4>
+					<ul class="news" style="list-style-type: none;">
+					<li>
+						<?php echo $storeInfo->getName();?>
+					</li>
+					<li>
+						<?php echo $storeInfo->getAddress();?>
+					</li>
+					<li>
+						ĐT: <?php echo $storeInfo->getPhone();?>
+					</li>
+					<li>
+						Fax: <?php echo $storeInfo->getFax();?>
+					</li>
+					<li>
+						DĐ: <?php echo $storeInfo->getMobile();?>
+					</li>
+					<li>
+						Yahoo: <?php echo $storeInfo->getYm();?>
+					</li>
+					<li>
+						<a href="http://<?php echo str_replace('http://','',$storeInfo->getWebsite());?>"><?php echo $storeInfo->getWebsite();?></a>
+					</li>
+					</ul>				
+					<h4 class="title2">Tin tức &amp; sự kiện</h4>
+					<?php foreach ($tin as $item):?>
+					<div class="news">
+						<span><?php echo date("d/m/Y",strtotime($item->getDate()));?></span>
+						<p>
+						<?php 
+								echo $item->getSummary();
+						?></p>
+						<a href="<?php echo site_url('news').'/'.$item->getId();?>" class="more">xem tin</a>
+					</div>
+					<?php endforeach;?>	
+				</div>

@@ -1,0 +1,48 @@
+
+	<div id="wrapper">
+	<div id="content_inside">
+			<div id="sidebar">
+				<img src="<?php echo site_url();?>/skin/shopnoithat/images/title1.gif" alt="" width="174" height="30" /><br />																																										<ul id="list">
+				<?php $i=1; foreach ($cat_list as $item):?>
+					<li <?php if ($i % 2==0) { echo 'class="color"'; }?>><a href="#"><?php echo $item->getName();?></a></li>
+				<?php $i++; endforeach;?>
+					<!--<li><a href="#">Tamen causa ut diam</a></li>
+					<li class="color"><a href="#">Appellatio vel hos autem</a></li>
+					<li><a href="#">Consequat</a></li>
+					<li class="color"><a href="#">Nibh valde tincidunt</a></li>
+					<li><a href="#">Illum secundum</a></li>
+					<li class="color"><a href="#">Appellatio vel</a></li>
+					<li><a href="#">Illum secundum</a></li>
+					<li class="color"><a href="#">Nibh valde</a></li>
+					<li><a href="#">Consequat</a></li>
+					<li class="color"><a href="#">Nibh valde tincidunt</a></li>
+					<li><a href="#">Appellatio vel</a></li>
+					<li class="color"><a href="#">Illum secundum</a></li>
+					<li><a href="#">Consequat</a></li>
+					<li class="color"><a href="#">Appellatio vel</a></li>
+					<li><a href="#">Illum secundum</a></li>
+					<li class="color"><a href="#">Nibh valde</a></li>-->
+				</ul>
+			</div>
+			<div id="main_block">
+				<div class="about">
+					<img src="<?php echo site_url();?>/skin/shopnoithat/images/title2.gif" alt="" width="191" height="30" /><br />
+					<p><?php echo $tin[0]->getSummary();?></p>
+					<a href="<?php echo site_url('news').'/'.$tin[0]->getId();?>">xem chi tiết</a>
+				</div>
+				<div class="news">
+					<img src="<?php echo site_url();?>/skin/shopnoithat/images/title3.gif" alt="" width="69" height="30" /><br />
+					<p><?php echo $tin[1]->getSummary();?></p>
+				</div>
+				<div id="items">
+					<?php foreach ($product as $item):?>
+					<div class="item">
+						<img src="<?php echo site_url().$item->getImageDefault();?>" alt="<?php echo $item->getName();?>" width="202" height="173" /><br />
+						<span><?php echo $item->getNicePrice();?></span><a href="#" class="view">Xem</a><a href="#" class="buy">Mua hàng</a>
+					</div>
+					<?php endforeach;?>
+				</div>
+			</div>
+		</div>
+	</div>
+	

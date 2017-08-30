@@ -1,0 +1,68 @@
+<div class="left_menu_home">
+	<ul>
+		<?php $i=1; foreach ($category as $value) : ?>
+		<li id="<?php echo $i;?>">
+			<a href="<?php echo site_url('catalog').'/'.$value->getId().'-'.khongdau($value->getName());?>" class="root_link"><span><strong><?php echo $value->getName();?></strong></span></a>
+			<div class="left_menu_drop menu_left_drop_<?php echo $i;?>">
+ 			<table width=100%>
+ 			<?php foreach ($subcat[$value->getId()] as $val):?>
+         	<tr><td width="100px">
+         	<div class="root root_<?php echo $i;?>" id="<?php echo count($subcat);?>"> 
+	          	<a href="<?php echo site_url('catalog').'/'.$val->getId().'-'.khongdau($val->getName());?>" title="<?php echo $val->getName();?> (2191380)"><strong><?php echo $val->getName();?></strong> </a>
+	        </div>	
+	        </td><td>    
+     	    <div class="sub">
+     	    <?php $j=0; $count=count($subcat_level2[$val->getId()]); foreach ($subcat_level2[$val->getId()] as $subval):?>
+     	    <a href="<?php echo site_url('catalog').'/'.$subval->getId().'-'.khongdau($subval->getName());?>" class="sub_link"><?php echo $subval->getName();?></a> <?php $j++; if($j<$count) {?> <span>&nbsp;|&nbsp;</span> <?php } ?>
+     	    <?php endforeach;?>
+     	    </div>	 
+     	    </td>
+     	    </tr>
+     	    <tr>
+     	    <td colspan=2><div class="break_module_line"></div></td>
+     	    </tr>           
+      		<?php endforeach;?>
+      		</table>	
+      		</div>		
+		</li>
+		<?php $i++; endforeach;?>
+	</ul>
+</div>
+	
+<script type="text/javascript">
+$(document).ready(function(){
+	var docW=$(document).width();
+	$(location).attr('href');
+    
+    //pure javascript
+    var pathname = window.location.pathname;
+ 
+    // to show it in an alert window
+    var url = window.location;//alert(url);
+    
+	$(".left_menu_home ul li").hover(function(){ 
+		var id = $(this).attr("id"); 
+		var count = $(".root_"+id).attr("id");
+		count = parseInt(count);
+		var top = 60+((parseInt(id)+1)%12)*28;
+		var left = (docW-1020)/2 
+		if (url=='http://www.muarenhat.vn/' || url=='http://www.muarenhat.vn' || url=='http://muarenhat.vn/' || url=='http://muarenhat.vn' || url=='http://muarenhat.vn/home') {
+			var top = 60+((parseInt(id)+1)%12)*28;	
+		}
+		else {
+			left=0;
+			var top = -100+((parseInt(id)+1)%12)*28;
+		}
+		$(".menu_left_drop_"+id).css('visibility','visible');
+		$(".menu_left_drop_"+id).css('z-index','3');
+		$(".menu_left_drop_"+id).css('left',left+182);
+		$(".menu_left_drop_"+id).css('top',top+"px");
+		if (count>0) {
+			$(".menu_left_drop_"+id).show(500);
+		}
+	},function(){ 
+		var id = $(this).attr("id");
+		$(".menu_left_drop_"+id).css('visibility', "hidden").hide();
+	});
+});
+</script>

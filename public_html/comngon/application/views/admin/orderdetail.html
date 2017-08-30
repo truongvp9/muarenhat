@@ -1,0 +1,124 @@
+<?php 
+	function getNicePrice($price)
+	{
+		if (intval($price)==0) {
+			return 0;
+		}
+		$price = strrev($price);
+		$arr = str_split($price,3);
+		$result = implode(".", $arr);
+		$result= strrev($result);
+	    return $result;
+	}
+	$status = array("0"=>"Mới","new"=>"Mới","process"=>"Đang xử lý","completed"=>"Đã giao hàng");
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Chi tiết đơn hàng</title>
+</head>
+<style>
+.order_detail {
+	border: 1px solid black;
+}
+</style>
+<body>
+<center><h3>Chi tiết đơn hàng</h3></center>
+<table width="100%" border="0" cellspacing="1"  bgcolor="#FFF" class="order_detail">
+  <tr>
+    <td><p><strong>Thông tin đơn hàng</strong></p>
+      <table width="422" border="0">
+        <tr>
+          <td width="128">Mã đơn hàng:</td>
+          <td width="278"><?php echo $order[0]->id_;?></td>
+        </tr>
+        <tr>
+          <td>Ngày đặt hàng:</td>
+          <td><?php echo date("d-m-Y",strtotime($order[0]->order_date_));?></td>
+        </tr>
+        <tr>
+          <td>Tình trạng:</td>
+          <td><?php echo $status[$order[0]->status_];?></td>
+        </tr>
+      </table>      
+      <p>&nbsp;</p></td>
+    <td><p><strong>Cập nhật đơn hàng</strong></p>
+    <p>Tình trạng: </p>
+    <form id="form1" name="form1" method="post" action="">
+      <label>
+        <select name="status" id="select">
+          <option value="process" selected="selected">Đang xử lý</option>
+          <option value="completed">Đã giao hàng</option>
+        </select>
+        </label>
+        <input type="submit" value="Cập nhật" name="cmd"></input>
+    </form>    
+    </td>
+  </tr>
+  <tr>
+    <td><p><strong>TT Đặt hàng</strong></p>
+      <table width="430" border="0">
+        <tr>
+          <td width="128">Tên người đặt hàng:</td>
+          <td width="286"><?php echo $order[0]->name_;?></td>
+        </tr>
+        <tr>
+          <td>Địa chỉ:</td>
+          <td><?php echo $order[0]->address_;?></td>
+        </tr>
+        <tr>
+          <td>Điện thoại:</td>
+          <td><?php echo $order[0]->phone_;?></td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td><?php echo $order[0]->email_;?></td>
+        </tr>
+      </table>      
+    <p>&nbsp;</p></td>
+    <td><p><strong>TT Chuyển hàng</strong></p>
+      <table width="479" border="0">
+        <tr>
+          <td width="141">Tên người nhận hàng:</td>
+          <td width="322"><?php echo $order[0]->shipping_name_;?></td>
+        </tr>
+        <tr>
+          <td>Địa chỉ:</td>
+          <td><?php echo $order[0]->shipping_address_;?></td>
+        </tr>
+        <tr>
+          <td>Điện thoại:</td>
+          <td><?php echo $order[0]->shipping_phone_;?></td>
+        </tr>
+      </table>      
+      <p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+    <table width="100%" border="1" cellspacing="1">
+      <tr>
+        <th width="18">TT</th>
+        <th width="513">Tên sản phẩm</th>
+        <th width="142">Giá (VNĐ)</th>
+        <th width="111">Số lượng</th>
+        <th width="165">Tổng (VNĐ)</th>
+      </tr>
+      <?php $i=1; foreach ($order_detail as $item):?>
+      <tr>
+        <td><?php echo $i++;?></td>
+        <td><?php echo $item->name_;?></td>
+        <td><?php echo getNicePrice($item->price_);?></td>
+        <td><?php echo $item->quantity_;?></td>
+        <td><?php echo getNicePrice(intval($item->price_*$item->quantity_));?></td>
+      </tr>
+      <?php endforeach;?>
+    </table>
+    <br>
+    <p style="float:right;margin-right:10px;margin-bottom:50px;"><strong>Thành tiền: <?php echo getNicePrice(intval($order[0]->total_amount_));?> VNĐ</strong></p>&nbsp;
+    </br>
+    </td>    
+  </tr>
+</table>
+</body>
+</html>

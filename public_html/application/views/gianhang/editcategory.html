@@ -1,0 +1,29 @@
+<p>
+<div class="content-header">
+    <center><h3 class="icon-head head-system-account">Sản phẩm - Sửa danh mục sản phẩm</h3></center>
+</div>
+</p> 
+<div class="entry-edit">
+<div class="entry-edit-head" style="margin:10px;">
+<h4 class="icon-head head-edit-form fieldset-legend">Sửa danh mục sản phẩm</h4>
+</div>
+<div class="fieldset " id="base_fieldset">
+<div class="hor-scroll" style="margin:10px;">
+<form id="form1" name="form1" method="post" action="<?php echo $this->config->site_url('setupshop');?>/do_edit_cat">
+  Danh mục gốc:
+  <select name="parent_id">
+  <option value="0" selected>= Danh mục gốc =</option>
+  <?php foreach ($category as $value): ?> 
+  <option value="<?php echo $value->getId();?>" <?php if ($value->getId()==$cat->getParentId()) echo " selected ";?>><?php echo $value->getName();?></option>
+  <?php endforeach;?>
+  </select>
+  Danh mục sản phẩm: 
+  <label>
+  <input type="text" name="cat_name" size="40" value="<?php echo $cat->getName();?>" class="input-text"/>
+  <input type="hidden" name="cat_id" value="<?php echo $cat->getId();?>" />    
+  </label>
+  <button type="submit" id="id_"><span>Cập nhật</span></button>    
+</form>
+</div>
+</div>
+</div>

@@ -1,0 +1,30 @@
+<form id="form1" name="form1" method="post" action="<?php echo $this->config->site_url('admin');?>/do_add_type">
+  Chuyên mục:
+  <select name="cate_id">
+  <option value="0" selected>= Chuyên mục =</option>
+  <?php foreach ($category as $value): ?>
+  <option value="<?php echo $value->getId();?>"><?php echo $value->getName();?></option>
+  <?php endforeach;?>
+  </select>
+  Chủng loại rao vặt: 
+  <label>
+  <input type="text" name="type" size="40" value="" />
+  <input type="hidden" name="cat_id" value="0" />    
+  <input type="submit" name="Submit" value="Thêm mới" />
+  </label>
+</form>
+<div>
+<ul>
+<?php foreach ($category as $value): ?>
+<li><?php echo $value->getName();?></li>
+<ul>
+<?php foreach ($type[$value->getId()] as $val): ?>
+<li>
+<a href="#"><?php echo $val->getType();?></a>
+&raquo; <a href="<?php echo site_url('admin/edittype').'/'.$val->getId();?>">Edit</a> &raquo; <a href="<?php echo site_url('admin/deletetype').'/'.$val->getId();?>">Remove</a>
+</li>
+<?php endforeach;?>
+</ul>
+<?php endforeach;?>
+</ul>
+</div>

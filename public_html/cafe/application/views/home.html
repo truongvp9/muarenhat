@@ -1,0 +1,79 @@
+<?php include_once("seotiengviet.php");?>
+<?php 
+	$arr = array("friend"=>"Bạn bè, người thân","internet"=>"Internet","toroi"=>"Tờ rơi","khac"=>"Khác");
+?>
+   <div class="content">
+        	<div class="left">
+            	<div class="danhmuc">
+                	<div class="top"></div><!--end class top-->
+					<?php $this->load->view("widget/menu.html");?>
+                    <div class="bot"></div><!--end class top-->
+                </div><!--end class danhmuc-->
+
+				<?php $this->load->view("widget/users_online.html");?>               
+                
+            </div><!--end class left-->
+            <div class="right">
+            	<div class="wellcome">
+                	<a href="#"><img src="skins/images/wellcome.png" /></a>
+                    <p><a><?php echo $footer->footer_msg;?></a></p>
+                </div><!--end class wellcome-->
+				<?php $this->load->view("widget/news.html");?> 
+                <div class="thamdo_thaoluan">
+                	<div class="thamdo">
+                    	<h2><a>Thăm dò ý kiến</a></h2>
+                        <div class="danhgia">
+                        	<p class="known"><a>Bạn có biết <img src="skins/images/coffe.png" /> từ đâu ?</a></p>
+                           	<form action="" method="post">
+                           	<?php
+                           		foreach($arr as $key => $value): 
+                           	?>
+                           	<p class="banbe">
+                           	<input type="radio" value="<?php echo $key;?>" name="v">
+                           	<a><?php echo $value;?></a></br></p>
+                           	<div class="clear" style="clear:both;"></div>
+                           	<?php endforeach;?>
+                           	<input type="Submit" value=" Vote " name="cmd"> <input type="button" value=" Xem " name="cmd" id="xem"><br>
+                            </form>
+                            <?php 
+                            $total = 0;
+							foreach($vote as $val) {
+								$total+= $val;
+							}
+							?>
+							<div class="show_result" style="display:none;">
+                            <?php
+                           		foreach($arr as $key => $value): 
+                           	?>
+                            <p class="banbe"><a><?php echo $value;?></a></p>
+                            <div class="tile">
+                            	<p class="nau"></p><!--end class nau-->
+                                <p class="xam"></p><!--end class nau-->
+                            </div>
+                            <p class="phantram"><a><?php echo intval(100*$vote->$key/$total);?>%</a></p>
+                            <?php endforeach;?>
+                            </div>
+                        </div><!--end class danhgia-->
+                        
+                    </div><!--end class thamdo-->
+                    <div class="thamdo right_nt">
+                    	<h2><a href="#">Diễn đàn thảo luận</a></h2>
+                        <div class="list_thaoluan">
+                        	<p><a href="#">Giới thiệu - Hướng dẫn</a></p>
+                            <p><a href="#">Nội quy - Thông báo</a></p>
+                            <p><a href="#">Góp ý</a></p>
+                            <p><a href="#">Bài viết</a></p>
+                        </div><!--end class list_thaoluan-->
+                        
+                    </div><!--end class thamdo-->
+                </div><!--end class thamdo_thaoluan-->
+            </div><!--end class right-->
+        </div><!--end class content-->
+<script type="text/javascript">
+$(document).ready(function(){
+	//alert('a');
+	$('#xem').click(function(){
+		$('.show_result').show();
+	});
+});
+</script>        

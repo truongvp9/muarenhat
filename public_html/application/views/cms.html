@@ -1,0 +1,79 @@
+<style>
+.Title {
+    font-family: 'Times New Roman';
+    font-size: 14pt;
+    font-weight: bold;
+    margin-top: 0;
+}
+.Lead {
+    color: #5F5F5F;
+    font-family: Arial;
+    font-size: 11pt;
+    font-weight: bold;
+}
+.Normal {
+    color: #000000;
+    font-family: Arial;
+    font-size: 10pt;
+    float:left;
+	width:700px;
+}
+
+.fl {
+    float: left;
+}
+
+.othernews-title {
+    background-color: #FFF;
+    color: #8A0000;
+    font: bold 14px arial;
+    padding-right: 5px;
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+.news {
+	margin:10px;
+}
+.link-othernews {
+    font: 12px arial;
+}
+.othernews li {
+    background-image: url("http://vnexpress.net/Images/Background/blue-square.gif");    
+    background-position: 0 7px;
+    background-repeat: no-repeat;
+    padding-left: 6px;
+    position: relative;
+}
+.othernews ul {
+    list-style: none outside none;
+}
+.clear {
+	clear:both;
+}
+.rule ul li {
+    padding:10px;
+}
+</style>
+<?php
+ include_once("seotiengviet.php");
+?>
+<div class="news">
+<div class="Normal">
+<a href="http://muarenhat.vn" target="_blank"><img src="http://muarenhat.vn/uploads/1c5426173c3d913419df6a984113c4388b91d614.jpg"></a>
+<h1 class="Title">
+<?php 
+ echo $cms->getTitle();
+?>
+</h1>
+<div class="clear"></div>
+<?php 
+ echo $cms->getContent();
+?>
+</div>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-578e40b224a1345e"></script>
+
+<?php $this->load->view("rvquangcao.html"); ?>
+</div>
+
+

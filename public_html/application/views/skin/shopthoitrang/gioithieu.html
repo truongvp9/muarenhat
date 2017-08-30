@@ -1,0 +1,16 @@
+<div id="wrapper">
+<div id="background">
+<?php
+	$this->load->view("skin/".$skin_id."/left.html");
+?>
+<div id="center">
+<div style="color:#BDBDBD;">&nbsp;
+<?php echo $store_info->getIntroduction();?>
+</div>
+</div>
+<?php
+	$this->load->view("skin/".$skin_id."/right.html");
+?>
+</div>
+</div>
+</div>

@@ -1,0 +1,88 @@
+<?php include_once("seotiengviet.php");?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Trang chủ</title>
+<link href="<?php echo site_url();?>skins/style.css" rel="stylesheet" type="text/css" />
+<!--slide-->
+<link rel="stylesheet" type="text/css" href="<?php echo site_url();?>js/jqueryslidemenu.css" /> 
+    <link rel="stylesheet" type="text/css" href="<?php echo site_url();?>js/slider.css" />
+    
+    <script type="text/javascript" src="<?php echo site_url();?>js/jquery.min.js"></script>
+    <script type="text/javascript" src="<?php echo site_url();?>js/jqueryslidemenu.js"></script> 
+    <script type="text/javascript" src="<?php echo site_url();?>js/jquery-1.js"></script>
+    <script type="text/javascript" src="<?php echo site_url();?>js/jquery.nivo.slider.pack.js"></script>
+    <script type="text/javascript">
+        $(window).load(function() {
+            $('#slider').nivoSlider();
+        });
+    </script>
+    
+  <!--back top-->
+
+     <script type="text/javascript">
+        $(document).ready(function() {
+            $('#wrapper').append('<div id="top">Back to Top</div>');
+           $(window).scroll(function() {
+            if($(window).scrollTop() != 0) {
+                $('#top').fadeIn();
+            } else {
+                $('#top').fadeOut();
+            }
+           });
+           $('#top').click(function() {
+            $('html, body').animate({scrollTop:0},500);
+           });
+        });
+     </script>
+
+
+</head>
+
+<body>
+	
+    <div class="search">
+            <div id="searchbox-wrapper">
+                                <div id="searchbox" class=" ">
+                                <form id="cse-search-box" action="#" name="cse-search-box">
+                                <input id="cx" type="hidden" value="" name="cx">                                
+                                <input id="q" class="fieldhint fieldhint-blur"  type="text" name="q" value="Tìm kiếm" onfocus="if (this.value == 'Tìm kiếm') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Tìm kiếm';}" 0="this.value = &quot;Tìm kiếm&quot;">
+                                <input id="sa" type="submit" value="" name="sa">
+                                </form>
+                                </div>
+</div><!--end class searchbox-wrapper-->
+    </div><!--End class search-->
+    <div class="clearfix"></div>
+	<div class="wapper">
+    	<div class="wapper_gr">
+        	
+                <div class="menu">
+                    <ul>
+                        <li><a href="<?php echo site_url();?>"><span>trang chủ</span></a></li>
+                        <li><a href="<?php echo site_url('cms/1-gioi-thieu.html');?>"><span>giới thiệu</span></a></li>
+                        <li><a href="<?php echo site_url('thucdon');?>"><span>thực đơn</span></a></li>
+                        <li><a href="<?php echo site_url('cms/3-dich-vu.html');?>"><span>dịch vụ</span></a></li>
+                        <li><a href="<?php echo site_url('lienhe');?>"><span>liên hệ</span></a></li>
+                    </ul>
+                </div><!--End class menu-->
+            
+            <div class="col-slide">
+                     <div class="slide">
+                          <div class="slider-wrapper theme-default">
+                            <div id="slider" class="nivoSlider">
+                            <?php foreach ($slider as $value) {?>
+                                <img src="<?php echo site_url().$value->getImg();?>" />
+                            <?php } ?>
+                              </div> 
+                        </div>
+                  </div>
+                          
+                </div><!-- /End-slide -->
+            <div class="thu">
+            	<ul>
+                	<?php foreach ($days as $item):?>
+                	<li><a href="<?php echo site_url('home').'/'.$item->getId().'-'.khongdau($item->getName());?>"><?php echo $item->getName();?></a></li>
+                	<?php endforeach;?>
+                </ul>
+            </div><!--End class thu-->

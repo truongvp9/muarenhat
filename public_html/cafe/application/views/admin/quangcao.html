@@ -1,0 +1,121 @@
+<style type="text/css">
+.catalog-lists {
+    border-collapse: collapse;
+    font-family: Arial;
+    font-size: 14px;
+    width: 100%;
+	border: 1px solid #C9E1F4;
+	width:800px;
+}
+.catalog-lists th, .catalog-lists td {
+    border: 1px solid #A4A4A4;
+    height: 40px;
+    padding: 3px 7px 2px 10px;
+}
+.catalog-lists th {
+    background-color: #777777;
+    color: #FFFFFF;
+    height: 40px;
+    padding-bottom: 4px;
+    padding-top: 5px;
+    text-align: left;
+}
+</style>
+<div class="content-header">
+    <h3 class="icon-head head-system-account">Quảng cáo - Đăng quảng cáo mới</h3> 
+    <div class="form-buttons">
+	<button onclick="return form1.submit();" class="scalable save" type="button" id="id_389b82e4dc5822b9be1927c3f93b1215"><span>Đăng quảng cáo</span></button>    
+    </div>
+</div>
+<div class="entry-edit">
+<div class="entry-edit-head">
+<h4 class="icon-head head-edit-form fieldset-legend">Đăng quảng cáo mới</h4>
+</div>
+<div class="fieldset " id="base_fieldset">
+<div class="hor-scroll">
+<form name="form1" enctype="multipart/form-data" method="post" action="<?php echo site_url('admin/dangquangcao');?>">
+<div class="main-div">
+<table width="100%" cellspacing="3" cellpadding="3">
+  <tbody>
+  <tr>
+    <td class="label" align=right>Tiêu đề quảng cáo: </td>
+    <td><input type="text" size="40" name="title" value="<?php echo $qcinfo->getTitle();?>"></td>
+  </tr>
+  <tr>
+    <td class="label" align=right>Ảnh quảng cáo: </td>
+    <td><input type="file" size="40" id="some_name" value="" name="img_file_src">
+    <br><input type="text" size="40" value="<?php echo $qcinfo->getImg();?>" name="img_src">
+    <br><span id="width_height" style="display:block" class="notice-span">Quảng cáo kích thước: 200px x 200px</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="label" align=right>Liên kết của quảng cáo: </td>
+    <td><input type="text" size="40" name="img_url" value="<?php echo $qcinfo->getUrl();?>"></td>
+  </tr>
+  <tr>
+    <td class="label" align=right>Quảng cáo text: </td>
+    <td>
+    <textarea name="img_text" rows="3" cols="100"><?php echo $qcinfo->getTooltip();?></textarea>
+    </td>
+  </tr>
+  <tr>
+    <td class="label" align=right>Vị trí quảng cáo: </td>
+    <td><input type="text" maxlength="3" size="4" value="<?php echo $qcinfo->getOrder();?>" name="img_sort"></td>
+  </tr>
+    <tr>
+    <td class="label" align=right>Hiện quảng cáo: </td>
+    <td>
+    <input type="checkbox" name="home" <?php if ($qcinfo->getHome()) echo 'checked';?>> Trang chủ
+    <input type="checkbox" name="raovat" <?php if ($qcinfo->getRaovat()) echo 'checked';?>> Rao vặt
+    </td>
+  </tr>
+</tbody></table>
+<input type="hidden" name="id" value="<?php echo $qcinfo->getId();?>">
+</div>
+</form>
+</div>
+</div>
+</div>
+<div class="quangcao" style="padding:10px;">
+    <ul style="list-style: none outside none;">
+    <table class="catalog-lists">
+    <tr>
+    <th>
+    Họ tên
+    </th>
+    <th>
+    Mobile
+    </th>
+    <th>
+    Yahoo ID
+    </th>
+    <th>
+    Sửa
+    </th>
+    <th>
+    Xóa
+    </th>
+    </tr>
+	<?php foreach ($quangcao as $item):?>
+	<tr>
+	<td>
+		<strong><?php echo $item->getName();?></strong>
+	</td>
+	<td>
+		<?php echo $item->getMobile();?>
+	</td>
+	<td>
+		<?php echo $item->getYahoo();?>
+	</td>	
+	<td>  		
+		<a href="<?php echo site_url('admin/support').'/'.$item->getId();?>"><img src='/images/b_edit.png'></a>
+	</td>
+	<td>
+		<a href="<?php echo site_url('admin/removesupport').'/'.$item->getId();?>" onclick="return confirm('Bạn có thực sự muốn xóa quảng cáo này không?');"><img src='/images/b_drop.png'></a>					
+	</td>
+	    
+	</tr>
+	<?php endforeach;?>
+	</table>
+	</ul>
+</div>

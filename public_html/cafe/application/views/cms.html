@@ -1,0 +1,37 @@
+<?php include_once("seotiengviet.php");?>
+
+       <div class="content">
+        	<div class="left">
+            	<div class="danhmuc">
+                	<div class="top"></div><!--end class top-->
+                    <?php $this->load->view("widget/menu.html");?>
+                    <div class="bot"></div><!--end class top-->
+                </div><!--end class danhmuc-->
+                
+                <?php $this->load->view("widget/users_online.html");?>
+                
+            </div><!--end class left-->
+            <div class="right">
+            	<div class="tintuc_bd">
+                	<h2><a><?php echo $cms->getTitle();?></a></h2>
+                    <div class="detail_tintuc">
+                        <?php echo $cms->getContent();?>
+                        <div class="chiase">
+						  <!-- AddThis Button BEGIN -->
+							<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+							<a class="addthis_button_preferred_1"></a>
+							<a class="addthis_button_preferred_2"></a>
+							<a class="addthis_button_preferred_3"></a>
+							<a class="addthis_button_preferred_4"></a>
+							<a class="addthis_button_compact"></a>
+							<a class="addthis_counter addthis_bubble_style"></a>
+							</div>
+							<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+							<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50bc761b5cc77130"></script>
+							<!-- AddThis Button END -->
+                          </div><!--End class chiase-->
+                    </div><!--End class detail_tintuc-->
+                </div><!--End class right-->
+            </div><!--end class right-->
+        </div><!--end class content-->
+        

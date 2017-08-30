@@ -1,0 +1,15 @@
+                <div class="capnhat">
+                	<h2><a href="#">Tin tức mới cập nhật:</a></h2>
+                    <div class="box">
+                    	<div class="anh_sp"><a href="#"><img width="200" src="<?php echo $topnews[0]->getImg();?>" /></a></div>
+                        <div class="list_sp">
+                        	<ul>
+                        	<?php foreach ($topnews as $item):?>
+                            	<li><a href="<?php echo site_url();?>news/<?php echo $item->getId();?>-<?php echo khongdau($item->getTitle());?>"><?php echo $item->getTitle();?></a></li>
+                            <?php endforeach;?>
+                            </ul>
+                        </div><!--end class list_sp-->
+                        <div class="rows"><a href="#"><img src="<?php echo site_url();?>skins/images/rows.png" /></a></div>
+                    </div><!--end class box-->
+                </div><!--end class capnhat-->
+ 

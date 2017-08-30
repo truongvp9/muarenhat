@@ -1,0 +1,67 @@
+<style>
+.basket {
+    background-color: #FFF;
+    border: 1px solid #C9E1F4;
+    border-radius: 5px 5px 5px 5px;
+    display: block;
+    float: left;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    padding: 10px 15px;
+    position: relative;
+    width: 920px;
+}
+.basket table td {
+    border: 1px solid #EFEFEF;
+    padding: 5px;
+}
+
+.basket table th {
+    border: 1px solid #EFEFEF;
+    padding: 5px;
+    background: none repeat scroll 0 0 #F2F2F2;
+    font-weight: bold;
+    text-align: center;    
+}
+</style>
+<div class="temp_7">
+<div class="title">
+<div class="fl"></div><div class="fr"></div></div>
+<div class="content basket">
+<?php if (is_array($basket) & count($basket)>0) { ?>
+<form method="post" action="/cart/recalculate"><table cellspacing="0" cellpadding="0" class="show_cart_table"><tbody><tr class="text_title">
+<table border=0 cellspacing=0 cellpadding=0 width=100%>
+<tr>
+<th width="5%">STT</th>
+<th>Tên sản phẩm</th>
+<th width="5%">Xóa</th>
+<th width="15%">Giá (VNĐ)</th>
+<th width="10%">Số Lượng</th>
+<th width="15%">Tổng (VNĐ)</th>
+</tr>
+<?php $i=1; foreach ($basket as $item):?>
+<tr>
+<td class="No"><?php echo $i++; ?></td>
+<td>
+<a rel="nofollow" href="#" class="text_link"><?php echo $item['product']->getName();?></a></td>
+<td align="center"><a href="/cart/remove/<?php echo $item['product']->getId();?>"><img src="/images/b_drop.png"></a></td>
+<td class="price"><?php echo $item['product']->getNicePrice();?> VNĐ</td>
+<td align="center"><input type="text" style="text-align:right; width:50px" value="<?php echo $item['quantity'];?>" name="quantity[<?php echo $item['product']->getId();?>]" class="form_control"></td>
+<td class="price"><?php echo $item['price']; ?> VNĐ</td>
+</tr>
+<?php endforeach; ?>
+<tr>
+<td align="center" colspan="4"> 
+<input type="button" onclick="window.location.href='<?php echo site_url();?>'" value="Tiếp tục mua hàng" class="form_button"> &nbsp; <input type="submit" value="Tính lại" class="form_button"> &nbsp; 
+<input type="button" onclick="if(confirm('Bạn có muốn xóa hết giỏ hàng?')) { window.location.href='/cart/emptycart'; }" value="Xóa hết" class="form_button"> &nbsp;
+<input type="button" onclick="window.location.href='/checkout'" value="Thanh toán" class="form_button">
+<div class="payment_recount_notice">* Khi bạn đổi số lượng hãy click vào nút <b>Tính lại</b> để hệ thống cập nhật lại giỏ hàng.</div>
+</td><td colspan="4" class="total_money">Thành tiền: <b class="price"><?php echo $total; ?> VNĐ</b></td>
+</tr></tbody></table></form>
+<?php } else {?>
+<div style="text-align:center;padding:50px;">Không có sản phẩm nào trong giỏ hàng của bạn.</div>
+<?php } ?>
+</div>
+<div class="bottom"><div class="fl"></div><div class="fr"></div></div>
+</div>

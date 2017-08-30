@@ -1,0 +1,171 @@
+<style type="text/css">
+<!--
+.require {
+color: #FF0000;
+float:left;
+}
+-->
+</style>
+
+<script src="/js/jquery.validate.js" type="text/javascript"></script>
+
+<script id="demo" type="text/javascript">
+$.validator.setDefaults({
+	submitHandler: function() { //alert("submitted!"); 
+	}
+});
+$(document).ready(function() {
+	$("#signupform").validate();
+	// validate signup form on keyup and submit
+	
+	var validator = $("#signupform").validate({
+		rules: {
+			username: {
+				required: true,
+				minlength: 2,
+				remote: "users.php"
+			},
+			name: "required",
+			password: {
+				required: true,
+				minlength: 5
+			},
+			validatepassword: {
+				required: true,
+				minlength: 5,
+				equalTo: "#password"
+			},
+			email: {
+				required: true,
+				email: true,
+				remote: "emails.php"
+			}
+		},
+		messages: {
+			name: "Enter your firstname",
+			username: {
+				required: "Enter a username",
+				minlength: jQuery.format("Enter at least {0} characters"),
+				remote: jQuery.format("{0} is already in use")
+			},
+			password: {
+				required: "Provide a password",
+				rangelength: jQuery.format("Enter at least {0} characters")
+			},
+			validatepassword: {
+				required: "Repeat your password",
+				minlength: jQuery.format("Enter at least {0} characters"),
+				equalTo: "Enter the same password as above"
+			},
+			email: {
+				required: "Please enter a valid email address",
+				minlength: "Please enter a valid email address",
+				remote: jQuery.format("{0} is already in use")
+			}
+		},
+		// specifying a submitHandler prevents the default submit, good for the demo
+		submitHandler: function() {
+			alert("submitted!");
+		},
+		// set this class to error-labels to indicate valid fields
+		success: function(label) {
+			// set &nbsp; as text for IE
+			label.html("&nbsp;").addClass("checked");
+		}
+	});
+	//alert('pass');
+});
+</script>
+
+<form id="signupform" name="form1" method="post" action="<?php echo $host?>register/submit">
+	<div class="registerfrm">
+	<table width="100%" border="0">
+	  <tr>
+      <td colspan=2 align="center">
+      Những ô có dấu sao (<font color="red">*</font>) là bắt buộc phải nhập.      
+      </td>
+      </tr>
+	  <tr>
+	    <td class="label"><span class="lblregister"><label id="lusername" for="username">Tên truy nhập:</label></span></td>
+	    <td class="field"><input name="username" type="text" value="" size="50" class="register" id="username"/><span class="require" style="float:left;padding:5px;">*</span>
+	    <label class="error checked" generated="true" for="username">&nbsp;</label>
+	    </td>
+	    <td class="status"></td>
+	    </tr>
+	  <tr>
+	    <td class="label"><span class="lblregister"><label id="lpassword" for="password">Mật khẩu:</label></span></td>
+	    <td class="field"><input name="pass" type="password" value="" size="50" class="register" id="password"/><span class="require" style="float:left;padding:5px;">*</span>
+	    <label class="error checked" generated="true" for="password">&nbsp;</label>
+	    </td>
+	    <td class="status"></td>
+	    </tr>	  
+	  <tr>
+	    <td class="label"><span class="lblregister"><label id="lvalidatepassword" for="validatepassword">Xác nhận mật khẩu:</label></span></td>
+	    <td class="field"><input name="repass" type="password" value="" size="50" class="register" id="validatepassword" /><span class="require" style="float:left;padding:5px;">*</span>
+	    <label class="error checked" generated="true" for="validatepassword">&nbsp;</label>
+	    </td>
+	    <td class="status"></td>
+	    </tr>	  
+	  <tr>
+		<td width="131" class="label"><span class="lblregister"><label id="lname" for="name">Họ và tên:</label></span></td>
+		<td width="445" class="field"><input name="name" type="text" value="" size="50" class="register" id="name" /></td>
+	  <td class="status"></td>
+	  </tr>
+	  <tr>
+		<td class="label"><span class="lblregister">Địa chỉ:</span></td>
+		<td class="field"><input name="address" type="text" value="" size="50" class="register" id="address"></td>
+		<td class="status"></td>
+	  </tr>
+	  <tr>
+		<td class="label"><span class="lblregister">Điện thoại:</span></td>
+		<td class="field"><input name="tel" type="text" value="" size="30" class="register" id="telephone"></td>
+		<td class="status"></td>
+	  </tr>
+	  <tr>
+		<td class="label"><span class="lblregister"><label id="lemail" for="email">Email:</label></span></td>
+		<td class="field"><input name="email" type="text" value="" size="30" class="register" id="email"><span class="require" style="float:left;padding:5px;">*</span>
+		<label class="error checked" generated="true" for="email">&nbsp;</label>
+		</td>
+		<td class="status"></td>
+	  </tr>
+	  <tr>
+	  	<td class="label">&nbsp;</td>
+	  	<td class="field">
+	
+	  	</td>
+	  	<td class="status"></td>
+	  </tr>
+	  <tr>
+	  <td align="center" class="label"></td><td class="field">
+	  <input type="submit" name="Register" id="Register" value="Đăng ký" class="button submit" style="width: 100px; height: 30px; font-weight:bold;">
+	  </td>
+	  </tr>
+	</table>
+	</div>	
+</form>
+<script language=javascript>
+function check(form1) {
+	if (form1.username.value=="") {
+		alert("Hãy nhập vào tên truy cập!");
+		form1.username.focus();
+		return false;
+	}
+	if (form1.pass.value=="") {
+		alert("Hãy nhập vào mật khẩu!");
+		form1.pass.focus();
+		return false;
+	}
+	if (form1.pass.value!=form1.repass.value) {
+		alert("Xác nhận mật khẩu chưa đúng!");
+		form1.repass.focus();
+		return false;
+	}
+	if (form1.email.value=="") {
+		alert("Hãy nhập vào Email của bạn!");
+		form1.email.focus();
+		return false;
+	}
+	return true;
+}
+</script>
+

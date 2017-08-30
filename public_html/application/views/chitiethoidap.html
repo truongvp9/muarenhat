@@ -1,0 +1,135 @@
+<style>
+.question-left-next {
+    float: left;
+    margin-left: 5px;
+    margin-top: 5px;
+    padding: 5px;
+    width: 740px;
+}
+.othernews-title {
+    background-color: #FFF;
+    color: #8A0000;
+    font: bold 14px arial;
+    padding-right: 5px;
+    margin-top:10px;
+    margin-bottom: 10px;
+    margin-left:200px;
+}
+.news {
+	margin:10px;
+}
+.link-othernews {
+    font: 12px arial;
+}
+.othernews {
+	margin-left:268px;
+	margin-bottom:10px;
+}
+.othernews li {
+    background-image: url("http://vnexpress.net/Images/Background/blue-square.gif");    
+    background-position: 0 7px;
+    background-repeat: no-repeat;
+    padding-left: 6px;
+    position: relative;
+}
+.othernews ul {
+    list-style: none outside none;
+}
+.clear {
+	clear:both;
+}
+.folder-header {
+    color: #8C8C8C;
+    font: 11px arial;
+    height: 22px;
+    margin-bottom: 2px;
+    text-align:right;
+    padding:2px;
+}
+.question-left {
+	margin-top:5px;
+	margin-left:5px;
+	padding:5px;
+	float:left;
+	width:740px;
+	border: 1px solid #CCCCCC;
+}
+.question-right {
+	float:right;
+	width:250px;
+	padding:5px;
+}
+
+.reply {
+    border: 1px solid #C9E1F4;
+    border-radius: 5px 5px 5px 5px;
+    display: block;
+    float: left;
+    margin-top:10px;
+    margin-bottom: 10px;
+    padding:5px;
+    position: relative;
+}
+.arrow {
+    background: url("<?php echo site_url();?>images/arrow.jpg") no-repeat scroll 0 0 transparent;
+    height: 14px;
+    margin-top: -1px;
+    margin-left: 80px;
+    position: absolute;
+    width: 12px;
+    z-index:9;
+}
+.break {
+	margin-top: 10px;
+}
+</style>
+<div class="question-left">
+<div class="clear"></div>
+<div class="folder-header">
+<div style="float:left;clear:both;">
+Người hỏi: <strong><?php echo $result[0]->account_ask; ?></strong>
+</div>
+&nbsp;Ngày gửi: <?php echo date("d/m/Y H:i:s",strtotime($result[0]->date_ask_)); ?>
+</div>
+<h1><?php echo $result[0]->title_; ?></h1>
+<strong><?php echo $result[0]->ask_content_;?></strong>
+<div class="break"></div>
+Trả lời (<?php echo count($result);?>) <img src="http://muarenhat.net/css/icon_arrow_2.gif"> <a href="/hoidap/reply/<?php echo $result[0]->qid_;?>" class="reply_">Trả lời câu hỏi này</a>
+<div class="clear"></div>
+<div class="break"></div>
+<?php
+foreach ($result as $item) {
+?>
+<div class="folder-header">
+<div style="float:left;">
+Người trả lời: <strong><?php echo $item->account_reply;?></strong>
+</div>
+&nbsp;Ngày trả lời: <?php echo date("d/m/Y H:i:s",strtotime($item->date_answer_));?>
+</div>
+<div class="arrow"></div>
+<div class="reply">
+<?php echo $item->answer_content_;?>	
+</div>
+<div class="clear"></div>
+<?php
+} 
+?>
+
+</div>
+<div class="question-right">
+<?php $this->load->view("rvquangcao.html");?>
+</div>
+<div class="question-left-next">
+<div class="othernews-title fl">
+&nbsp;Các câu hỏi cùng chủ đề:
+</div>
+<div class="clear"></div>
+<div class="othernews">
+<ul>
+<?php foreach ($hoidapcd as $item):?>
+<li><a class="link-othernews" href="<?php echo site_url('hoidap/chitiet');?>/<?php echo $item->getQid();?>-<?php echo khongdau($item->getTitle()); ?>"><?php echo $item->getTitle();?></a></li>
+<?php endforeach;?>
+</ul>
+</div>
+</div>
+

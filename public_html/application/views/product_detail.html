@@ -1,0 +1,268 @@
+<?php
+ include_once("seotiengviet.php");
+?>
+<div id="fb-root"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo site_url();?>css/CSS2.css" medial="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo site_url();?>css/colorbox.css" medial="all" />
+<link rel="stylesheet" type="text/css" href="<?php echo site_url();?>css/jquery-ui-1.8.16.custom.css" medial="all" />
+<script type="text/javascript" src="<?php echo site_url();?>js/jquery.colorbox-min.js"></script>
+<script type="text/javascript" src="<?php echo site_url();?>js/jquery-ui-1.8.16.custom.min.js"></script>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<?php 
+$images = $product->getImagePath();
+if ($images!='') {
+	$images = explode(";",$images);
+}
+else 
+	$images=array();
+?>
+<div class="wrapper-middle">
+		<div style="float:right;width:180px;margin:10px;" id="thesame_saler">			
+			<?php $this->load->view("thesame_saler.html");?>
+		</div>
+		<div class="show_menu" style="display:none;z-index:1999;">
+		    <div class="box-left" style="z-index:9999;position:absolute;">
+			<?php $this->load->view("menu.html");?>
+			</div>
+		</div>	
+		<div style="width:760px;float:left;">		
+			<div class="duongdan">
+			<a href="#" id="show">Toàn bộ chuyên mục</a> > 
+		
+			<?php if (count($cat)>0) { ?>
+			<a href="<?php echo site_url('catalog').'/'.$cat[0]->r_id_.'-'.khongdau($cat[0]->r_name_);?>"> 
+			<?php echo $cat[0]->r_name_;?>
+			</a> >
+			<a href="<?php echo site_url('catalog').'/'.$cat[0]->p_id_.'-'.khongdau($cat[0]->p_name_);?>"> 
+			<?php echo $cat[0]->p_name_;?>
+			</a> >
+			<a href="<?php echo site_url('catalog').'/'.$cat[0]->c_id_.'-'.khongdau($cat[0]->c_name_);?>"> 
+			<?php echo $cat[0]->c_name_;?>
+			</a>
+			<?php } ?>
+			</div><!--end duongdan-->
+			<div class="box-spluachon">
+				<div class="box-anhsp">
+					<div class="anh-sp1">
+					<?php if (strlen($product->getImageDefault()) == 0) {?>
+					<img src="<?php echo site_url();?>image/noimagez.jpg">
+					<?php } else { ?>
+					<a class="gphoto" href="<?php if (substr($product->getImageDefault(), 0, 4)=='http') { echo $product->getImageDefault(); } else { echo site_url().$product->getImageDefault();}?>"><img class="size" id="p_image" src="<?php if (substr($product->getImageDefault(), 0, 4)=='http') { echo $product->getImageDefault(); } else { echo site_url().$product->getImageDefault();}?>" /></a>	
+					<?php } ?>
+					</div><!--end anh-sp1-->
+					
+					<?php $j=0; foreach ($images as $value) { ?> 
+					<div class="anh-sp2">
+					<a class="gphoto" href="<?php echo site_url('uploads').'/'.$value;?>"><img class="thumbnail" src="<?php echo site_url('uploads').'/'.$value;?>" /></a>
+					</div><!--end anhsp2-->
+					<?php 
+						$j++; if ($j>=5) { break; } 
+					} ?>					
+					
+				</div><!--end box-anhsp-->
+				<div class="chitiet-sp">
+					<div class="tensp">
+					<h3 style="font-size:18px;"><?php echo $product->getName();?></h3>
+					<div class="break_module_line"></div>					
+					</div><!--end tensp-->					
+					  <div class="box-gia">
+							<p class="giasp">Giá:</p><!--end giasp-->
+							<?php if (intval($product->getPrice())==0) {?>
+								<p class="style-gia">Chưa có giá</p><!--end style-gia-->
+							<?php } else { ?>	
+								<p class="style-gia"><?php echo $product->getNicePrice();?> VNÐ</p><!--end style-gia-->
+							<?php } ?>	
+				  </div><!--end box-gia-->						  		
+					<div class="chitiet">
+                    </div><!--end chitiet-->
+						<div class="box-status">
+						<div class="box-status-left">
+							<div class="left">L&#432;&#7907;t xem: </div>
+						</div><!--end box-status-left-->						
+						<div class="box-status-right">
+							<div class="right"><?php echo $product->getPageView();?></div>
+					  </div><!--end box-status-left-->
+					</div><!--end box-status-->
+					<!-- <div class="box-khuyenmai">
+						<p class="km">Khuy&#7871;n m&#7841;i: </p>
+						<p class="style-km"> </p>
+					</div>--><!--end box-khuyenmai-->	
+					<div class="giohang"><a href="<?php echo site_url('cart/addtocart').'/'.$product->getId();?>"><img src="<?php echo site_url();?>image/chovaogiohang.jpg"></a></div><!--end giohang-->				 
+					<div class="store">
+					<div class="break_module_line"></div>
+					<table cellspacing="0" cellpadding="0" align="left" class="margin">
+						<tr>
+						<td colspan="2"><a rel="nofollow" target="_blank" href="#" class="company"><strong><?php echo $user->getName();?></strong></a></td>
+						</tr>
+						<tr>
+						<td class="label">Địa chỉ:</td>
+						<td>
+						<?php echo $user->getAddress();?>
+						</td>
+						</tr>
+						<tr>
+						<td class="label">Điện thoại:</td><td><?php echo $user->getPhone();?></td></tr>
+						<?php if ($user->getFax()!='') {?>
+						<tr><td class="label">Fax:</td><td><?php echo $user->getFax();?></td></tr>
+						<?php } ?>
+						<tr><td class="label">Số di động:</td><td><?php echo $user->getMobile();?></td>
+						</tr>
+						<tr>
+						<td class="label">Hỗ trợ:</td>
+						<td class="support_online">
+						<div class="yahoo">
+						<a href="ymsgr:sendIM?<?php echo $user->getYM();?>"><img src="http://opi.yahoo.com/online?u=<?php echo $user->getYM();?>&amp;m=g&amp;t=1"></a>
+						</div>
+						</td>
+						</tr>
+					</table>					
+					</div>					
+                    <!--   
+                      <div class="box_thong_tin_chi_tiet" style="width:468px;margin-left:-5px;">
+					  Để up sản phẩm này, bạn hãy soạn tin nhắn theo cú pháp<br><br> <font color="red"><strong>MR SP <?php echo $product->getId();?></strong></font> gửi <strong>8545</strong> (5.000đ/sms)<br>
+					  </div>
+					-->                      					
+					<div class="chiase">
+					<div class="fb-like" data-href="http://muarenhat.net/product/<?php echo $product->getId();?>-<?php echo khongdau($product->getName());?>" data-send="true" data-width="450" data-show-faces="true"></div>
+					<div class="font">Chia s&#7867;: </div>					  
+					  <!-- AddThis Button BEGIN -->
+						<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+						<a class="addthis_button_preferred_1"></a>
+						<a class="addthis_button_preferred_2"></a>
+						<a class="addthis_button_preferred_3"></a>
+						<a class="addthis_button_preferred_4"></a>
+						<a class="addthis_button_compact"></a>
+						<a class="addthis_counter addthis_bubble_style"></a>
+						</div>
+						<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4f4657d70976d836"></script>
+					  <!-- AddThis Button END -->
+					  
+					 </div><!--end chiase-->
+	
+                </div><!--end chiiet-sp-->
+                              
+			</div><!--end box-spluachon-->
+			<div class="clear"></div>
+							
+			<div id="tabs" style="margin-top:5px;margin-left:5px;">
+			<ul>
+			<li>
+			<span><a href="#tabs-1" id="product_info">Thông tin sản phẩm</a></span>
+			</li>
+			<li>						
+			<span><a href="#tabs-2" id="technical_info">Thông số kỹ thuật</a></span>
+			</li>			
+			<li>
+			<span><a href="#tabs-3" id="product_info">Đánh giá sản phẩm</a></span>
+			</li>			
+			</ul>
+			<div id="tabs-1">
+			<?php echo $product->getDescription();?>
+			</div>						
+			<div id="tabs-2">		
+			<?php echo $product->getTechnicalDescription();?>
+			</div>
+			<div id="tabs-3">
+			<form id="form1" name="form1" method="post" action="<?php echo site_url();?>feedback.php">
+			<table width="100%" border="0">
+			  <tr>
+				<td align="right">Họ và tên bạn</td>
+				<td>
+				  <label>
+					<input type="text" name="fullname" id="fullname" />
+				  </label> 
+				</td>
+			  </tr>
+			  <tr>
+				<td align="right">Email của bạn</td>
+				<td>
+				  <label>
+					<input type="text" name="email" id="email" />
+				  </label> 
+				</td>
+			  </tr>
+			  <tr>
+				<td align="right">Cho điểm</td>
+				<td>
+						
+								<input type="radio" value="1" name="review_rate">
+								<img alt="" src="http://www.pico.vn/Images/rating/rating_1_rstar.gif">
+							Rất tồi<div class="clr"></div>
+								<input type="radio" value="2" name="review_rate">
+								<img alt="" src="http://www.pico.vn/Images/rating/rating_2_rstar.gif">
+							Tồi<div class="clr"></div>
+								<input type="radio" value="3" name="review_rate">
+								<img alt="" src="http://www.pico.vn/Images/rating/rating_3_rstar.gif">
+							Bình thường<div class="clr"></div>
+								<input type="radio" value="4" name="review_rate">
+								<img alt="" src="http://www.pico.vn/Images/rating/rating_4_rstar.gif">
+							Tốt<div class="clr"></div>
+								<input type="radio" value="5" name="review_rate">
+								<img alt="" src="http://www.pico.vn/Images/rating/rating_5_rstar.gif">
+							Rất tốt
+				</td>
+			  </tr>
+			  <tr>
+				<td align="right">Tiêu đề</td>
+				<td>
+				  <label>
+					<input type="text" name="title" id="title" />
+				  </label> 
+				</td>
+			  </tr>
+			  <tr>
+				<td align="right">Nội dung</td>
+				<td>
+				<label>
+				  <textarea name="feedback" id="feedback" cols="45" rows="5"></textarea>
+				</label>
+				</td>
+			  </tr>
+			  <tr>
+			  <td>&nbsp;</td>
+			  <td>
+			  <input name="cmd" type="submit" value="Đánh giá" />
+			  </td>
+			  </tr>
+			</table>			
+			</form>
+			</div>
+			</div>
+			<div style="margin-left:10px;padding-top:10px;" class="fb-comments" data-href="http://muarenhat.net/product/<?php echo $product->getId();?>" data-num-posts="2" data-width="500"></div>		
+			<?php 
+			$this->load->view("relate_product.html");
+			?>		
+							    
+		</div><!--end box-right-->				
+				
+</div>
+<div class="clear"></div>
+<script type="text/javascript">
+$(document).ready(function(){
+	//Examples of how to assign the ColorBox event to elements
+	$(".gphoto").colorbox({rel:'gphoto'});
+	$("#show").hover(function(){
+		$('.show_menu').show();
+	});
+	$('.show_menu').hover(function(){},function() {
+		$(this).hide();
+	});
+	$( "#tabs" ).tabs();
+	/*
+	$("#technical_info").click(function(){
+		$('#show_tech_info').show();
+		$('#show_pro_info').hide();
+	});
+	$("#product_info").click(function(){
+		$('#show_pro_info').show();
+		$('#show_tech_info').hide();
+	});*/
+});
+</script>

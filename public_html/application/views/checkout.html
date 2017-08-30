@@ -1,0 +1,57 @@
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#bill").validate();
+  });
+</script>
+<table width="100%" cellspacing="0" cellpadding="0" align="center"><tbody><tr><td valign="top">
+	<br>
+	<form id="bill" name="bill" action="/checkout/order" method="post">
+	<input type="hidden" name="userid" value="<?php echo $user->getId();?>">
+	<table width="100%" cellspacing="0" cellpadding="3" align="center">
+	<tbody><tr>
+		<td width="50%" valign="top" style="padding-left: 8px;" id="cart-box">
+		<div><h2 style="color: #c00" class="h2">1. Thông tin cá nhân</h2></div>
+		<br>
+		<table width="100%" cellspacing="0" cellpadding="3" align="center">
+		<tbody><tr><td>Họ và tên<span class="pink">*</span><br><input type="text" value="<?php echo $user->getName();?>" id="fullname" name="fullname" class="form_control required" size="30"></td></tr>
+		<tr><td>Số điện thoại<span class="pink">*</span><br><input type="text" value="<?php echo $user->getPhone();?>" id="phone" name="phone" class="form_control required" size="40"></td></tr>
+		<tr><td>Email<span class="pink">*</span><br><input type="text" value="<?php echo $user->getEmail();?>" id="email" name="email" class="form_control required" size="40"></td></tr>
+		<tr><td>Địa chỉ<span class="pink">*</span><br><input value="<?php echo $user->getAddress();?>" id="address" name="address" size="40" class="form_control required"></td></tr>
+		<tr><td>Tỉnh / TP<span class="pink">*</span><br>
+			<select class="form" id="tinh" name="tinh">
+			<option value="">--[Tỉnh/ Thành phố]--</option><option selected="selected" value="2" title="Hà Nội">Hà Nội</option><option value="3" title="Hồ Chí Minh">Hồ Chí Minh</option><option value="32" title="Hải Phòng">Hải Phòng</option><option value="65" title="Đà Nẵng">Đà Nẵng</option><option value="4" title="An Giang">An Giang</option><option value="5" title="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu</option><option value="14" title="Bắc Cạn">Bắc Cạn</option><option value="7" title="Bắc Giang">Bắc Giang</option><option value="12" title="Bạc Liêu">Bạc Liêu</option><option value="6" title="Bắc Ninh">Bắc Ninh</option><option value="13" title="Bến Tre">Bến Tre</option><option value="8" title="Bình Dương">Bình Dương</option><option value="10" title="Bình Phước">Bình Phước</option><option value="11" title="Bình Thuận">Bình Thuận</option><option value="9" title="Bình Định">Bình Định</option><option value="66" title="Buôn Mê Thuột">Buôn Mê Thuột</option><option value="24" title="Cà Mau">Cà Mau</option><option value="15" title="Cần Thơ">Cần Thơ</option><option value="25" title="Cao Bằng">Cao Bằng</option><option value="26" title="Gia Lai">Gia Lai</option><option value="27" title="Hà Giang">Hà Giang</option><option value="28" title="Hà Nam">Hà Nam</option><option value="29" title="Hà Nội 2">Hà Nội 2</option><option value="30" title="Hà Tĩnh">Hà Tĩnh</option><option value="31" title="Hải Dương">Hải Dương</option><option value="68" title="Hậu Giang">Hậu Giang</option><option value="33" title="Hoà Bình">Hoà Bình</option><option value="34" title="Hưng Yên">Hưng Yên</option><option value="17" title="Khánh Hòa">Khánh Hòa</option><option value="35" title="Kiên Giang">Kiên Giang</option><option value="36" title="Kon Tum">Kon Tum</option><option value="37" title="Lai Châu">Lai Châu</option><option value="38" title="Lâm Đồng">Lâm Đồng</option><option value="39" title="Lạng Sơn">Lạng Sơn</option><option value="20" title="Lào Cai">Lào Cai</option><option value="40" title="Long An">Long An</option><option value="23" title="Nam Định">Nam Định</option><option value="41" title="Nghệ An">Nghệ An</option><option value="42" title="Ninh Bình">Ninh Bình</option><option value="43" title="Ninh Thuận">Ninh Thuận</option><option value="44" title="Phú Thọ">Phú Thọ</option><option value="45" title="Phú Yên">Phú Yên</option><option value="46" title="Quảng Bình">Quảng Bình</option><option value="47" title="Quảng Nam">Quảng Nam</option><option value="48" title="Quảng Ngãi">Quảng Ngãi</option><option value="21" title="Quảng Ninh">Quảng Ninh</option><option value="49" title="Quảng Trị">Quảng Trị</option><option value="50" title="Sóc Trăng">Sóc Trăng</option><option value="51" title="Sơn La">Sơn La</option><option value="52" title="Tây Ninh">Tây Ninh</option><option value="53" title="Thái Bình">Thái Bình</option><option value="54" title="Thái Nguyên">Thái Nguyên</option><option value="55" title="Thanh Hoá">Thanh Hoá</option><option value="19" title="Thừa Thiên Huế">Thừa Thiên Huế</option><option value="56" title="Tiền Giang">Tiền Giang</option><option value="57" title="Trà Vinh">Trà Vinh</option><option value="58" title="Tuyên Quang">Tuyên Quang</option><option value="59" title="Vĩnh Long">Vĩnh Long</option><option value="60" title="Vĩnh Phúc">Vĩnh Phúc</option><option value="61" title="Yên Bái">Yên Bái</option><option value="69" title="Đà Lạt">Đà Lạt</option><option value="62" title="Đắc Lắc">Đắc Lắc</option><option value="67" title="Đắc Nông">Đắc Nông</option><option value="22" title="Đồng Nai">Đồng Nai</option><option value="64" title="Đồng Tháp">Đồng Tháp</option>
+			</select>
+			</td></tr>
+		</tbody></table>
+		</td>
+		<td width="50%" valign="top" style="padding-left: 15px;">
+		<div><h2 style="color: #c00" class="h2">2. Địa chỉ chuyển hàng</h2></div>
+		<br>
+		<div id="shippingfrm">
+		<table width="100%" cellspacing="0" cellpadding="3" align="center">
+		<tbody><tr><td>Họ và tên<span class="pink">*</span><br><input type="text" value="" name="shipfullname" class="form_control required" size="40"></td></tr>
+		<tr><td>Số điện thoại<span class="pink">*</span><br><input type="text" value="" name="shipphone" class="form_control required" size="40"></td></tr>
+		<tr><td>Địa chỉ<span class="pink">*</span><br><input value="" size="40" class="form_control required" name="shipaddress"></td></tr></tbody></table>
+		</div>
+		</td>
+	</tr>
+	</tbody></table>
+	<br><br>
+	<div style="padding:5px 10px"><h2 style="color: #c00" class="h2">3. Phương thức thanh toán</h2>
+	<br>
+	<input type="radio" value="dh" name="payment" checked> <b>Thanh toán sau khi đặt hàng</b> 
+	<br><input type="radio" value="atm" name="payment"> <b>Thẻ ATM</b> <!--  (Vietcombank, VietinBank, Techcombank, DongABank, TienPhongBank, SHB, VIB, Eximbank, HDBank, MB, VietA Bank, Maritime Bank)-->
+	<br><input type="radio" value="cc" name="payment"> <b>Thẻ tín dụng</b> VISA, Mastercard, JCB
+	<br><input type="radio" value="nl" name="payment"> <b>Ngân Lượng</b>
+	<br><input type="radio" value="pp" name="payment"> <b>Paypal</b>
+	</div>
+	<br>
+	<input type="hidden" name="total" value="<?php echo $total;?>">
+	<input type="hidden" name="user_id" value="<?php echo $user->getId();?>">
+	<br>
+	<center><input class="button" type="submit" value="Đặt hàng" name="cmd"></center>
+	</div>
+	<br>
+	</form></td></tr></tbody></table>

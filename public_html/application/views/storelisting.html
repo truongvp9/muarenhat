@@ -1,0 +1,21 @@
+  <?php foreach ($category as $value):?>
+  <div id="Panel1" class="Panel">
+    <div class="title"> 
+    	<?php echo $value->getName();?> 
+    </div>
+    <div id="Cate1">
+      <div style="float:left;width:240px;">
+      <ul>
+      <?php $i=0;  foreach ($subcat[$value->getId()] as $val):?>
+          <li> 
+          <a style="margin-left:5px;" href="<?php echo site_url('store/liststore').'/'.$val->getId().'-'.khongdau($value->getName().' '.$val->getName());?>" title="<?php echo $val->getName();?> (<?php echo $count[$val->getId()];?>)"><?php echo $val->getName();?> <font color="red">(<?php echo $count[$val->getId()];?>)</font></a> 
+          </li>
+      <?php $i++; if ($i>10) break; ?>
+	  <?php endforeach;?>
+      </ul>
+      </div>
+    </div>
+    <div id="height1"></div>
+    <div id="heightMax1"></div>
+  </div>
+  <?php endforeach;?>

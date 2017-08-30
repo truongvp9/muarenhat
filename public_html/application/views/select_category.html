@@ -1,0 +1,59 @@
+<div class="select_category" style="padding:10px;">     
+     <h3>Chọn danh mục cần đăng sản phẩm theo danh sách bên dưới.</h3>
+     <div>
+     <select name="cat_id" class="form_control">
+        <option value="" selected>
+        -- Chọn chuyên mục --
+        </option>
+	  	<?php foreach($cat as $key => $item):?>
+		<?php if ($item->getId() == $cat_id) {
+		?>
+		<option selected value=<?php echo $item->getId();?> ><?php echo $item->getName();?></option>
+		<?php }
+		else {
+		?>
+		<option value=<?php echo $item->getId();?>><?php echo $item->getName();?></option>
+
+		<?php } endforeach;?>
+      </select>
+      </div>
+      <div style="padding-top:10px;">
+      <?php foreach ($cat as $value) : ?>   
+           <?php if (intval($cat_id)>0 && intval($cat_id) == $value->getId()) {?>   		
+      		<table width=100%>
+ 			<?php foreach ($subcat[$value->getId()] as $val):?>
+         	<tr><td width="200px">
+         	<div class="root root_<?php echo $val->getId();?>" id="<?php echo count($subcat);?>"> 
+	          	<a href="<?php echo site_url('sanpham/dangsanpham/2').'/'.$val->getId();?>" title="<?php echo $val->getName();?>"><strong><?php echo $val->getName();?></strong> </a>
+	        </div>	
+	        </td><td>    
+     	    <div class="sub">
+     	    <?php foreach ($subcat_level2[$val->getId()] as $subval):?>
+     	    <a href="<?php echo site_url('sanpham/dangsanpham/2').'/'.$subval->getId();?>" class="sub_link"><?php echo $subval->getName();?></a>
+     	    <span class="sub_link">&nbsp;|&nbsp;</span>
+     	    <?php endforeach;?>
+     	    </div>	 
+     	    </td>
+     	    </tr>
+     	    <tr>
+     	    <td colspan=2><div class="break_module_line"></div></td>
+     	    </tr>           
+      		<?php endforeach;?>
+      		</table>	
+      		<?php } ?>
+      <?php endforeach; ?>
+      </div>
+      <input style="display:none;" type="button" onclick="window.location.href='<?php echo site_url('sanpham/dangsanpham').'/1';?>'" value="Tiếp tục đăng sản phẩm" class="form_button_blink">      
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	// var cat = $('#temp_cat').html();
+	$('.form_control').change(function(){
+		var cat = $(this).val();
+		$('#temp_cat').html(cat);
+		var url = "<?php echo site_url('sanpham/dangsanpham/1');?>";
+		window.location= url+'/'+cat;
+		
+	});
+});
+</script>      
